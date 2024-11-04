@@ -52,6 +52,14 @@ data.count()
 
 We have 50 rows here. In the input data, each row is often called a *sample* (though sometimes also called an *instance*, *example* or *observation*). For example, it could be the information about a single person from a census or the measurements at a particular time from a weather station.
 
+::: {#keypointsN .callout-tip icon=false title='Tidy data'}
+Tidy data is data where:
+
+- Each variable is a column;  each column is a variable.
+- Each observation is a row;  each row is an observation.
+- Each value is a cell;  each cell is a single value.
+:::
+
 Let's have a look at what the data looks like when plotted:
 
 
