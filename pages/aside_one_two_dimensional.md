@@ -8,7 +8,7 @@ First, let's grab the data we were working with:
 ```python
 from pandas import read_csv
 
-data = read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/linear.csv")
+data = read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/data/linear.csv")
 ```
 
 ## 2D `DataFrame`s

@@ -248,5 +248,3 @@ df.query("city == 'Paris'")["pop"].max()
     2.244
 
 
-
-[<font size="5">Previous</font>](Introduction.qmd)<font size="5"> | </font>[<font size="5">Next</font>](Fitting.qmd)
