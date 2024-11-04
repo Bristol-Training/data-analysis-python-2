@@ -1,7 +1,7 @@
 ```python
 import pandas as pd
 
-data = pd.read_csv("https://bristol-training.github.io/applied_data_analysis_in_python/linear.csv")
+data = pd.read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/linear.csv")
 ```
 
 

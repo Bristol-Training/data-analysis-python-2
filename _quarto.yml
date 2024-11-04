@@ -9,11 +9,11 @@ resources:
   - "img/*"
 
 website:
-  title: "Applied data analysis in Python"
+  title: "Applied Data Analysis in Python"
   page-navigation: true
 
   sidebar: 
-    title: "Introduction to Data Analysis"
+    title: "Applied Data Analysis in Python"
     logo: "assets/UoB_RGB_24.png"
     align: center
     logo-alt: "University of Bristol logo"

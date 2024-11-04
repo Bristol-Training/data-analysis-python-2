@@ -21,7 +21,7 @@ Start by grabbing the data:
 
 
 ```python
-data = pd.read_csv("https://bristol-training.github.io/applied_data_analysis_in_python/moons.csv")
+data = pd.read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/moons.csv")
 X = data[["x1", "x2"]]
 y = data["y"]
 

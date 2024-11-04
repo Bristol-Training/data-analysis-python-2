@@ -19,7 +19,7 @@ I have prepared a CSV file which you can read into pandas using `read_csv`:
 
 import pandas as pd
 
-data = pd.read_csv("https://bristol-training.github.io/applied_data_analysis_in_python/data/linear.csv")
+data = pd.read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/data/linear.csv")
 data.head()
 ```
 
