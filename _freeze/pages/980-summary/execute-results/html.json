@@ -1,0 +1,12 @@
+{
+  "hash": "72f84c7fa0015ae304132e54596f1371",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Summary\njupyter: python3\n---\n\n\n\nThat's all we have for this workshop. By now you should have a better understanding of how you can make your code more easily shared and reusable. In this workshow we have covered:\n\n- How to make you life easier with string formatting\n- How to use dictionaries\n- Using the Python standard library to find and use useful functions\n- Ways of bundling up your code into reusable units with functions\n- Making it possible to share your code with others by moving code into modules\n- How to produce custom errors\n- How to compactly generate lists with list comprehensions\n\n",
+    "supporting": [
+      "980-summary_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

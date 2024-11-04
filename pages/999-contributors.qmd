@@ -1,0 +1,7 @@
+---
+title: Contributors
+---
+
+This course was originally written by Matt Williams, see <https://milliams.com/courses/intermediate_python/>.
+
+The course has since been modified by the Jean Golding Institute. 

@@ -1,0 +1,16 @@
+---
+title: Summary
+jupyter: python3
+---
+
+
+That's all we have for this workshop. By now you should have a better understanding of how you can make your code more easily shared and reusable. In this workshow we have covered:
+
+- How to make you life easier with string formatting
+- How to use dictionaries
+- Using the Python standard library to find and use useful functions
+- Ways of bundling up your code into reusable units with functions
+- Making it possible to share your code with others by moving code into modules
+- How to produce custom errors
+- How to compactly generate lists with list comprehensions
+
