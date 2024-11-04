@@ -754,7 +754,7 @@ proline
 <p><img src="../img/appendix_scaling_13_1.png" class="img-fluid"></p>
 <p>There’s such a vast difference in the scales that they look like they’re all in a straight line! It’s clear that the values in the two directions are not equally weighted, so we need to do something about it.</p>
 <p>The standard way is to take the values in each feature, <span class="math inline">\(x\)</span> and calculate their mean, <span class="math inline">\(\mu\)</span>, and standard deviation, <span class="math inline">\(\sigma\)</span> and scale the values such that <span class="math inline">\(x^{\prime} = \frac{x - \mu}{\sigma}\)</span>.</p>
-<p>scikit-learn provides a scaler called <a href="https://scikit-learn.org/stable/modules/generated/scikit-learn.preprocessing.StandardScaler.html"><code>StandardScaler</code></a> which can do this for you. It works like any other scikit-learn model and so has a <a href="https://scikit-learn.org/stable/modules/generated/scikit-learn.preprocessing.StandardScaler.html#scikit-learn.preprocessing.StandardScaler.fit"><code>fit()</code></a> method:</p>
+<p>scikit-learn provides a scaler called <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html"><code>StandardScaler</code></a> which can do this for you. It works like any other scikit-learn model and so has a <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#scikit-learn.preprocessing.StandardScaler.fit"><code>fit()</code></a> method:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
@@ -1172,7 +1172,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sk-container" hidden="">
 <div class="sk-item">
 <div class="sk-estimator fitted sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;StandardScaler<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;StandardScaler<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label>
 <div class="sk-toggleable__content fitted">
 <pre>StandardScaler()</pre>
 </div>
@@ -1180,7 +1180,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 </div>
-<p>At this point, the scaler has calculated the <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> for each feature (you can check with <code>scaler.mean_</code> and <code>scaler.var_</code>). We can ask it to actually perform the scaling by calling the <a href="https://scikit-learn.org/stable/modules/generated/scikit-learn.preprocessing.StandardScaler.html#scikit-learn.preprocessing.StandardScaler.fit_transform"><code>transform()</code></a> method. This returns a numpy array, so if we want to keep it as as a pandas <code>Dataframe</code>, we need to explicitly convert it back:</p>
+<p>At this point, the scaler has calculated the <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> for each feature (you can check with <code>scaler.mean_</code> and <code>scaler.var_</code>). We can ask it to actually perform the scaling by calling the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#scikit-learn.preprocessing.StandardScaler.fit_transform"><code>transform()</code></a> method. This returns a numpy array, so if we want to keep it as as a pandas <code>Dataframe</code>, we need to explicitly convert it back:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>X_scaled_raw <span class="op">=</span> scaler.transform(X)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>X_scaled <span class="op">=</span> pd.DataFrame(X_scaled_raw, columns<span class="op">=</span>X.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Plotting the result shows a nice balanced spread of data (note the new scales on the axes):</p>
@@ -1613,7 +1613,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sk-item sk-dashed-wrapped">
 <div class="sk-label-container">
 <div class="sk-label sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox"><label for="sk-estimator-id-2" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;Pipeline<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link">i<span>Not fitted</span></span></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox"><label for="sk-estimator-id-2" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;Pipeline<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link">i<span>Not fitted</span></span></label>
 <div class="sk-toggleable__content">
 <pre>Pipeline(steps=[('standardscaler', StandardScaler()),
                 ('kneighborsclassifier', KNeighborsClassifier())])</pre>
@@ -1623,7 +1623,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sk-serial">
 <div class="sk-item">
 <div class="sk-estimator sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"><label for="sk-estimator-id-3" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;StandardScaler<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"><label for="sk-estimator-id-3" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;StandardScaler<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label>
 <div class="sk-toggleable__content">
 <pre>StandardScaler()</pre>
 </div>
@@ -1631,7 +1631,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="sk-item">
 <div class="sk-estimator sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"><label for="sk-estimator-id-4" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;KNeighborsClassifier<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"><label for="sk-estimator-id-4" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;KNeighborsClassifier<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a></label>
 <div class="sk-toggleable__content">
 <pre>KNeighborsClassifier()</pre>
 </div>
@@ -2076,7 +2076,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sk-item sk-dashed-wrapped">
 <div class="sk-label-container">
 <div class="sk-label sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"><label for="sk-estimator-id-5" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;Pipeline<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link">i<span>Not fitted</span></span></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"><label for="sk-estimator-id-5" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;Pipeline<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link">i<span>Not fitted</span></span></label>
 <div class="sk-toggleable__content">
 <pre>Pipeline(steps=[('standardscaler', StandardScaler()),
                 ('kneighborsclassifier', KNeighborsClassifier())])</pre>
@@ -2086,7 +2086,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sk-serial">
 <div class="sk-item">
 <div class="sk-estimator sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;StandardScaler<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"><label for="sk-estimator-id-6" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;StandardScaler<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label>
 <div class="sk-toggleable__content">
 <pre>StandardScaler()</pre>
 </div>
@@ -2094,7 +2094,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="sk-item">
 <div class="sk-estimator sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"><label for="sk-estimator-id-7" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;KNeighborsClassifier<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"><label for="sk-estimator-id-7" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;KNeighborsClassifier<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a></label>
 <div class="sk-toggleable__content">
 <pre>KNeighborsClassifier()</pre>
 </div>
@@ -2535,7 +2535,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sk-item sk-dashed-wrapped">
 <div class="sk-label-container">
 <div class="sk-label sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox"><label for="sk-estimator-id-8" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;Pipeline<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link">i<span>Not fitted</span></span></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox"><label for="sk-estimator-id-8" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;Pipeline<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link">i<span>Not fitted</span></span></label>
 <div class="sk-toggleable__content">
 <pre>Pipeline(steps=[('standardscaler', StandardScaler()),
                 ('pca', PCA(n_components=2)),
@@ -2546,7 +2546,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sk-serial">
 <div class="sk-item">
 <div class="sk-estimator sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox"><label for="sk-estimator-id-9" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;StandardScaler<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox"><label for="sk-estimator-id-9" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;StandardScaler<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label>
 <div class="sk-toggleable__content">
 <pre>StandardScaler()</pre>
 </div>
@@ -2554,7 +2554,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="sk-item">
 <div class="sk-estimator sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox"><label for="sk-estimator-id-10" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;PCA<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.decomposition.PCA.html">?<span>Documentation for PCA</span></a></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox"><label for="sk-estimator-id-10" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;PCA<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.decomposition.PCA.html">?<span>Documentation for PCA</span></a></label>
 <div class="sk-toggleable__content">
 <pre>PCA(n_components=2)</pre>
 </div>
@@ -2562,7 +2562,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="sk-item">
 <div class="sk-estimator sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-11" type="checkbox"><label for="sk-estimator-id-11" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;KNeighborsClassifier<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-11" type="checkbox"><label for="sk-estimator-id-11" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;KNeighborsClassifier<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a></label>
 <div class="sk-toggleable__content">
 <pre>KNeighborsClassifier()</pre>
 </div>
@@ -3029,7 +3029,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sk-item sk-dashed-wrapped">
 <div class="sk-label-container">
 <div class="sk-label sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-12" type="checkbox"><label for="sk-estimator-id-12" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;GridSearchCV<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.model_selection.GridSearchCV.html">?<span>Documentation for GridSearchCV</span></a><span class="sk-estimator-doc-link">i<span>Not fitted</span></span></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-12" type="checkbox"><label for="sk-estimator-id-12" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;&nbsp;GridSearchCV<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.model_selection.GridSearchCV.html">?<span>Documentation for GridSearchCV</span></a><span class="sk-estimator-doc-link">i<span>Not fitted</span></span></label>
 <div class="sk-toggleable__content">
 <pre>GridSearchCV(estimator=Pipeline(steps=[('standardscaler', StandardScaler()),
                                        ('pca', PCA()),
@@ -3056,7 +3056,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sk-serial">
 <div class="sk-item">
 <div class="sk-estimator sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-14" type="checkbox"><label for="sk-estimator-id-14" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;StandardScaler<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-14" type="checkbox"><label for="sk-estimator-id-14" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;StandardScaler<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label>
 <div class="sk-toggleable__content">
 <pre>StandardScaler()</pre>
 </div>
@@ -3064,7 +3064,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="sk-item">
 <div class="sk-estimator sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-15" type="checkbox"><label for="sk-estimator-id-15" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;PCA<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.decomposition.PCA.html">?<span>Documentation for PCA</span></a></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-15" type="checkbox"><label for="sk-estimator-id-15" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;PCA<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.decomposition.PCA.html">?<span>Documentation for PCA</span></a></label>
 <div class="sk-toggleable__content">
 <pre>PCA()</pre>
 </div>
@@ -3072,7 +3072,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="sk-item">
 <div class="sk-estimator sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox"><label for="sk-estimator-id-16" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;KNeighborsClassifier<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox"><label for="sk-estimator-id-16" class="sk-toggleable__label  sk-toggleable__label-arrow ">&nbsp;KNeighborsClassifier<a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a></label>
 <div class="sk-toggleable__content">
 <pre>KNeighborsClassifier()</pre>
 </div>
@@ -3095,7 +3095,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="exercise" class="level4">
 <h4 class="anchored" data-anchor-id="exercise">Exercise</h4>
-<p>Take the <a href="https://scikit-learn.org/stable/modules/generated/scikit-learn.datasets.load_iris.html">Iris data set from sklearn</a> and make a classifier which can predict the species. Try building up your solution in the following steps: 1. First use a kNN by itself 2. Add in a feature-scaling step 3. Add in a PCA step</p>
+<p>Take the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html">Iris data set from sklearn</a> and make a classifier which can predict the species. Try building up your solution in the following steps: 1. First use a kNN by itself 2. Add in a feature-scaling step 3. Add in a PCA step</p>
 <p>You can load the data with</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>

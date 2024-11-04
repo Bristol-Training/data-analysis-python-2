@@ -200,7 +200,7 @@ window.Quarto = {
 <p><img src="../img/appendix_clustering_6_1.png" class="img-fluid"></p>
 <p>We can see here that these clusters are very distinct. This is a very good situation to use k-means clustering in and it will give a useful result.</p>
 <p>We initialise the <code>KMeans</code> object with the number of clusters we are looking for (<code>n_clusters</code> is a hyperparameter). This is important as k-means requires this decision to be made up-front. There are some clustering algorithms which can attempt to calculate the number of clusters for you but when using k-means you need to make that assessment yourself.</p>
-<p>There are other hyperparameters that can be passed to <code>KMeans</code> which are explained in full in <a href="https://scikit-learn.org/stable/modules/generated/scikit-learn.cluster.KMeans.html">the documentation</a>.</p>
+<p>There are other hyperparameters that can be passed to <code>KMeans</code> which are explained in full in <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">the documentation</a>.</p>
 <p>Passing the data you want to fit to the <code>fit()</code> method will then actually perform the algormithm. You can pass in nested lists, numpy arrays (as long as they have the shape <span class="math inline">\((N_{samples}, N_{features})\)</span>) or pandas <code>DataFrame</code>s.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -289,7 +289,7 @@ x2
 <section id="exercise-2" class="level4">
 <h4 class="anchored" data-anchor-id="exercise-2">Exercise 2</h4>
 <ul>
-<li><p>Using the data provided by <a href="https://scikit-learn.org/stable/modules/generated/scikit-learn.datasets.load_iris.html"><code>scikit-learn.datasets.load_iris</code></a>, perform the clustering on the data.</p>
+<li><p>Using the data provided by <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html"><code>scikit-learn.datasets.load_iris</code></a>, perform the clustering on the data.</p>
 <p>Tip: load the data into a <code>DataFrame</code> with:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> pd.DataFrame(load_iris().data, columns<span class="op">=</span>load_iris().feature_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

@@ -283,7 +283,7 @@ window.Quarto = {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"https://bristol-training.github.io/applied-data-analysis-in-python/data/linear.csv"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="1aeaf70c" class="cell" data-execution_count="1">
+<div id="2278b5a4" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
@@ -332,7 +332,7 @@ window.Quarto = {
 <p>In this case we have one single <span class="math inline">\(x\)</span> column but in a more complicated data set we may have multiple <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> etc. in which case the set together is sometimes given the upper-case letter <span class="math inline">\(X\)</span>. Each <span class="math inline">\(x_n\)</span> column is called a <em>feature</em>. Features are usually things that you have measured as part of a experiment (e.g.&nbsp;height of a person, temperature of a room, size of a garden etc.).</p>
 <p>Our <span class="math inline">\(y\)</span> column is the thing that we are going to create a model to predict the value of. The <span class="math inline">\(y\)</span> column of the input data is often called the <em>label</em> or the <em>target</em>.</p>
 <p>Let’s check how many rows we have:</p>
-<div id="17e32af4" class="cell" data-execution_count="2">
+<div id="7d552a27" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data.count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>x    50
@@ -360,7 +360,7 @@ Tidy data
 </div>
 </div>
 <p>Let’s have a look at what the data looks like when plotted:</p>
-<div id="94240d58" class="cell" data-execution_count="3">
+<div id="625802dc" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sns.relplot(data<span class="op">=</span>data, x<span class="op">=</span><span class="st">"x"</span>, y<span class="op">=</span><span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -386,9 +386,9 @@ Tidy data
 <li><em>Fit</em> the model to the data, this computes the parameters of the model using machine learning</li>
 <li><em>Predict</em> new information using the model</li>
 </ol>
-<p>As we saw by plotting the data, the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is linear. In scitkit-learn, linear regression is available as <a href="https://scikit-learn.org/stable/modules/generated/scikit-learn.linear_model.LinearRegression.html"><code>scikit-learn.linear_model.LinearRegression</code></a>.</p>
+<p>As we saw by plotting the data, the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is linear. In scitkit-learn, linear regression is available as <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html"><code>scikit-learn.linear_model.LinearRegression</code></a>.</p>
 <p>We import the model and create an instance of it. By default the <code>LinearRegression</code> model will fit the y-intercept, but since we don’t want to make that assumption we explicitly pass <code>fit_intercept=True</code>. <code>fit_intercept</code> is an example of a <em>hyperparameter</em>, which are variables or options in a model which you set up-front rather than letting them be learned from the data.</p>
-<div id="4a898e68" class="cell" data-execution_count="4">
+<div id="196c517f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LinearRegression(fit_intercept<span class="op">=</span><span class="va">True</span>)</span>
@@ -812,11 +812,11 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </ol>
 <p>In our case we only have one feature, <span class="math inline">\(x\)</span>, and 50 data points so it should be in the shape <span class="math inline">\((50, 1)\)</span>. If we just request <code>data["x"]</code> then that will be a 1D array (actually a pandas <code>Series</code>) of shape <span class="math inline">\((50)\)</span> so we must request the data with <code>data[["x"]]</code> (which returns it as a single-column, but still two-dimensional, <code>DataFrame</code>). For a more thorough explanation of this dimensionality difference, see <a href="aside_one_two_dimensional.qmd">this explanation</a>.</p>
 <p>If you’re using pandas to store your data (as we are) then just remember that the first argument should be a <code>DataFrame</code> and the second should be a <code>Series</code>.</p>
-<div id="f89c16f1" class="cell" data-execution_count="5">
+<div id="d6730868" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data[[<span class="st">"x"</span>]]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> data[<span class="st">"y"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="61bcc523" class="cell" data-execution_count="6">
+<div id="ed7540c1" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model.fit(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <style>#sk-container-id-2 {
@@ -1236,7 +1236,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>We can use this to plot the fit over the original data to compare the result. By getting the predicted <span class="math inline">\(y\)</span> values for the minimum and maximum <span class="math inline">\(x\)</span> values, we can plot a straight line between them to visualise the model.</p>
 <p>The <code>predict()</code> function takes an array of the same shape as the original input data (<span class="math inline">\((N_{samples}, N_{features})\)</span>) so we put our list of <span class="math inline">\(x\)</span> values into a <code>DataFrame</code> before passing it to <code>predict()</code>.</p>
 <p>We then plot the original data in the same way as before and draw the prediction line in the same plot.</p>
-<div id="aaaf436b" class="cell" data-execution_count="7">
+<div id="91826d68" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> pd.DataFrame({<span class="st">"x"</span>: [<span class="dv">0</span>, <span class="dv">10</span>]})  <span class="co"># Make a new DataFrame containing the X values</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pred[<span class="st">"y"</span>] <span class="op">=</span> model.predict(pred)  <span class="co"># Make a prediction and add that data into the table</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1269,7 +1269,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 </div>
-<div id="79d97b4c" class="cell" data-execution_count="8">
+<div id="42f370b7" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sns.relplot(data<span class="op">=</span>data, x<span class="op">=</span><span class="st">"x"</span>, y<span class="op">=</span><span class="st">"y"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data<span class="op">=</span>pred, x<span class="op">=</span><span class="st">"x"</span>, y<span class="op">=</span><span class="st">"y"</span>, c<span class="op">=</span><span class="st">"red"</span>, linestyle<span class="op">=</span><span class="st">":"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1282,7 +1282,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>As well as plotting the line in a graph, we can also extract the calculated values of the gradient and y-intercept. The gradient is available as a list of values, <code>model.coef_</code>, one for each dimension or feature. The intercept is available as <code>model.intercept_</code>:</p>
-<div id="c4caf90a" class="cell" data-execution_count="9">
+<div id="0c7fa4d9" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">" Model gradient: "</span>, model.coef_[<span class="dv">0</span>])</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Model intercept:"</span>, model.intercept_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1743,7 +1743,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="sk-container" hidden="">
 <div class="sk-item">
 <div class="sk-estimator fitted sk-toggleable">
-<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/scikit-learn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label>
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label>
 <div class="sk-toggleable__content fitted">
 <pre>LinearRegression(fit_intercept=False)</pre>
 </div>
