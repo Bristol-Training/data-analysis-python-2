@@ -13,7 +13,7 @@ Let's do a similar thing to the last chapter, but load a different file this tim
 ```python
 import pandas as pd
 
-data = pd.read_csv("https://bristol-training.github.io/applied_data_analysis_in_python/data/blobs.csv")
+data = pd.read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/data/blobs.csv")
 X = data[["x1", "x2"]]
 y = data["y"]
 ```
