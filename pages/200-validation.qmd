@@ -57,7 +57,8 @@ y = data["y"]
 ```
 
 
-scikit-learn provides a built-in function, [`train_test_split`](https://scikit-learn.org/stable/modules/generated/scikit-learn.model_selection.train_test_split.html), to split your data into a subset of data to fit with and a subset of data to test against:
+scikit-learn provides a built-in function, [`train_test_split`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html),
+to split your data into a subset of data to fit with and a subset of data to test against:
 
 
 ```{python}
@@ -98,7 +99,7 @@ model.fit(train_X, train_y)
 
 
 
-To find out how good the fit was, we can call the [`score`](https://scikit-learn.org/stable/modules/generated/scikit-learn.linear_model.LinearRegression.html#scikit-learn.linear_model.LinearRegression.score) method on the model. It is important here that we pass in our *test* data set as we expect that to provide an independent validation of the model.
+To find out how good the fit was, we can call the [`score`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#scikit-learn.linear_model.LinearRegression.score) method on the model. It is important here that we pass in our *test* data set as we expect that to provide an independent validation of the model.
 
 
 ```{python}

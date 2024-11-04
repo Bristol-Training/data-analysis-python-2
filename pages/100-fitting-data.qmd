@@ -86,7 +86,7 @@ scikit-learn provides a number of models which you can use to study your data. E
 3. *Fit* the model to the data, this computes the parameters of the model using machine learning
 4. *Predict* new information using the model
 
-As we saw by plotting the data, the relationship between $x$ and $y$ is linear. In scitkit-learn, linear regression is available as [`scikit-learn.linear_model.LinearRegression`](https://scikit-learn.org/stable/modules/generated/scikit-learn.linear_model.LinearRegression.html).
+As we saw by plotting the data, the relationship between $x$ and $y$ is linear. In scitkit-learn, linear regression is available as [`scikit-learn.linear_model.LinearRegression`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html).
 
 We import the model and create an instance of it. By default the `LinearRegression` model will fit the y-intercept, but since we don't want to make that assumption we explicitly pass `fit_intercept=True`. `fit_intercept` is an example of a *hyperparameter*, which are variables or options in a model which you set up-front rather than letting them be learned from the data.
 

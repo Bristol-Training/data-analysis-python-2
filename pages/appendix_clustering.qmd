@@ -60,7 +60,7 @@ We can see here that these clusters are very distinct. This is a very good situa
 
 We initialise the `KMeans` object with the number of clusters we are looking for (`n_clusters` is a hyperparameter). This is important as k-means requires this decision to be made up-front. There are some clustering algorithms which can attempt to calculate the number of clusters for you but when using k-means you need to make that assessment yourself.
 
-There are other hyperparameters that can be passed to `KMeans` which are explained in full in [the documentation](https://scikit-learn.org/stable/modules/generated/scikit-learn.cluster.KMeans.html).
+There are other hyperparameters that can be passed to `KMeans` which are explained in full in [the documentation](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html).
 
 Passing the data you want to fit to the `fit()` method will then actually perform the algormithm. You can pass in nested lists, numpy arrays (as long as they have the shape $(N_{samples}, N_{features})$) or pandas `DataFrame`s.
 
@@ -178,7 +178,7 @@ points.plot.scatter("x1", "x2", c=kmeans.labels_, colormap="Dark2", colorbar=Fal
 
 ### Exercise 2
 
-- Using the data provided by [`scikit-learn.datasets.load_iris`](https://scikit-learn.org/stable/modules/generated/scikit-learn.datasets.load_iris.html), perform the clustering on the data.
+- Using the data provided by [`scikit-learn.datasets.load_iris`](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html), perform the clustering on the data.
 
   Tip: load the data into a `DataFrame` with:
 

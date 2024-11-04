@@ -13,7 +13,7 @@ Let's do a similar thing to the last chapter, but load a different file this tim
 ```python
 import pandas as pd
 
-data = pd.read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/data/blobs.csv")
+data = pd.read_csv("https://bristol-training.github.io/applied_data_analysis_in_python/data/blobs.csv")
 X = data[["x1", "x2"]]
 y = data["y"]
 ```
@@ -45,7 +45,7 @@ from sklearn.model_selection import train_test_split
 train_X, test_X, train_y, test_y = train_test_split(X, y)
 ```
 
-The tools that allows us to do the hyper-parameter searching is called [`GridSearchCV`](https://scikit-learn.org/stable/modules/generated/scikit-learn.model_selection.GridSearchCV.html) which will rerun the model training for every possible hyperparameter that we pass it.
+The tools that allows us to do the hyper-parameter searching is called [`GridSearchCV`](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) which will rerun the model training for every possible hyperparameter that we pass it.
 
 The `GridSearchCV` constructor takes two things:
  1. the model that we want to explore,
@@ -127,7 +127,7 @@ Using something like `GridSearchCV` allows you to find the best hyperparameters 
 
 
 ::: {#exampleN .callout-note icon=false title='Exercise'}
-Grab the [Iris data set from sklearn](https://scikit-learn.org/stable/modules/generated/scikit-learn.datasets.load_iris.html). This time we will simplify it down to only two features (sepal length and sepal width) to simplity the visualisation.
+Grab the [Iris data set from sklearn](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html). This time we will simplify it down to only two features (sepal length and sepal width) to simplity the visualisation.
 
 ```python
 from sklearn.datasets import load_iris

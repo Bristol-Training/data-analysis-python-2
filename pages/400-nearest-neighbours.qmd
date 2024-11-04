@@ -64,7 +64,7 @@ train_X, test_X, train_y, test_y = train_test_split(X, y)
 
 Now we have our data and it's all in the correct format ($X$ is a 2D table of data and $y$ is a single column of labels), we can go ahead and use our model.
 
-As usual it works by importing the model, [`KNeighborsClassifier`](https://scikit-learn.org/stable/modules/generated/scikit-learn.neighbors.KNeighborsClassifier.html), making an instance of it (setting the hyperparameters) and then fitting it by passing it $X$ and $y$ for the training data set.
+As usual it works by importing the model, [`KNeighborsClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html), making an instance of it (setting the hyperparameters) and then fitting it by passing it $X$ and $y$ for the training data set.
 
 The most important hyperparameter for k-NN is $k$, or the number of neighbours. The model defaults to 5 but you can set it to any integer you wish.
 
