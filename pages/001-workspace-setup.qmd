@@ -1,52 +1,115 @@
 ---
-title: Workspace setup
+title: Workspace Setup
 ---
 
-There are lots of different ways to run Python code and many tools to help you write it. You don't require any special tools to create a Python script, a simple text editor like Notepad on Windows is sufficient. More advanced tools include things like Jupyter Notebooks and IDEs like PyCharm or Visual Studio Code.
+This course will use a tool called *Jupyter Notebooks* to run your Python code. It works with the same Python code as we've used before but it allows interactive execution and can combine your code with blocks of text to explain what you're doing and embed output such as graphs directly into the page.
 
-For this workshop we will be keeping things as simple as possible in order to allow us to focus on the topics we're learning without having to learn too many extra tools along the way.
+The easiest way to get access to Jupyter Notebooks is to [install Anaconda](https://www.anaconda.com/products/individual#Downloads) which is a piece of software which includes Python along with lots of other tools. It is freely available for Windows, MacOS and Linux. Anaconda can be installed into your home area on your computer so if you are on a work laptop, for example, you will not need any special permissions. Once Anaconda is installed, start "Anaconda Navigator" and press the JupyterLab button on the main screen:
 
-For the purpose of this course we will be using a free tool called JupyterLab which provides you with a local editor in your web browser where you can write and run Python code. The easiest way to get access to JupyterLab is to [install Anaconda](https://www.anaconda.com/products/individual#Downloads) which is a piece of software which includes Python along with lots of other tools. It is freely available for Windows, MacOS and Linux.
+Throughout this course you will likely want to start a new notebook for each section of the course so name them appropriately to make it easier to find them later. To open a Notebook in Anaconda you can go to JupyterLab and there go to `File` > `New` > `Notebook` or click the `Python 3` button under `Notebook` section in the `Launcher` tab.
 
-Anaconda can be installed into your home area on your computer so if you are on a work laptop, for example, you will not need any special permissions. Once Anaconda is installed, start "Anaconda Navigator" and press the JupyterLab button on the main screen:
+Once the notebook is launched, you will see a wide grey box with a blue `[ ]:` to the left. The grey box is an input cell where you type any Python code you want to run:
 
-![](../assets/navigator.png "Anaconda Navigator")
-
-This will open JupyterLab in your default web browser and will look something like this:
-
-![](../assets/jupyterlab1.png "JupyterLab")
-
-The way that we will be setting up the space is to have a text editor on the left-hand side of the screen and a terminal on the right hand side. We'll use the editor to write our code and the terminal to run it.
-
-In the launcher tab, scoll down to the "Text File" entry and click that. It will turn the editor into a text editor. Then go to File → New and select "Terminal". It will now have two tabs inside the interface, one labelled "untitled.txt" and the other labelled "Terminal 1":
-
-![](../assets/jupyterlab2.png "JupyterLab")
-
-The contents of the Terminal tab will likely be a little different on your computer, compared to what is shown in thise images but that is ok.
-
-To make our lives easier, let's rearange things so that we can see the text editor at the same time as the terminal. Do this by pressing and holding down the left mouse button on the tab that says "Terminal 1" and slowly dragging it to the right-hand side of the window. You'll see a blue outline like this:
-
-![](../assets/jupyterlab3.png "JupyterLab")
-
-Release the mouse button and you'll end up with the two showing side-by-side:
-
-![](../assets/jupyterlab4.png "JupyterLab")
-
-
-### Working directory
-
-Setting the correct working directory helps organize your project files and ensures that your code can find necessary resources and dependencies. We will revisit this concept later on, but for now be mindful that the space where you save your scripts has to be the same than the working directory in your Command Prompt/Terminal.
-
-If you are using the Command Prompt (Windows) you can check your current directory with
-```{.bash filename="Command Prompt"}
-cd
+```{python}
+# Python code can be written in 'Code' cells
+print("Output appears below when the cell is run")
+print("To run a cell, press Ctrl-Enter or Shift-Enter with the cursor inside")
+print("or use the run button (▶) in the toolbar at the top")
 ```
 
-If you are using a Terminal (MacOS and Linux) you can check your current directory with
-```{.bash filename="Terminal"}
-pwd
+In your notebook, type the following in the first cell and then run it with Shift-Enter, you should see the same output:
+
+```{python}
+a = 5
+b = 7
+a + b
 ```
 
+The cells in a notebook are linked together so a variable defined in one is available in all the cells from that point on so in the second cell you can use the variables `a` and `b`:
 
-We're now ready to get started!
+```{python}
+a - b
+```
 
+Some Python libraries have special integration with Jupyter notebooks and so can display their output directly into the page. For example `pandas` will format tables of data nicely and `matplotlib` will embed graphs directly:
+
+```{python}
+import pandas as pd
+temp = pd.DataFrame(
+    [3.1, 2.4, 4.8, 4.1, 3.4, 4.2],
+    columns=["temp (°C)"],
+    index=pd.RangeIndex(2000, 2006, name="year")
+)
+temp
+```
+
+```{python}
+temp.plot()
+```
+
+## Markdown
+
+If you want to write some text as documentation (like these words here) then you should label the cell as being a Markdown cell. Do that by selecting the cell and going to the dropdown at the top of the page labelled *Code* and changing it to *Markdown*.
+
+It is becomming common for people to use Jupyter notebooks as a sort of lab notebook where they document their processes, interspersed with code. This style of working where you give prose and code equal weight is sometimes called *literate programming*.
+
+
+::: {#exercise-1 .callout-note title="Exercise" icon=false} 
+
+Take the following code and break it down, chunk by chunk, interspersing it with documentation explaining what each part does using Markdown blocks:
+```{python}
+#| output: false
+prices = {
+    "apple": 0.40,
+    "banana": 0.50,
+}
+
+my_basket = {
+    "apple": 1,
+    "banana": 6,
+}
+
+total_grocery_bill = 0
+for fruit, count in my_basket.items():
+    total_grocery_bill += prices[fruit] * count
+
+print(f"I owe the grocer £{total_grocery_bill:.2f}")
+```
+You don't need to put only one line of code per cell, it makes sense sometimes to group some lines together.
+
+Throughout this course, use the Jupyter Notebook to solve the problems. Follow along with the examples, typing them into your own notebooks and see how they work.
+:::
+
+::: {#answer1 .callout-caution icon=false title='Answer' collapse="true"}
+Your notebook could look similar to:
+
+## My first notebook
+
+We first define the price of apples and bananas.
+```{python}
+prices = {
+    "apple": 0.40,
+    "banana": 0.50,
+}
+```
+Then we state how many apples and bananas we have in the basket.
+```{python}
+my_basket = {
+    "apple": 1,
+    "banana": 6,
+}
+```
+
+For each fruit in the basket we calculate the price to pay and add it to the total bill. 
+```{python}
+total_grocery_bill = 0
+for fruit, count in my_basket.items():
+    total_grocery_bill += prices[fruit] * count
+```
+
+We print a message with the total owed to the shop.
+```{python}
+print(f"I owe the grocer £{total_grocery_bill:.2f}")
+```
+
+:::
