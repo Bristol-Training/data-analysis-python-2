@@ -1,1 +1,1 @@
-# t3-python-applied-data-analysis
+# applied-data-analysis-in-python
