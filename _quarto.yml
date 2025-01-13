@@ -1,0 +1,52 @@
+project:
+  type: website
+  execute-dir: project
+
+jupyter: python3
+
+resources:
+  - "data/*"
+  - "img/*"
+
+website:
+  title: "Applied Data Analysis in Python"
+  page-navigation: true
+
+  sidebar: 
+    title: "Applied Data Analysis in Python"
+    logo: "assets/UoB_RGB_24.png"
+    align: center
+    logo-alt: "University of Bristol logo"
+    style: "docked"
+    border: true
+    contents: 
+      - index.qmd
+      - pages/001-workspace-setup.qmd
+      - pages/100-fitting-data.qmd
+      - pages/200-validation.qmd
+      - pages/300-machine-learning.qmd
+      - pages/400-nearest-neighbours.qmd
+      - pages/500-hyperparameters.qmd
+      - pages/600-correlation.qmd
+      - pages/990-what-next.qmd
+      - pages/999-contributors.qmd
+
+  page-footer:
+     left: "[Jean Golding Institute](https://www.bristol.ac.uk/golding/) © [CC-BY 4.0](http://creativecommons.org/licenses/by/4.0/)"  
+  repo-url: https://github.com/uob-training/applied-data-analysis-in-python
+  repo-actions: [edit, issue]
+
+format:
+  html:
+    theme: [cosmo, styles.scss]
+    toc: true
+    shift-heading-level-by: 1
+    highlight-style: github
+
+    # code-line-numbers: true
+execute:
+  freeze: auto
+  error: true
+
+
+
