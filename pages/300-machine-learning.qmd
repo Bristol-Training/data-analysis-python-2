@@ -1,0 +1,84 @@
+---
+title: Machine Learning
+---
+
+::: {#highlights .callout-note icon=false title='In this section...'}
+- Understand different types of machine learning models (e.g., regression, classification)
+- Select suitable models based on the problem type and data characteristics
+
+:::
+
+::: {#answerN .callout-warning icon=false title='Trainer notes' collapse="true"}
+Recommended time: 15 minutes
+
+This section introduces the concept of machine learning and different models. To be read by the student.
+:::
+
+
+
+As explained at the beginning of the last chapter, machine learning is the name given to the tools, techniques and algorithms which are used to extract information from data.
+
+There are two main classes of machine learning:
+
+### Supervised Learning
+
+Supervised learning algorithms are trained on labeled data, where both input features and corresponding output labels are provided. The goal is to learn a function that maps inputs to outputs. This type of learning is further divided into:
+
+1. **Classification**: Predicting discrete categories or classes (e.g., spam detection, image recognition)
+2. **Regression**: Predicting continuous values (e.g., house price prediction, temperature forecasting)
+
+Popular supervised learning algorithms include:
+- Linear Regression
+- Logistic Regression
+- Support Vector Machines (SVM)
+- Decision Trees
+- Random Forests
+
+
+
+2. **Unsupervised** This is where you don't have any label associated with the data and the algorithm will need to extract features of interest itself. Examples of this are:
+
+    1. **Clustering**: Grouping similar data points together (e.g., customer segmentation, anomaly detection)
+    2. **Dimensionality reduction**: Reducing the number of features while preserving important information (e.g., Principal Component Analysis)
+
+Common unsupervised learning algorithms include:
+- K-means clustering
+- Hierarchical clustering
+- DBSCAN
+- Gaussian Mixture Models (GMM)
+
+
+## The supervised learning process
+
+<img src="../img/../img/ml_workflow.svg" style="box-shadow: none;" width="99%">
+
+There is a standard process that you go through with most supervised learning problems which is worth understanding as it affects how you should go about data collection as well as the types of problems you can use it to solve. For this explanation, let's pretend that we want to create a model which can predict the price of a house based on its age, the number of rooms it has and the size of its garden.
+
+They all start with the initial data collection. You go out into "the wild" and collect some data, $X$, this could be people's heights or lengths of leaves of trees or anything in your field which you consider easy to collect/measure. In our example here we would measure a large number of houses' ages, room counts and garden sizes. We put these data into a table with one row per house and three columns, one for each feature. 
+
+Alongside that you, as an expert, label each data point you collected with some extra data and call that $y$. In our case $y$ is the price of the house. This is something which requires an expert's eye to assess and we are trying to create a predictive model which can replace the job of the expert house-price surveyor.
+
+Once you have collected your data, you need to choose which model best represents the relationship between $X$ and $y$. Perhaps a linear regression is sufficient or maybe you need something more complex. There is no magic solution to knowing which model to use, it comes from experience and experimentation.
+
+Using $X$ and $y$ we train (or "fit") our model to predict the relationship between those two (making sure to split them into *train* and *test* subsets to validate our model). After this point the parameters of our model are fixed and can be detached from the data that were used to train it. It is now a "black box" which can make predictions.
+
+Imagine now that a client comes to us and asks us to estimate how much they might be able to sell their house for. They tell us how old the house is, how many rooms it has and the size of its garden. We put these three numbers ($x^\prime$) into our model and it returns for us a prediction, $\hat{y}$.
+
+Of course, $\hat{y}$ is just a prediction, it is not necessarily correct. There is usually a true value that we are hoping that we are near to, $y$. We can measure the quality of our model by seeing how close we are to to the true value by subtracting one from the other: $y - \hat{y}$. This is called the *residual*.
+
+
+## Advanced AI Techniques
+
+### Neural Networks and Deep Learning
+
+Neural networks, inspired by the human brain, consist of interconnected layers of artificial neurons. Deep learning, a subset of neural networks with multiple hidden layers, has shown remarkable success in various domains, including:
+
+- Computer Vision
+- Natural Language Processing
+- Speech Recognition
+
+### Language Models
+
+Large language models, such as GPT (Generative Pre-trained Transformer), have revolutionized natural language processing tasks. These models are trained on vast amounts of text data and can generate human-like text, answer questions, and perform various language-related tasks.
+
+

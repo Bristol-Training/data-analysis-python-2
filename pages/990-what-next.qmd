@@ -1,0 +1,14 @@
+---
+title: Discussion
+---
+
+
+## Further topics
+
+Here are some additional chapters to work through on a number of different topics. Choose the ones that interest you.
+
+[**Feature scaling and principal component analysis**](./appendix_scaling.qmd) are important parts of many data analysis pipelines.
+
+[**Clustering**](appendix_clustering.qmd) is an unsupervised classification method.
+
+[**Image Clustering**](appendix_clustering_images.qmd) uses clustering techniques to demonstrate a form of image compression.

@@ -1,0 +1,46 @@
+---
+title: Workspace Setup
+---
+
+::: {#highlights .callout-note icon=false title='In this section...'}
+- Set up Anaconda and Jupyter notebooks for interactive data analysis
+:::
+
+::: {#answerN .callout-warning icon=false title='Trainer notes' collapse="true"}
+Recommended time: ideally done before the session. About 10 minutes should be dedicated at the beginning of the session to solve any issues.
+
+This section points to how to setup your computer. The recommended way is installing Anaconda, that will provide with Jupyter Notebook, along to many other useful tools for data analysis and scientific computing.
+
+Common issues: Most of the issues we saw were related to previous unsuccessful installations. Removing the software and installing it again worked fine for most users.
+
+:::
+
+This course will use a tool called *Jupyter Notebooks* to run your Python code. It works with the same Python code as we've used before but it allows interactive execution and can combine your code with blocks of text to explain what you're doing and embed output such as graphs directly into the page.
+
+
+## Installing Jupyter Notebook
+
+To begin working with Jupyter Notebook, you'll need to install it on your computer. Here are the recommended methods for installation:
+
+
+### University-Managed Laptops
+
+If you're using a university-managed laptop, the easiest and most recommended method is to install Jupyter Notebook through Self Service:
+
+1. Open the Self Service application on your laptop
+2. Search for "Anaconda"
+3. Click on the Anaconda package and follow the installation prompts
+
+This method will install Anaconda, which includes Jupyter Notebook along with other useful data science tools and libraries.
+
+### Alternative Installation Method
+
+If you don't have access to Self Service or are using a personal computer, you can download and install Anaconda directly from the web:
+
+1. Visit the official Anaconda website (https://www.anaconda.com/download/)
+2. Download the appropriate version for your operating system (Windows, macOS, or Linux)
+3. Run the installer and follow the on-screen instructions
+
+Once installed, you can launch Jupyter Notebook from the Anaconda Navigator or by using the command line.
+
+Installing Anaconda will provide you with Jupyter Notebook and many other useful tools for data analysis and scientific computing.
