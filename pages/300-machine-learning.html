@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,17 +30,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../pages/400-nearest-neighbours.html" rel="next">
-<link href="../pages/200-validation.html" rel="prev">
+<link href="../pages/100-fitting-data.html" rel="next">
+<link href="../pages/091-loading-data.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-be645f18fa3ab9ff4c2764bbdfde6cc0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/300-machine-learning.html">Machine Learning</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/300-machine-learning.html">Model fitting</a></li><li class="breadcrumb-item"><a href="../pages/300-machine-learning.html">Machine Learning</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -144,60 +144,105 @@ window.Quarto = {
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Working framework</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pages/001-workspace-setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workspace Setup</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pages/100-fitting-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Fitting data</span></a>
+  <a href="../pages/002-jupyter-notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting familiar with Notebooks</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pages/200-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Testing your model</span></a>
+  <a href="../pages/091-loading-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Loading your data</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Model fitting</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pages/300-machine-learning.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Machine Learning</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pages/400-nearest-neighbours.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Nearest Neighbours</span></a>
+  <a href="../pages/100-fitting-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fitting data: regression</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/200-validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testing your model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/102-nearest-neighbours.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fitting data: classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pages/500-hyperparameters.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Choosing hyperparameters</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../pages/600-correlation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Correlation</span></a>
-  </div>
-</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pages/990-what-next.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">What next</span></a>
+ <span class="menu-text">Discussion</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">About</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/999-how-to.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to read</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pages/999-contributors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Contributors</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -209,13 +254,14 @@ window.Quarto = {
    
   <ul>
   <li><a href="#the-supervised-learning-process" id="toc-the-supervised-learning-process" class="nav-link active" data-scroll-target="#the-supervised-learning-process">The supervised learning process</a></li>
+  <li><a href="#advanced-ai-techniques" id="toc-advanced-ai-techniques" class="nav-link" data-scroll-target="#advanced-ai-techniques">Advanced AI Techniques</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/uob-training/applied-data-analysis-in-python/edit/main/pages/300-machine-learning.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/uob-training/applied-data-analysis-in-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/300-machine-learning.html">Model fitting</a></li><li class="breadcrumb-item"><a href="../pages/300-machine-learning.html">Machine Learning</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Machine Learning</h1>
 </div>
@@ -234,22 +280,58 @@ window.Quarto = {
 </header>
 
 
+<div id="highlights" class="callout callout-style-default callout-note no-icon callout-titled" title="In this section...">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+In this section…
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Understand different types of machine learning models (e.g., regression, classification)</li>
+<li>Select suitable models based on the problem type and data characteristics</li>
+</ul>
+</div>
+</div>
+<div id="answerN" class="callout callout-style-default callout-warning no-icon callout-titled" title="Trainer notes">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Trainer notes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Recommended time: 15 minutes</p>
+<p>This section introduces the concept of machine learning and different models. To be read by the student.</p>
+</div>
+</div>
+</div>
 <p>As explained at the beginning of the last chapter, machine learning is the name given to the tools, techniques and algorithms which are used to extract information from data.</p>
 <p>There are two main classes of machine learning:</p>
+<section id="supervised-learning" class="level4">
+<h4 class="anchored" data-anchor-id="supervised-learning">Supervised Learning</h4>
+<p>Supervised learning algorithms are trained on labeled data, where both input features and corresponding output labels are provided. The goal is to learn a function that maps inputs to outputs. This type of learning is further divided into:</p>
 <ol type="1">
-<li><p><strong>Supervised</strong> This is where you learn about the relationship between some measurement of the data and some label of the data. Once the relationship is established, you can then use it to predict what label to apply to new measurements. Supervised learning falls into two categories:</p>
-<ol type="1">
-<li><strong>classification</strong> where the labels are discrete. For example identifying the species of a flower from some measurements of its petals.</li>
-<li><strong>regression</strong> where the labels are continuous. For example estimating the price of a house based on its number of rooms, size of garden etc.</li>
-</ol></li>
+<li><strong>Classification</strong>: Predicting discrete categories or classes (e.g., spam detection, image recognition)</li>
+<li><strong>Regression</strong>: Predicting continuous values (e.g., house price prediction, temperature forecasting)</li>
+</ol>
+<p>Popular supervised learning algorithms include: - Linear Regression - Logistic Regression - Support Vector Machines (SVM) - Decision Trees - Random Forests</p>
+<ol start="2" type="1">
 <li><p><strong>Unsupervised</strong> This is where you don’t have any label associated with the data and the algorithm will need to extract features of interest itself. Examples of this are:</p>
 <ol type="1">
-<li><strong>clustering</strong></li>
-<li><strong>dimensionality reduction</strong></li>
+<li><strong>Clustering</strong>: Grouping similar data points together (e.g., customer segmentation, anomaly detection)</li>
+<li><strong>Dimensionality reduction</strong>: Reducing the number of features while preserving important information (e.g., Principal Component Analysis)</li>
 </ol></li>
 </ol>
-<p>In the last chapter we use a linear regression model. The algorithm that scikit-learn uses is <em>supervised</em> as we were providing it with both the measured quantities (<span class="math inline">\(X\)</span>) and the expected output (or target), <span class="math inline">\(y\)</span>. Since the target was a continuous variable we were performing a <em>regression</em>.</p>
-<p>Most of the time when people think of machine learning they are thinking of a supervised algorithm.</p>
+<p>Common unsupervised learning algorithms include: - K-means clustering - Hierarchical clustering - DBSCAN - Gaussian Mixture Models (GMM)</p>
+</section>
 <section id="the-supervised-learning-process" class="level3">
 <h3 class="anchored" data-anchor-id="the-supervised-learning-process">The supervised learning process</h3>
 <p><img src="../img/../img/ml_workflow.svg" style="box-shadow: none;" width="99%"></p>
@@ -260,8 +342,24 @@ window.Quarto = {
 <p>Using <span class="math inline">\(X\)</span> and <span class="math inline">\(y\)</span> we train (or “fit”) our model to predict the relationship between those two (making sure to split them into <em>train</em> and <em>test</em> subsets to validate our model). After this point the parameters of our model are fixed and can be detached from the data that were used to train it. It is now a “black box” which can make predictions.</p>
 <p>Imagine now that a client comes to us and asks us to estimate how much they might be able to sell their house for. They tell us how old the house is, how many rooms it has and the size of its garden. We put these three numbers (<span class="math inline">\(x^\prime\)</span>) into our model and it returns for us a prediction, <span class="math inline">\(\hat{y}\)</span>.</p>
 <p>Of course, <span class="math inline">\(\hat{y}\)</span> is just a prediction, it is not necessarily correct. There is usually a true value that we are hoping that we are near to, <span class="math inline">\(y\)</span>. We can measure the quality of our model by seeing how close we are to to the true value by subtracting one from the other: <span class="math inline">\(y - \hat{y}\)</span>. This is called the <em>residual</em>.</p>
+</section>
+<section id="advanced-ai-techniques" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-ai-techniques">Advanced AI Techniques</h3>
+<section id="neural-networks-and-deep-learning" class="level4">
+<h4 class="anchored" data-anchor-id="neural-networks-and-deep-learning">Neural Networks and Deep Learning</h4>
+<p>Neural networks, inspired by the human brain, consist of interconnected layers of artificial neurons. Deep learning, a subset of neural networks with multiple hidden layers, has shown remarkable success in various domains, including:</p>
+<ul>
+<li>Computer Vision</li>
+<li>Natural Language Processing</li>
+<li>Speech Recognition</li>
+</ul>
+</section>
+<section id="language-models" class="level4">
+<h4 class="anchored" data-anchor-id="language-models">Language Models</h4>
+<p>Large language models, such as GPT (Generative Pre-trained Transformer), have revolutionized natural language processing tasks. These models are trained on vast amounts of text data and can generate human-like text, answer questions, and perform various language-related tasks.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -347,8 +445,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -459,7 +555,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -687,13 +782,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../pages/200-validation.html" class="pagination-link" aria-label="Testing your model">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Testing your model</span>
+      <a href="../pages/091-loading-data.html" class="pagination-link" aria-label="Loading your data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Loading your data</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../pages/400-nearest-neighbours.html" class="pagination-link" aria-label="Nearest Neighbours">
-        <span class="nav-page-text">Nearest Neighbours</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../pages/100-fitting-data.html" class="pagination-link" aria-label="Fitting data: regression">
+        <span class="nav-page-text">Fitting data: regression</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
