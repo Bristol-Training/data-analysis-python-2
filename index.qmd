@@ -25,7 +25,7 @@ This course is aimed at the Python developer who wants to learn how to do useful
 
 In this course we will investigate the use of `scikit-learn` for machine learning to discover things about whatever data may come across your desk. We will see in detail how to building and evaluate machine learning models to make data-driven decisions.
 
-For the purpose of this course we will be using a free tool called Jupyter Notebooks which provides you with a local editor and Python terminal in your web browser. Setting up instructions can be found [here]("pages/001-workspace-setup.qmd").
+For the purpose of this course we will be using a free tool called Jupyter Notebooks which provides you with a local editor and Python terminal in your web browser. Setting up instructions can be found [here](pages/001-workspace-setup.qmd).
 
 
 ### Intended learning outcomes
