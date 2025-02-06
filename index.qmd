@@ -3,11 +3,29 @@ title: Introduction
 jupyter: python3
 ---
 
+::: {#answerN .callout-warning icon=false title='Trainer notes' collapse="true"}
+This course is intended to be split in three sessions comprising:
 
+  - Getting familiar with the working framework
+    - Install Jupyter Notebooks
+    - Write interactive data analysis with python code, markdown and inline visualizations
 
-This course is aimed at the Python developer who wants to learn how to do useful data analysis tasks. Over the years, Python has become a very popular tool for analysing data. These days it comes with support from many tools to do machine learning, data querying, neural networks and exploratory analysis. In this course we will investigate the use of `scikit-learn` for machine learning to discover things about whatever data may come across your desk.
+  - Understand the process of training a machine learning model
+    - Model fitting
+    - Train and test sets split
+    - Hyperparameter optimization
+    - Evaluation
 
-For the purpose of this course we will be using a free tool called JupyterLab which provides you with a local editor and Python terminal in your web browser. Setting up instructions can be found [here]("pages/001-workspace-setup.qmd").
+  - Work on field-specific examples
+
+The course can be delivered in-person and on-line, but it involves a strong component of self-led learning.
+:::
+
+This course is aimed at the Python developer who wants to learn how to do useful data analysis tasks. Over the years, Python has become a very popular tool for analysing data. These days it comes with support from many tools to do machine learning, data querying, neural networks and exploratory analysis.
+
+In this course we will investigate the use of `scikit-learn` for machine learning to discover things about whatever data may come across your desk. We will see in detail how to building and evaluate machine learning models to make data-driven decisions.
+
+For the purpose of this course we will be using a free tool called Jupyter Notebooks which provides you with a local editor and Python terminal in your web browser. Setting up instructions can be found [here]("pages/001-workspace-setup.qmd").
 
 
 ### Intended learning outcomes
@@ -15,65 +33,14 @@ For the purpose of this course we will be using a free tool called JupyterLab wh
 By the end of this course, you will:
 
 - Know how to use Jupyter Notebooks.
-- Be familiar with `scikit-learn` and `seaborn`.
-- Know how to perform simple machine learning tasks.
+- Be familiar with `scikit-learn`, `pandas` and `seaborn`.
+- Understand the machine learning 
+  - Select suitable models
+  - Split Data into training and test sets
+  - Fit models to data
+  - Hyperparameter tuning using  grid search
+  - Understand how to evaluate model performance
 
-
-
-
-## How to read this documentation
-
-In this documentation, any time that we are seeing a small snippet of Python code, we'll see it written in a grey box like the following:
-
-```{.python}
-print("Hello, Python")
-```
-
-If the commands are executed by the machine we will see the output of them below enclosed on a vertical purple line:
-
-```{python}
-print("Hello, Python!")
-```
-
-By contrast, you will see larger peces of code as scripts with a given name, e.g. `script.py`, in a code block with darker header:
-
-```{.python filename="script.py"}
-greeting = "Hello"
-name = input("What is your name? ")
-print(greeting, name)
-```
-
-We may ask you to run a script using the `Command Prompt` (Windows) or `Terminal` (Mac and Linux). We will show you what commands to run and will look like this:
-```{.bash filename="Terminal/Command Prompt"}
-python script.py
-```
-
-**Please note that sometimes we will skip showing the execution of scripts on the Terminal/Command Prompt box, but we will assume you to run the script on your.**
-
-In some cases we will introduce general programming concepts and structures using pseudocode, a high-level, easy-to-read syntax close to natural language. This should not be confused with Python code and cannot be executed on your machine, but it is useful to describe how your code should behave. Here there is an example:
-```
-FOR EACH sample IN my_study
-    IF (sample.value > 100)
-        DO SOMETHING
-    OTHERWISE
-        DO SOMETHING ELSE
-```
-
-
-There are some exercises along this course, and it is important you try to answer them yourself to understand how Python works. Exercises are shown in blue boxes followed by a yellow box that contains the answer of each exercise. We recommend you to try to answer each exercise yourself before looking at the solution. 
-
-::: {#exampleN .callout-note icon=false title='Exercise'}
-This is an exercise. You will need to click in the below box to see the answer.
-:::
-
-::: {#answerN .callout-caution icon=false title='Answer (click to open)' collapse="true"}
-This is the answer.
-:::
-
-Last, we will highlight important points using green boxes like this one:
-
-::: {#keypointsN .callout-tip icon=false title='Key points'}
-These are important concepts and technical notes.
-:::
+Let's embark on this exciting journey into the world of data analysis with Python!
 
 

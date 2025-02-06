@@ -1,79 +1,38 @@
 ---
-title: Fitting data
+title: "Fitting data: regression"
 jupyter: python3
 ---
+
+::: {#highlights .callout-note icon=false title='In this section...'}
+   - Learn how to use scikit-learn to define a model and train it
+   - Understand how to interpret the model parameters and coefficients
+:::
+
+::: {#answerN .callout-warning icon=false title='Trainer notes' collapse="true"}
+Recommended time: 30 minutes
+
+This section introduces model selection and training with linear regression.
+
+Common issues: 
+- Not being able to read the file because it is not in the same folder, or right folder.
+- Libraries (pandas, scikit-learn) not imported.
+
+:::
+
 
 
 The process of extracting information from data using computers is called *machine learning*.
 
 Machine learning a very large field and covers a whole host of techniques. In this course we will be discovering a few of them but let's first start with the simplest form of machine learning, the *linear fit* or *linear regression*.
 
-## Input data
-
-First we shall need some data. For this example we shall be pretending that we have measured these data from an experiment and we want to extract the underlying parameters of the system that generated them.
-
-I have prepared a CSV file which you can read into pandas using `read_csv`:
-
-
-```python
-
-import pandas as pd
-
-data = pd.read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/data/linear.csv")
-data.head()
-```
-
+Please, remember to load your data as we did in previous sections:
 ```{python}
 #| echo: false
-
 import pandas as pd
 
 data = pd.read_csv("./data/linear.csv")
-data.head()
 ```
 
-
-
-
-We can see here that the data has two columns, `x` and `y`. Traditionally, $x$ is used for the things we can easily measure in the world and use as inputs, and $y$ is used for the thing we want to predict. In our case, we want to work out what the value of $y$ should be for any given $x$.
-
-In this case we have one single $x$ column but in a more complicated data set we may have multiple $x_1$, $x_2$ etc. in which case the set together is sometimes given the upper-case letter $X$. Each $x_n$ column is called a *feature*. Features are usually things that you have measured as part of a experiment (e.g. height of a person, temperature of a room, size of a garden etc.).
-
-Our $y$ column is the thing that we are going to create a model to predict the value of. The $y$ column of the input data is often called the *label* or the *target*.
-
-Let's check how many rows we have:
-
-
-```{python}
-data.count()
-```
-
-
-
-We have 50 rows here. In the input data, each row is often called a *sample* (though sometimes also called an *instance*, *example* or *observation*). For example, it could be the information about a single person from a census or the measurements at a particular time from a weather station.
-
-::: {#keypointsN .callout-tip icon=false title='Tidy data'}
-Tidy data is data where:
-
-- Each variable is a column;  each column is a variable.
-- Each observation is a row;  each row is an observation.
-- Each value is a cell;  each cell is a single value.
-:::
-
-
-Let's have a look at what the data looks like when plotted:
-
-
-```{python}
-import seaborn as sns
-
-sns.relplot(data=data, x="x", y="y")
-```
-
-
-We can clearly visually see here that there is a linear relationship between the $x$ and $y$ values but we need to be able to extract the exact parameters programmatically.
-
-## Linear regression
 
 ### Setting up our model
 

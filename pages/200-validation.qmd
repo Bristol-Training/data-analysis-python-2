@@ -2,6 +2,22 @@
 title: Testing your model
 ---
 
+::: {#highlights .callout-note icon=false title='In this section...'}
+   - Implement train-test splits to evaluate model performance
+   - Understand the importance of data splitting in preventing overfitting
+
+:::
+
+::: {#answerN .callout-warning icon=false title='Trainer notes' collapse="true"}
+Recommended time: 30 minutes
+
+This sections... 
+
+Common issues: 
+
+
+:::
+
 
 So far we have been fitting our model to the data and assuming that it is doing a good job. We have not had any method for analysing the quality of the fit. In our example so far we first looked at the fit with our eyes and judged it sufficient. We then compared the output parameters with our ground-truth and judged it to be "close enough".
 
