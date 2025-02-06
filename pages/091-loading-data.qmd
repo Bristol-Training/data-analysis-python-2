@@ -1,0 +1,224 @@
+---
+title: Loading your data
+jupyter: python3
+---
+
+::: {#highlights .callout-note icon=false title='In this section...'}
+This are the key points of the section:
+    - Pandas
+    - Seaborn
+    - EDA and correlation
+:::
+
+::: {#answerN .callout-warning icon=false title='Trainer notes' collapse="true"}
+Recommended time: 30 minutes
+
+This sections introduces some examples on how to read files from Python and perform quick visualizations and exploratory data analysis.
+
+Common issues: 
+- Not being able to read the file because it is not in the same folder, or right folder.
+- Libraries (pandas, scikit-learn) not imported.
+
+:::
+
+
+First we shall need some data. For this example we shall be pretending that we have measured these data from an experiment and we want to extract the underlying parameters of the system that generated them.
+
+I have prepared a CSV file which you can read into pandas using `read_csv`:
+
+```python
+import pandas as pd
+
+data = pd.read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/data/linear.csv")
+data.head()
+```
+
+```{python}
+#| echo: false
+
+import pandas as pd
+
+data = pd.read_csv("./data/linear.csv")
+data.head()
+```
+
+
+We can see here that the data has two columns, `x` and `y`. Traditionally, $x$ is used for the things we can easily measure in the world and use as inputs, and $y$ is used for the thing we want to predict. In our case, we want to work out what the value of $y$ should be for any given $x$.
+
+In this case we have one single $x$ column but in a more complicated data set we may have multiple $x_1$, $x_2$ etc. in which case the set together is sometimes given the upper-case letter $X$. Each $x_n$ column is called a *feature*. Features are usually things that you have measured as part of a experiment (e.g. height of a person, temperature of a room, size of a garden etc.).
+
+Our $y$ column is the thing that we are going to create a model to predict the value of. The $y$ column of the input data is often called the *label* or the *target*.
+
+Let's check how many rows we have:
+
+
+```{python}
+data.count()
+```
+
+
+
+We have 50 rows here. In the input data, each row is often called a *sample* (though sometimes also called an *instance*, *example* or *observation*). For example, it could be the information about a single person from a census or the measurements at a particular time from a weather station.
+
+::: {#keypointsN .callout-tip icon=false title='Tidy data'}
+Tidy data is data where:
+
+- Each variable is a column;  each column is a variable.
+- Each observation is a row;  each row is an observation.
+- Each value is a cell;  each cell is a single value.
+:::
+
+
+Let's have a look at what the data looks like when plotted:
+
+
+```{python}
+import seaborn as sns
+
+sns.relplot(data=data, x="x", y="y")
+```
+
+
+We can clearly visually see here that there is a linear relationship between the $x$ and $y$ values but we need to be able to extract the exact parameters programmatically.
+
+
+# Exploratory data analysis using Correlation
+
+When presented with a new collection of data, one of the first questions you may ask is how they are related to each other. This can involve deep study of how one parameter is likely to vary as you change another but the simplest start is to look a the linear correlation between them.
+
+Correlation is usually taught as being the degree to which two variables are *linearly* related, that is as one increases, on average how much does the other one increase. This is a useful measure because it's easy to calculate and most data only have either linear relationships or no relationship at all.
+
+<img src="../img/linear.svg" style="box-shadow: none;" width=400>
+
+However, correlation is a much broader idea than that and when doing machine learning, it's worth understanding the bigger picture. At its core, correlation is a measure of how *related* two data sets are. The way I like to think of it is, if I know the value of one of the two ariables, how much information do I have about the value of the other.
+
+To highlight this, consider the following two variables, $x$ and $y$:
+
+<img src="../img/quadratic.svg" style="box-shadow: none;" width=400>
+
+They have a linear correlation of zero (*on average* as $x$ increases, $y$ stays the same) but if you know the value of $X$, you clearly have *information* about what the value of $y$ is likely to be.
+
+The other way to think about it is in terms of *mutual information*. $y$ is clearly sharing information with $x$, otherwise there would be no visible pattern.
+
+## Multiple cross-correlation
+
+It's very common when working on real data that you have more than two figures of interest.
+
+To get a sense of some real data, let's look at a [housing dataset](https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset) provided by scikit-learn.
+
+
+```{python}
+from sklearn.datasets import fetch_california_housing
+
+housing, target = fetch_california_housing(as_frame=True, return_X_y=True)
+```
+
+
+```{python}
+housing.head()
+```
+
+
+
+
+
+It has a row for each census block and a column for each feature, e.g. "median income of the block", "average house age of the block" etc.
+
+To get the linear correlation between all these features, we call the `corr()` method on the `DataFrame`:
+
+
+```{python}
+housing.corr()
+```
+
+
+
+
+
+Here we see the features in our data set along both the rows and the columns. The correlation between each pair is given as a number between -1.0 and 1.0 where -1.0 is absolute inverse linear correlation, 1.0 is absolute positive linear correlation and zero is no linear correlation.
+
+We see the the 1.0 occuring on the diagonal (because a variable is always completely correlated with itself) and a whole range of values between -1.0 and 1.0 off-diagonal.
+
+If we want the correlation between two specific columns then we can request it from this object:
+
+
+```{python}
+corr = housing.corr()
+corr["MedInc"]["AveRooms"]
+```
+
+
+
+
+
+::: {#exampleN .callout-note icon=false title='Exercise'}
+Look through the table manually and see if you can find the most negative and most positive correlations.
+
+Bonus: Try to automate that search using Python code.
+  - Hint: To find the minimum, use the `min()` and `idxmin()` methods. To find the maximum, hide the diagonals first using `np.fill_diagonal(corr.values, np.nan)`
+:::
+
+::: {#answerN .callout-caution icon=false title='Answer' collapse="true"}
+{{< include answer_find_largest_correlations.md >}}
+:::
+
+
+## Plotting the correlation
+
+Viewing the correlation coefficients as a table is useful if you want the precise value of the correlation but often you want a visual overview which can give you the information you want at a glance.
+
+The easiest way to view it is as a heat map where each cell has a colour showing the value of the correlation using Seaborn which is a visualisation library that provides a higher-level interface to Matplotlib.
+
+
+```{python}
+import seaborn as sns
+
+sns.heatmap(corr, vmin=-1.0, vmax=1.0, square=True, cmap="RdBu")
+```
+
+
+
+This gives us a sense of which parameters are strongly correlated with each other. Very blue squares are positively correlated, for example the average number of rooms and the average number of bedrooms. That correlation makes sense as they definitely have mutual information.
+
+Others perhaps make less sense at a glance. We see that the latitude is very strongly negatively correlated with the longitude. Why on earth should there be any relationship between those two? Let's take a look at another view on the data to see if we can discover why.
+
+## Multi-variable scatter matrix
+
+Pandas also provides a quick method of looking at a large number of data parameters at once and looking visually at which might be worth investigating. If you pass any pandas `DataFrame` to the `scatter_matrix()` function then it will plot all the *pairs* of parameters in the data.
+
+The produced graph has a lot of information in it so it's worth taking some time to make sure you understand these plots. The plot is arranged with all the variables of interest from top to bottom and then repeated from left to right so that any one square in the grid is defined by the intersection of two variables.
+
+Each box that is an intersection of a variable with another (e.g. row three, column one is the intersection between "AveRooms" and "MedInc") shows the scatter plot of how the values of those variables relate to each other. If you see a strong diagonal line it means that those variables are correlated in this data set. It it's more of a blob or a flat horizontal or vertical line then that suggests a low correlation.
+
+The top-right triangle of the plot is a repeat of the bottom-left triangle, just with the items in the pair reversed (i.e. row one, column three is the intersection between "MedInc" and "AveRooms").
+
+The square boxes along the diagonal from the top-left to the bottom-right are those intersections of a variable with itself and so are used, not to show correlation, but to show the distribution of values of each single variable as a histogram.
+
+
+```{python}
+from pandas.plotting import scatter_matrix
+
+a = scatter_matrix(housing, figsize=(16, 16))
+```
+
+
+
+
+In general, when calculating a regression, you want your features to be as uncorrelated with each other as possible. This is because if two features, $x_1$ and $x_2$ are strongly correlated with each other then it's possible to predict the value of $x_2$ from the value of $x_1$ with high confidence. This means that $x_2$ is not providing any additional predictive power.
+
+In some cases this is not a problem as adding one extra variable does not slow down or harm the algorithm used but some methods benefit from choosing carefully the parameters which are being fitted over.
+
+It's also possible in some cases to transform the data in some way to reduce the correlation between variables. One example of a method which does this is principle component analysis (PCA).
+
+On the other hand, you *do* want correlation between $X$ and $y$ as if there is no mutual information then there is no predictive power.
+
+
+::: {#exampleN .callout-note icon=false title='Exercise'}
+
+Try running through the above step using a different dataset from sklearn. You can find them listed at https://scikit-learn.org/stable/datasets/toy_dataset.html. _Iris_ is a classic dataset used in machine learning which it is worth being aware of.
+
+:::
+
+::: {#answerN .callout-caution icon=false title='Answer' collapse="true"}
+{{< include answer_iris_correlation.md >}}
+:::
