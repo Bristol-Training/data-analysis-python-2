@@ -69,7 +69,7 @@ Once we have created our model, we can fit it to the data by calling the `fit()`
 1. The input data as a *two-dimensional* structure of the size $(N_{samples}, N_{features})$.
 2. The labels or targets of the data as a *one-dimensional* data structure of size $(N_{samples})$.
 
-In our case we only have one feature, $x$, and 50 data points so it should be in the shape $(50, 1)$. If we just request `data["x"]` then that will be a 1D array (actually a pandas `Series`) of shape $(50)$ so we must request the data with `data[["x"]]` (which returns it as a single-column, but still two-dimensional, `DataFrame`). For a more thorough explanation of this dimensionality difference, see [this explanation](aside_one_two_dimensional.qmd).
+In our case we only have one feature, $x$, and 50 data points so it should be in the shape $(50, 1)$. If we just request `data["x"]` then that will be a 1D array (actually a pandas `Series`) of shape $(50)$ so we must request the data with `data[["x"]]` (which returns it as a single-column, but still two-dimensional, `DataFrame`). For a more thorough explanation of this dimensionality difference, see [this explanation](aside_one_two_dimensional.md).
 
 If you're using pandas to store your data (as we are) then just remember that the first argument should be a `DataFrame` and the second should be a `Series`.
 
