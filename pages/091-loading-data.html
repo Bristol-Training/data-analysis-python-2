@@ -358,7 +358,7 @@ Trainer notes
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"https://bristol-training.github.io/applied-data-analysis-in-python/data/linear.csv"</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="e8a7cf8f" class="cell" data-execution_count="1">
+<div id="8329b709" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
@@ -407,7 +407,7 @@ Trainer notes
 <p>In this case we have one single <span class="math inline">\(x\)</span> column but in a more complicated data set we may have multiple <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> etc. in which case the set together is sometimes given the upper-case letter <span class="math inline">\(X\)</span>. Each <span class="math inline">\(x_n\)</span> column is called a <em>feature</em>. Features are usually things that you have measured as part of a experiment (e.g.&nbsp;height of a person, temperature of a room, size of a garden etc.).</p>
 <p>Our <span class="math inline">\(y\)</span> column is the thing that we are going to create a model to predict the value of. The <span class="math inline">\(y\)</span> column of the input data is often called the <em>label</em> or the <em>target</em>.</p>
 <p>Let’s check how many rows we have:</p>
-<div id="9438955d" class="cell" data-execution_count="2">
+<div id="bdfb1d8d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data.count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>x    50
@@ -435,7 +435,7 @@ Tidy data
 </div>
 </div>
 <p>Let’s have a look at what the data looks like when plotted:</p>
-<div id="64eff2e4" class="cell" data-execution_count="3">
+<div id="06f2c4a3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sns.relplot(data<span class="op">=</span>data, x<span class="op">=</span><span class="st">"x"</span>, y<span class="op">=</span><span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -462,12 +462,12 @@ Tidy data
 <h3 class="anchored" data-anchor-id="multiple-cross-correlation">Multiple cross-correlation</h3>
 <p>It’s very common when working on real data that you have more than two figures of interest.</p>
 <p>To get a sense of some real data, let’s look at a <a href="https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset">housing dataset</a> provided by scikit-learn.</p>
-<div id="59071d6b" class="cell" data-execution_count="4">
+<div id="ebe76a1d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_california_housing</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>housing, target <span class="op">=</span> fetch_california_housing(as_frame<span class="op">=</span><span class="va">True</span>, return_X_y<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9844b206" class="cell" data-execution_count="5">
+<div id="57f552ae" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>housing.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -551,7 +551,7 @@ Tidy data
 </div>
 <p>It has a row for each census block and a column for each feature, e.g.&nbsp;“median income of the block”, “average house age of the block” etc.</p>
 <p>To get the linear correlation between all these features, we call the <code>corr()</code> method on the <code>DataFrame</code>:</p>
-<div id="b5864c4f" class="cell" data-execution_count="6">
+<div id="a013a5ea" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>housing.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -669,7 +669,7 @@ Tidy data
 <p>Here we see the features in our data set along both the rows and the columns. The correlation between each pair is given as a number between -1.0 and 1.0 where -1.0 is absolute inverse linear correlation, 1.0 is absolute positive linear correlation and zero is no linear correlation.</p>
 <p>We see the the 1.0 occuring on the diagonal (because a variable is always completely correlated with itself) and a whole range of values between -1.0 and 1.0 off-diagonal.</p>
 <p>If we want the correlation between two specific columns then we can request it from this object:</p>
-<div id="9fd4ad5b" class="cell" data-execution_count="7">
+<div id="f1e68376" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> housing.corr()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>corr[<span class="st">"MedInc"</span>][<span class="st">"AveRooms"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -1296,7 +1296,7 @@ NaN
 <h3 class="anchored" data-anchor-id="plotting-the-correlation">Plotting the correlation</h3>
 <p>Viewing the correlation coefficients as a table is useful if you want the precise value of the correlation but often you want a visual overview which can give you the information you want at a glance.</p>
 <p>The easiest way to view it is as a heat map where each cell has a colour showing the value of the correlation using Seaborn which is a visualisation library that provides a higher-level interface to Matplotlib.</p>
-<div id="2f93f8c0" class="cell" data-execution_count="8">
+<div id="366ad5ef" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, vmin<span class="op">=-</span><span class="fl">1.0</span>, vmax<span class="op">=</span><span class="fl">1.0</span>, square<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">"RdBu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1318,7 +1318,7 @@ NaN
 <p>Each box that is an intersection of a variable with another (e.g.&nbsp;row three, column one is the intersection between “AveRooms” and “MedInc”) shows the scatter plot of how the values of those variables relate to each other. If you see a strong diagonal line it means that those variables are correlated in this data set. It it’s more of a blob or a flat horizontal or vertical line then that suggests a low correlation.</p>
 <p>The top-right triangle of the plot is a repeat of the bottom-left triangle, just with the items in the pair reversed (i.e.&nbsp;row one, column three is the intersection between “MedInc” and “AveRooms”).</p>
 <p>The square boxes along the diagonal from the top-left to the bottom-right are those intersections of a variable with itself and so are used, not to show correlation, but to show the distribution of values of each single variable as a histogram.</p>
-<div id="b3edec5a" class="cell" data-execution_count="9">
+<div id="525ad348" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas.plotting <span class="im">import</span> scatter_matrix</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> scatter_matrix(housing, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

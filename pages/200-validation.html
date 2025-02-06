@@ -367,14 +367,14 @@ Trainer notes
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data[[<span class="st">"x"</span>]]</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> data[<span class="st">"y"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>scikit-learn provides a built-in function, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"><code>train_test_split</code></a>, to split your data into a subset of data to fit with and a subset of data to test against:</p>
-<div id="bd0728a5" class="cell" data-execution_count="2">
+<div id="8df604db" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>train_X, test_X, train_y, test_y <span class="op">=</span> train_test_split(X, y, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>train_test_split</code> will split your data randomly and so to get a reproducible “random” split we set the <code>random_state</code> argument.</p>
 <p>To see that <code>train</code> and <code>test</code> are taken from the same distribution let’s plot them:</p>
-<div id="4d883804" class="cell" data-execution_count="3">
+<div id="fbd8ece1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Label the original DataFrame with the test/train split</span></span>
@@ -392,7 +392,7 @@ Trainer notes
 </div>
 </div>
 <p>Now that we have <code>train</code> and <code>test</code> we should only ever pass <code>train</code> to the <code>fit</code> function:</p>
-<div id="0b92cc00" class="cell" data-execution_count="4">
+<div id="8a77d6cd" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LinearRegression(fit_intercept<span class="op">=</span><span class="va">True</span>)</span>
@@ -817,7 +817,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>To find out how good the fit was, we can call the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#scikit-learn.linear_model.LinearRegression.score"><code>score</code></a> method on the model. It is important here that we pass in our <em>test</em> data set as we expect that to provide an independent validation of the model.</p>
-<div id="a68b23d9" class="cell" data-execution_count="5">
+<div id="7239a760" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model.score(test_X, test_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>0.9676069631786152</code></pre>
