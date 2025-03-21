@@ -7,6 +7,13 @@ title: Discussion
 
 Here are some additional chapters to work through on a number of different topics. Choose the ones that interest you.
 
+[**Logistic regression for cancer classification**](../extra/logistic-regression-cancer.qmd) 
+
+[**Logistic regression for housing price classification**](../extra/logistic-regression-housing.qmd)
+
+[**Medical image clustering**](../extra/medical-image-clustering.qmd)
+
+
 [**Feature scaling and principal component analysis**](./appendix_scaling.qmd) are important parts of many data analysis pipelines.
 
 [**Clustering**](appendix_clustering.qmd) is an unsupervised classification method.

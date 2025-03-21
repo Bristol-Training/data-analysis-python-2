@@ -7,6 +7,9 @@ jupyter: python3
 resources:
   - "data/*"
   - "img/*"
+  - "extra/*"
+  - "extra/data/*"
+  
 
 website:
   title: "Applied Data Analysis in Python"
