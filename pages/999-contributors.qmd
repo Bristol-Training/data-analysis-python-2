@@ -5,14 +5,19 @@ title: Contributors
 
 This course was originally written by Matt Williams, see <https://milliams.com/courses/intermediate_python/>.
 
-The course has since been modified by the Jean Golding Institute team.
-Pau Erola
+The course has since been modified by the Jean Golding Institute team:
 
-
+- Pau Erola
+- Leo Gorman
+- James Thomas
 
 ## Research advocates
 
-### Faculty
-
- - vacant
- - vacant
+- Zhiyuan Xu
+- Zhengzhe Peng
+- Winfred Gatua
+- Vaishnudebi Dutta
+- Ruolin Wu
+- Catherine Upex
+- Bryony Clifton
+- Boyi Li
