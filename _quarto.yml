@@ -39,12 +39,17 @@ website:
           - pages/102-nearest-neighbours.qmd
           - pages/500-hyperparameters.qmd
 
-      - pages/990-what-next.qmd
-
+      - section: pages/990-what-next.qmd
+        contents:
+          - extra/logistic-regression-cancer.qmd
+          - extra/logistic-regression-housing.qmd
+          - extra/medical-image-clustering.qmd
+          
       - section: About
         contents:
           - pages/999-how-to.qmd
           - pages/999-contributors.qmd
+
 
   page-footer:
      left: "[Jean Golding Institute](https://www.bristol.ac.uk/golding/) © [CC-BY 4.0](http://creativecommons.org/licenses/by/4.0/)"  
