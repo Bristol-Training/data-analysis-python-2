@@ -221,13 +221,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../pages/990-what-next.html" class="sidebar-item-text sidebar-link">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Discussion</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/990-what-next.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is next?</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../extra/logistic-regression-cancer.html" class="sidebar-item-text sidebar-link">
@@ -345,7 +351,7 @@ It’s suitable in scenarios like:</p>
 <section id="pre-requisites" class="level3">
 <h3 class="anchored" data-anchor-id="pre-requisites">Pre-requisites</h3>
 <p>Before we dive into building our logistic regression model, we need to gather some tools—like setting up our workbench before starting a project! These tools (called “libraries” in programming) help us load data, do math, draw pictures, and build the model. Each library has a special job, and together they make our work easier.</p>
-<div id="4cb797fc" class="cell" data-execution_count="1">
+<div id="2ccdb6a4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -379,7 +385,7 @@ It’s suitable in scenarios like:</p>
 <section id="why-this-step" class="level4">
 <h4 class="anchored" data-anchor-id="why-this-step">Why This Step?</h4>
 <p>We need to understand our data before predicting anything—it’s like checking your ingredients before cooking! Here, we’ll turn house prices into a “yes or no” question: is this area high-priced?</p>
-<div id="23180052" class="cell" data-execution_count="2">
+<div id="637966ab" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load california housing dataset</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>california <span class="op">=</span> fetch_california_housing()</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame(california.data, columns<span class="op">=</span>california.feature_names)</span>
@@ -440,7 +446,7 @@ It’s suitable in scenarios like:</p>
 <section id="why-this-step-1" class="level4">
 <h4 class="anchored" data-anchor-id="why-this-step-1">Why This Step?</h4>
 <p>Starting small helps us understand how logistic regression works—like practicing with a toy car before driving a real one! We’ll see how it predicts “yes” or “no” based on income.</p>
-<div id="1060c097" class="cell" data-execution_count="3">
+<div id="8034fc57" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Logistic regression is a tool that help us predict true or false"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"eg: we want to predict whether a house is high price or low price according to the income"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -492,7 +498,7 @@ eg: we want to predict whether a house is high price or low price according to t
 <section id="why-this-step-2" class="level4">
 <h4 class="anchored" data-anchor-id="why-this-step-2">Why This Step?</h4>
 <p>Data needs a bit of prep to work well with our model, just like washing veggies before cooking. Then we’ll train the model to spot patterns, like “high-income areas often have pricier houses,” and test it to see what it learned.</p>
-<div id="1c4c1f3a" class="cell" data-execution_count="4">
+<div id="2da2aa5e" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select some key features，like (MedInc)、(AveRooms)、(Population)</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data[[<span class="st">'MedInc'</span>, <span class="st">'AveRooms'</span>, <span class="st">'Population'</span>]]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> data[<span class="st">'HIGH_PRICE'</span>]</span>
@@ -538,7 +544,7 @@ eg: we want to predict whether a house is high price or low price according to t
 <section id="why-this-step-3" class="level4">
 <h4 class="anchored" data-anchor-id="why-this-step-3">Why This Step?</h4>
 <p>It’s like grading a test — we want to know if our model learned well or if it needs more practice. This helps us understand what it’s good at and where it struggles.</p>
-<div id="da852eca" class="cell" data-execution_count="5">
+<div id="14776f25" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate model accuracy</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Model accuracy：</span><span class="sc">{</span>accuracy<span class="sc">:.2f}</span><span class="ss">（Proportion of correct predictions）"</span>)</span>
@@ -595,7 +601,7 @@ eg: we want to predict whether a house is high price or low price according to t
 <section id="try-it-out" class="level4">
 <h4 class="anchored" data-anchor-id="try-it-out">Try It Out!</h4>
 <p>Below is a basic code framework to get you started. Pick one idea, tweak the code, and see if the accuracy improves. Don’t be afraid to experiment!</p>
-<div id="5452c867" class="cell" data-execution_count="6">
+<div id="91ce30ea" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start experimenting with improving the model</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Try one of the suggestions to improve the model!"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
