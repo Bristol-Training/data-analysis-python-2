@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ca36816b11f16c1f89bd823a9673f4e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -347,7 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="./data/mole3.jpg">Picture of mole 3</a></li>
 </ul>
 <p>Let’s start by loading our first image from our directory and examining it’s features:</p>
-<div id="502007b1" class="cell" data-execution_count="1">
+<div id="f75abe00" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> io</span>
@@ -364,24 +364,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Size is 810000</code></pre>
 </div>
 </div>
-<div id="58cb4f9a" class="cell" data-execution_count="2">
+<div id="874b1ffb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>io.imshow(img)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_3009/1806673016.py:1: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(img)</code></pre>
+<pre><code>/var/folders/bq/2w1p57q54r78thfjpfy2cbrc0000gp/T/ipykernel_12774/1806673016.py:1: FutureWarning:
+
+`imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
+</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-3-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-3-output-2.png" width="620" height="470" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>At the moment, the image is in 3 dimensions: 450 (height) x 600 (width) x 3 (colour). Color is 3 corresponding to RGB (red, green, blue). We want to flatten the image to two dimensional array (pixel x colour).</p>
 <p>We then want to put this into a pandas data frame for better plotting and processing. The data frame will have four columns: Red, Green, Blue and Colour - indicating the hex code of the pixel.</p>
-<div id="aa3070ed" class="cell" data-execution_count="3">
+<div id="59a0bf4d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> np.array(img, dtype<span class="op">=</span>np.float64) <span class="op">/</span> <span class="dv">255</span>  <span class="co"># Scale values</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>w, h, d <span class="op">=</span> original_shape <span class="op">=</span> <span class="bu">tuple</span>(img.shape)  <span class="co"># Get the current shape</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>img_array <span class="op">=</span> np.reshape(img, (w <span class="op">*</span> h, d))  <span class="co"># Reshape to to 2D</span></span>
@@ -415,12 +417,12 @@ Size is 810000</code></pre>
 <h3 class="anchored" data-anchor-id="exploring-the-data">Exploring the data</h3>
 <p>It is useful to plot the data before running the clustering.</p>
 <p>Since we have a high amount of pixels (810000) running the algorithm may be slow. Therefore we can run it over a small subset of data.</p>
-<div id="186df121" class="cell" data-execution_count="4">
+<div id="3cfde761" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pixels_sample <span class="op">=</span> pixels.sample(frac<span class="op">=</span><span class="fl">0.05</span>) <span class="co">#look at 5% of the data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Since RGB pixels are a 3D dataset, we will plot three 2D plots of the pairs red/green, red/blue and green/blue.</p>
 <p>To make our lives easier, we can define a function plot_colours() which will plot the three pairs of columns against each other. To make the plots visually useful we will also colour each point in the plot with the colour of the pixel it came from using our fourth column, ‘Colour’.</p>
-<div id="8c3c2fd0" class="cell" data-execution_count="5">
+<div id="a7941ba1" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_colours(df, c1, c2, c3):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Given a DataFrame and three column names,</span></span>
@@ -437,7 +439,7 @@ Size is 810000</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-6-output-1.png" width="1411" height="503" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -450,7 +452,7 @@ Size is 810000</code></pre>
 </ul>
 <p>Overall this shows we have a strong correlation between colour channels and the colours are highly dependent as shown by high correlation.</p>
 <p>Sometimes viewing the data in 3D can help since planar projections can lose some nuances of the data. We can display 3D plots using the <code>mplot3d</code> package.</p>
-<div id="bed50476" class="cell" data-execution_count="6">
+<div id="1f4aad67" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits <span class="im">import</span> mplot3d</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">8</span>))</span>
@@ -465,7 +467,7 @@ Size is 810000</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-7-output-1.png" width="619" height="611" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -475,7 +477,7 @@ Size is 810000</code></pre>
 <h3 class="anchored" data-anchor-id="assigning-points-to-clusters">Assigning points to clusters</h3>
 <p>Now we can begin the clustering. We will be using a method called <strong>k-means clustering</strong>. It works by initialising K cluster centres, assigning each data point (pixel in this case) to the nearest centre. It then works through the data set, assigning each pixel and updating the clusters if needed. The process continues until no more updates to the clusters are required.</p>
 <p>We can run the clustering and display our cluster centres using the code below:</p>
-<div id="d7a39739" class="cell" data-execution_count="7">
+<div id="c2725efa" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">5</span>, n_init<span class="op">=</span><span class="st">"auto"</span>).fit(pixels_sample[[<span class="st">"Red"</span>, <span class="st">"Green"</span>, <span class="st">"Blue"</span>]])</span>
@@ -484,21 +486,21 @@ Size is 810000</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-8-output-1.png" width="582" height="151" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Now we have our clusters which we can use as our representative clusters for the image. We can now go through the original image and assign each pixel to a cluster that it is nearest to.</p>
-<div id="6ecf42be" class="cell" data-execution_count="8">
+<div id="d002cd27" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> kmeans.predict(pixels[[<span class="st">"Red"</span>, <span class="st">"Green"</span>, <span class="st">"Blue"</span>]])</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>labels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>array([2, 2, 2, ..., 0, 0, 0], shape=(270000,), dtype=int32)</code></pre>
+<pre><code>array([0, 0, 0, ..., 3, 3, 3], dtype=int32)</code></pre>
 </div>
 </div>
 <p><br> To quantify these predictions we can plot a bar graph to show how many pixels are in each cluster</p>
-<div id="0894d02f" class="cell" data-execution_count="9">
+<div id="1d077898" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame, Series</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>Series(labels).value_counts(sort<span class="op">=</span><span class="va">False</span>).plot.bar(color<span class="op">=</span>kmeans.cluster_centers_)</span>
@@ -506,18 +508,18 @@ Size is 810000</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-10-output-1.png" width="600" height="407" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>To assess how well the algorithm has clustered the images, we can plot the clustered pixels next to the original image to observe the differences.</p>
 <p>First we need to convert our clustered pixels back to a 3D array (width x height x colour):</p>
-<div id="9de1e8b4" class="cell" data-execution_count="10">
+<div id="ec83bd2e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>reduced <span class="op">=</span> np.array([kmeans.cluster_centers_[p] <span class="cf">for</span> p <span class="kw">in</span> labels]).reshape(original_shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can then plot the images next to each other.</p>
-<div id="877fde7a" class="cell" data-execution_count="11">
+<div id="87f6f05c" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>f, axarr <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">9</span>))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>axarr[<span class="dv">0</span>].imshow(img)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>axarr[<span class="dv">0</span>].set_title(<span class="st">"Original"</span>)</span>
@@ -527,7 +529,7 @@ Size is 810000</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-12-output-1.png" width="1393" height="518" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -556,7 +558,7 @@ Optional Exercise
 <h2 class="anchored" data-anchor-id="clustering-multiple-images">Clustering Multiple Images</h2>
 <p>In the next step we are going to use this clustering technique to measure the surface area of dermatological features in a set of 3 images. This could be used as a technique to measure features in a large data set that are hard or tedious to quantify.</p>
 <p>First we need to load and inspect the images in the same way we did in the previous exercise</p>
-<div id="6924de29" class="cell" data-execution_count="12">
+<div id="be96ed68" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> io</span>
@@ -593,13 +595,15 @@ Optional Exercise
 Image 1 size is 810000</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_3009/795262317.py:12: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(img1)</code></pre>
+<pre><code>/var/folders/bq/2w1p57q54r78thfjpfy2cbrc0000gp/T/ipykernel_12774/795262317.py:12: FutureWarning:
+
+`imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
+</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-13-output-3.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-13-output-3.png" width="620" height="470" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -608,13 +612,15 @@ Image 1 size is 810000</code></pre>
 Image 2 size is 810000</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_3009/795262317.py:21: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(img2)</code></pre>
+<pre><code>/var/folders/bq/2w1p57q54r78thfjpfy2cbrc0000gp/T/ipykernel_12774/795262317.py:21: FutureWarning:
+
+`imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
+</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-13-output-6.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-13-output-6.png" width="620" height="470" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -623,19 +629,21 @@ Image 2 size is 810000</code></pre>
 Image 3 size is 810000</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_3009/795262317.py:30: FutureWarning: `imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
-  io.imshow(img3)</code></pre>
+<pre><code>/var/folders/bq/2w1p57q54r78thfjpfy2cbrc0000gp/T/ipykernel_12774/795262317.py:30: FutureWarning:
+
+`imshow` is deprecated since version 0.25 and will be removed in version 0.27. Please use `matplotlib`, `napari`, etc. to visualize images.
+</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-13-output-9.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-13-output-9.png" width="620" height="470" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>We also need to flatten them and convert into a pandas data frames</p>
-<div id="39276bb8" class="cell" data-execution_count="13">
+<div id="6ec35c55" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> colors</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -735,7 +743,7 @@ Answer
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="3f1a7902" class="cell" data-execution_count="14">
+<div id="c64f2e11" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set a directory variable name containing images</span></span>
@@ -790,7 +798,7 @@ Answer
 </div>
 </div>
 <p>To run the clustering on a set of images we need to stack the data frames into one. We will add a new column to indicate which image the data came from.</p>
-<div id="e44bae39" class="cell" data-execution_count="15">
+<div id="a3b7edfe" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First we need to add a new column to our data sets to indicate which image they came from </span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -832,7 +840,7 @@ Optional Exercise
 </div>
 </div>
 <p>We can now run K-means clustering in the same way as before. First by sampling a subset of pixels and assign our cluster centres. In order to compare the size of the dermatological features across the images, we want to measure the pixels that are and aren’t dark space. We could try to use 2 clusters for this.</p>
-<div id="fc58b790" class="cell" data-execution_count="16">
+<div id="c6347125" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pixels_sample <span class="op">=</span> pixels.sample(frac<span class="op">=</span><span class="fl">0.05</span>) <span class="co">#look at 5% of the data</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
@@ -843,22 +851,22 @@ Optional Exercise
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-17-output-1.png" width="596" height="302" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>We can now run our clustering with our whole data set.</p>
-<div id="5cdb7bea" class="cell" data-execution_count="17">
+<div id="9eb311ec" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> kmeans.predict(pixels[[<span class="st">"Red"</span>, <span class="st">"Green"</span>, <span class="st">"Blue"</span>]])</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>labels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>array([0, 0, 0, ..., 0, 0, 0], shape=(810000,), dtype=int32)</code></pre>
+<pre><code>array([0, 0, 0, ..., 0, 0, 0], dtype=int32)</code></pre>
 </div>
 </div>
 <p>Now we have used the clustering algorithm to cluster pixels into dark and light areas, we can manipulate our data frame to compare the size of the features in the images.</p>
 <p>First we want to add the clustering array to the pandas data frame</p>
-<div id="6827da9c" class="cell" data-execution_count="18">
+<div id="2a2abd6d" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the clustering array as a new column </span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>pixels[<span class="st">'cluster'</span>] <span class="op">=</span> labels.tolist()</span>
@@ -881,7 +889,7 @@ Optional Exercise
 </div>
 </div>
 <p>We can then plot the amount of dark space for each image</p>
-<div id="d64bc802" class="cell" data-execution_count="19">
+<div id="2b581900" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter only rows where cluster == 0</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>pixels_fil <span class="op">=</span> pixels[pixels[<span class="st">"cluster"</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -895,7 +903,7 @@ Optional Exercise
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-20-output-1.png" width="666" height="425" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -944,7 +952,7 @@ Data augmentation techniques increase the effectiveness of smaller datasets, vas
 <section id="geometric-transformations" class="level3">
 <h3 class="anchored" data-anchor-id="geometric-transformations">Geometric Transformations</h3>
 <p>In this session we will focus on geometric transformations only including: rotating images, flipping and blurring the images.</p>
-<div id="71e4a639" class="cell" data-execution_count="20">
+<div id="234aadee" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the necessary libraries</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> skimage</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -955,21 +963,21 @@ Data augmentation techniques increase the effectiveness of smaller datasets, vas
 <span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> io, transform, filters, exposure</span>
 <span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'font.size'</span>] <span class="op">=</span> <span class="dv">18</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="47c9fa01" class="cell" data-execution_count="21">
+<div id="a1e20433" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We are working with one file at a time for now.</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the image data</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> io.imread(<span class="st">"extra/data/mole.jpg"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="rotate-the-image" class="level4">
 <h4 class="anchored" data-anchor-id="rotate-the-image">Rotate the image</h4>
-<div id="a4ca590e" class="cell" data-execution_count="22">
+<div id="3e56fb01" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rotate the image</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>rotated <span class="op">=</span> transform.rotate(image, <span class="dv">90</span>)  <span class="co"># Rotate 90 degrees</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>plt.imshow(rotated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-23-output-1.png" width="567" height="430" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -977,14 +985,14 @@ Data augmentation techniques increase the effectiveness of smaller datasets, vas
 </section>
 <section id="flip-the-image-horizontally" class="level4">
 <h4 class="anchored" data-anchor-id="flip-the-image-horizontally">Flip the image horizontally</h4>
-<div id="95866cbe" class="cell" data-execution_count="23">
+<div id="69d22f46" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Flip the image horizontally</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>flipped_h <span class="op">=</span> image[:, ::<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>plt.imshow(flipped_h) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-24-output-1.png" width="567" height="430" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -992,13 +1000,13 @@ Data augmentation techniques increase the effectiveness of smaller datasets, vas
 </section>
 <section id="flip-the-image-vertically" class="level4">
 <h4 class="anchored" data-anchor-id="flip-the-image-vertically">Flip the image vertically</h4>
-<div id="547f0f82" class="cell" data-execution_count="24">
+<div id="71ee1911" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>flipped_v <span class="op">=</span> image[::<span class="op">-</span><span class="dv">1</span>, :]  </span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(flipped_v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-25-output-1.png" width="567" height="430" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1006,14 +1014,14 @@ Data augmentation techniques increase the effectiveness of smaller datasets, vas
 </section>
 <section id="blur-the-image" class="level4">
 <h4 class="anchored" data-anchor-id="blur-the-image">Blur the image</h4>
-<div id="977abc78" class="cell" data-execution_count="25">
+<div id="f9ddb4b9" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Blur the image</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>blurred <span class="op">=</span> filters.gaussian(image, sigma<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>plt.imshow(blurred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-26-output-1.png" width="567" height="430" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1023,7 +1031,7 @@ Data augmentation techniques increase the effectiveness of smaller datasets, vas
 </section>
 <section id="visualise-all-images-including-the-original-image" class="level2">
 <h2 class="anchored" data-anchor-id="visualise-all-images-including-the-original-image">Visualise all images including the original image</h2>
-<div id="b2fc92b4" class="cell" data-execution_count="26">
+<div id="d90c1a97" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise the original and modified forms of the image all together</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>titles <span class="op">=</span> [<span class="st">"Original"</span>, <span class="st">"Rotated"</span>, <span class="st">"Flipped H"</span>, <span class="st">"Flipped V"</span>, <span class="st">"Blurred"</span>]</span>
@@ -1038,7 +1046,7 @@ Data augmentation techniques increase the effectiveness of smaller datasets, vas
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-27-output-1.png" width="1135" height="194" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1068,7 +1076,7 @@ Answer
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="f43a9e82" class="cell" data-execution_count="27">
+<div id="c508b621" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimage <span class="im">import</span> io, transform, filters</span>
@@ -1109,21 +1117,21 @@ Answer
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-28-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-28-output-2.png" width="1135" height="324" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-28-output-3.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-28-output-3.png" width="1135" height="324" class="figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="medical-image-clustering_files/figure-html/cell-28-output-4.png" class="img-fluid figure-img"></p>
+<p><img src="medical-image-clustering_files/figure-html/cell-28-output-4.png" width="1135" height="324" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1151,7 +1159,7 @@ How does each of the blurring differ from one another?
 
 ### At your own time explore inbuilt scikit-image medical datasets
 
-::: {#7249923c .cell execution_count=28}
+::: {#0b48cd4b .cell execution_count=28}
 ``` {.python .cell-code}
 # Load inbuilt skin dataset from scikit-image
 image = data.skin()
@@ -1166,39 +1174,40 @@ plt.imshow(image) # Visualise the original image
 ```{=html}
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[28]</span><span class="ansi-green-fg">, line 2</span>
-<span class="ansi-green-fg">      1</span> <span style="font-style:italic;color:rgb(95,135,135)"># Load inbuilt skin dataset from scikit-image</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> image = <span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">skin</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">      3</span> image <span style="font-style:italic;color:rgb(95,135,135)"># Displays an array representing the image</span>
-<span class="ansi-green-fg">      4</span> plt.imshow(image) <span style="font-style:italic;color:rgb(95,135,135)"># Visualise the original image</span>
+Cell <span class="ansi-green-fg">In[28], line 2</span>
+<span class="ansi-green-fg ansi-bold">      1</span> <span style="font-style:italic;color:rgb(95,135,135)"># Load inbuilt skin dataset from scikit-image</span>
+<span class="ansi-green-fg">----&gt; 2</span> image <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">data</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">skin</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">      3</span> image <span style="font-style:italic;color:rgb(95,135,135)"># Displays an array representing the image</span>
+<span class="ansi-green-fg ansi-bold">      4</span> plt<span style="color:rgb(98,98,98)">.</span>imshow(image) <span style="font-style:italic;color:rgb(95,135,135)"># Visualise the original image</span>
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages/skimage/data/_fetchers.py:1167</span>, in <span class="ansi-cyan-fg">skin</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">   1146</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg">skin</span>():
-<span class="ansi-green-fg">   1147</span> <span style="color:rgb(188,188,188)">    </span><span style="font-style:italic" class="ansi-yellow-fg">"""Microscopy image of dermis and epidermis (skin layers).</span>
-<span class="ansi-green-fg">   1148</span> 
-<span class="ansi-green-fg">   1149</span> <span style="font-style:italic" class="ansi-yellow-fg">    Hematoxylin and eosin stained slide at 10x of normal epidermis and dermis</span>
-<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">   1165</span> <span style="font-style:italic" class="ansi-yellow-fg">    skin : (960, 1280, 3) RGB image of uint8</span>
-<span class="ansi-green-fg">   1166</span> <span style="font-style:italic" class="ansi-yellow-fg">    """</span>
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1167</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">_load</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-fg ansi-yellow-bg">'</span><span class="ansi-yellow-fg ansi-yellow-bg">data/skin.jpg</span><span class="ansi-yellow-fg ansi-yellow-bg">'</span><span class="ansi-yellow-bg">)</span>
+File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/skimage/data/_fetchers.py:1167</span>, in <span class="ansi-cyan-fg">skin</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg ansi-bold">   1146</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">skin</span>():
+<span class="ansi-green-fg ansi-bold">   1147</span> <span style="color:rgb(188,188,188)">    </span><span style="font-style:italic;color:rgb(175,0,0)">"""Microscopy image of dermis and epidermis (skin layers).</span>
+<span class="ansi-green-fg ansi-bold">   1148</span> 
+<span class="ansi-green-fg ansi-bold">   1149</span> <span style="font-style:italic;color:rgb(175,0,0)">    Hematoxylin and eosin stained slide at 10x of normal epidermis and dermis</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-fg ansi-bold">   1165</span> <span style="font-style:italic;color:rgb(175,0,0)">    skin : (960, 1280, 3) RGB image of uint8</span>
+<span class="ansi-green-fg ansi-bold">   1166</span> <span style="font-style:italic;color:rgb(175,0,0)">    """</span>
+<span class="ansi-green-fg">-&gt; 1167</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">_load</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">data/skin.jpg</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">)</span>
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages/skimage/data/_fetchers.py:336</span>, in <span class="ansi-cyan-fg">_load</span><span class="ansi-blue-fg">(f, as_gray)</span>
-<span class="ansi-green-fg">    332</span> <span style="font-style:italic;color:rgb(95,135,135)"># importing io is quite slow since it scans all the backends</span>
-<span class="ansi-green-fg">    333</span> <span style="font-style:italic;color:rgb(95,135,135)"># we lazy import it here</span>
-<span class="ansi-green-fg">    334</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg ansi-bold">.</span><span class="ansi-blue-fg ansi-bold">.</span><span class="ansi-blue-fg ansi-bold">io</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(0,135,0)">import</span> imread
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">336</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> imread(<span class="ansi-yellow-bg">_fetch</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">)</span>, as_gray=as_gray)
+File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/skimage/data/_fetchers.py:336</span>, in <span class="ansi-cyan-fg">_load</span><span class="ansi-blue-fg">(f, as_gray)</span>
+<span class="ansi-green-fg ansi-bold">    332</span> <span style="font-style:italic;color:rgb(95,135,135)"># importing io is quite slow since it scans all the backends</span>
+<span class="ansi-green-fg ansi-bold">    333</span> <span style="font-style:italic;color:rgb(95,135,135)"># we lazy import it here</span>
+<span class="ansi-green-fg ansi-bold">    334</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span> <span style="font-weight:bold;color:rgb(0,0,255)">.</span><span style="font-weight:bold;color:rgb(0,0,255)">.</span><span style="font-weight:bold;color:rgb(0,0,255)">io</span> <span style="font-weight:bold;color:rgb(0,135,0)">import</span> imread
+<span class="ansi-green-fg">--&gt; 336</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> imread(<span class="ansi-yellow-bg">_fetch</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">)</span>, as_gray<span style="color:rgb(98,98,98)">=</span>as_gray)
 
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages/skimage/data/_fetchers.py:218</span>, in <span class="ansi-cyan-fg">_fetch</span><span class="ansi-blue-fg">(data_filename)</span>
-<span class="ansi-green-fg">    216</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> _image_fetcher <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
-<span class="ansi-green-fg">    217</span>     _skip_pytest_case_requiring_pooch(data_filename)
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">218</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ModuleNotFoundError</span>(
-<span class="ansi-green-fg">    219</span>         <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">The requested file is part of the scikit-image distribution, </span><span class="ansi-yellow-fg">"</span>
-<span class="ansi-green-fg">    220</span>         <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">but requires the installation of an optional dependency, pooch. </span><span class="ansi-yellow-fg">"</span>
-<span class="ansi-green-fg">    221</span>         <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">To install pooch, use your preferred python package manager. </span><span class="ansi-yellow-fg">"</span>
-<span class="ansi-green-fg">    222</span>         <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Follow installation instruction found at </span><span class="ansi-yellow-fg">"</span>
-<span class="ansi-green-fg">    223</span>         <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">https://scikit-image.org/docs/stable/user_guide/install.html</span><span class="ansi-yellow-fg">"</span>
-<span class="ansi-green-fg">    224</span>     )
-<span class="ansi-green-fg">    225</span> <span style="font-style:italic;color:rgb(95,135,135)"># Download the data with pooch which caches it automatically</span>
-<span class="ansi-green-fg">    226</span> _ensure_cache_dir(target_dir=cache_dir)
+File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/skimage/data/_fetchers.py:218</span>, in <span class="ansi-cyan-fg">_fetch</span><span class="ansi-blue-fg">(data_filename)</span>
+<span class="ansi-green-fg ansi-bold">    216</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> _image_fetcher <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg ansi-bold">    217</span>     _skip_pytest_case_requiring_pooch(data_filename)
+<span class="ansi-green-fg">--&gt; 218</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ModuleNotFoundError</span>(
+<span class="ansi-green-fg ansi-bold">    219</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">The requested file is part of the scikit-image distribution, </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    220</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">but requires the installation of an optional dependency, pooch. </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    221</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">To install pooch, use your preferred python package manager. </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    222</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Follow installation instruction found at </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    223</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">https://scikit-image.org/docs/stable/user_guide/install.html</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    224</span>     )
+<span class="ansi-green-fg ansi-bold">    225</span> <span style="font-style:italic;color:rgb(95,135,135)"># Download the data with pooch which caches it automatically</span>
+<span class="ansi-green-fg ansi-bold">    226</span> _ensure_cache_dir(target_dir<span style="color:rgb(98,98,98)">=</span>cache_dir)
 
 <span class="ansi-red-fg">ModuleNotFoundError</span>: The requested file is part of the scikit-image distribution, but requires the installation of an optional dependency, pooch. To install pooch, use your preferred python package manager. Follow installation instruction found at https://scikit-image.org/docs/stable/user_guide/install.html</pre>
 ```
@@ -1304,6 +1313,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1414,6 +1425,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
