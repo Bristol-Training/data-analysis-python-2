@@ -5,9 +5,10 @@ jupyter: python3
 
 ::: {#highlights .callout-note icon=false title='In this section...'}
 This are the key points of the section:
-    - Pandas
-    - Seaborn
-    - EDA and correlation
+
+    - Pandas and Seaborn
+    - Exploratory data analysis with correlation
+
 :::
 
 ::: {#answerN .callout-warning icon=false title='Trainer notes' collapse="true"}
@@ -16,6 +17,7 @@ Recommended time: 30 minutes
 This sections introduces some examples on how to read files from Python and perform quick visualizations and exploratory data analysis.
 
 Common issues: 
+
 - Not being able to read the file because it is not in the same folder, or right folder.
 - Libraries (pandas, scikit-learn) not imported.
 
@@ -42,6 +44,9 @@ data = pd.read_csv("./data/linear.csv")
 data.head()
 ```
 
+::: {#troubleshooting .callout-important icon=false title='Troubleshooting'}
+If you experience any issues with this step, please see [Introduction to Data Analysis > Reading from file](https://bristol-training.github.io/introduction-to-data-analysis-in-python/pages/02%20Reading%20from%20file.html) for further troubleshooting instructions.
+:::
 
 We can see here that the data has two columns, `x` and `y`. Traditionally, $x$ is used for the things we can easily measure in the world and use as inputs, and $y$ is used for the thing we want to predict. In our case, we want to work out what the value of $y$ should be for any given $x$.
 

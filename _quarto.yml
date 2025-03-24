@@ -39,8 +39,9 @@ website:
           - pages/102-nearest-neighbours.qmd
           - pages/500-hyperparameters.qmd
 
-      - section: pages/990-what-next.qmd
+      - section: "Discussion"
         contents:
+          - pages/990-what-next.qmd
           - extra/logistic-regression-cancer.qmd
           - extra/logistic-regression-housing.qmd
           - extra/medical-image-clustering.qmd

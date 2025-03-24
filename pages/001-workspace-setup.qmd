@@ -27,7 +27,7 @@ To begin working with Jupyter Notebook, you'll need to install it on your comput
 
 If you're using a university-managed laptop, the easiest and most recommended method is to install Jupyter Notebook through Self Service:
 
-1. Open the Self Service application on your laptop
+1. Open the Company Portal (Windows) or Self Service (Mac) application on your laptop
 2. Search for "Anaconda"
 3. Click on the Anaconda package and follow the installation prompts
 

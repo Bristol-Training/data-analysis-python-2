@@ -1,6 +1,25 @@
 ---
-title: Discussion
+title: What is next?
 ---
+
+## Questions for discussion
+
+The below questions for discussion can help consolidate your learning. How many can you answer?
+
+1. What is the "right" way to split data for machine learning?
+    - Would that work for time-series data?
+    - What if you had parameters you wanted to learn?
+    - What if you wanted to compare models?
+2. If we had just one number to score a model, what would you choose?
+    - When is it good?
+    - When is it bad?
+3. How do you find out more information about a model?
+4. If you run a model and get an answer, and a colleague ran an analysis independently and came to a different conclusion, how would you go about explaining the discrepancy?
+5. What makes you think that the analysis is "right"? How would you know if something was wrong?
+6. Did you test a hypothesis? If so which hypothesis?
+    - Is there an area of your research where this is applicable?
+    - What about related work on slightly different problems? Are the hypotheses the same?
+7. How to handle missing data
 
 
 ## Further topics
@@ -13,9 +32,10 @@ Here are some additional chapters to work through on a number of different topic
 
 [**Medical image clustering**](../extra/medical-image-clustering.qmd)
 
-
 [**Feature scaling and principal component analysis**](./appendix_scaling.qmd) are important parts of many data analysis pipelines.
 
 [**Clustering**](appendix_clustering.qmd) is an unsupervised classification method.
 
 [**Image Clustering**](appendix_clustering_images.qmd) uses clustering techniques to demonstrate a form of image compression.
+
+

@@ -46,13 +46,17 @@ FOR EACH sample IN my_study
 
 Each section will start with a learning outcomes box that highlight the important activities in the section, like this one:
 
-::: {#highlights .callout-tip icon=false title='In this section...'}
+::: {#highlights .callout-note icon=false title='In this section...'}
 These are important concepts and technical notes.
+:::
+
+::: {#highlights .callout-important icon=false title='Troubleshooting...'}
+These highlight common issues and how to solve them.
 :::
 
 There are some exercises along this course, and it is important you try to answer them yourself to understand how Python works. Exercises are shown in blue boxes followed by a yellow box that contains the answer of each exercise. We recommend you to try to answer each exercise yourself before looking at the solution. 
 
-::: {#exampleN .callout-note icon=false title='Exercise'}
+::: {#exampleN .callout-tip icon=false title='Exercise'}
 This is an exercise. You will need to click in the below box to see the answer.
 :::
 

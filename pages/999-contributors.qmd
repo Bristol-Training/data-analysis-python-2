@@ -8,8 +8,10 @@ This course was originally written by Matt Williams, see <https://milliams.com/c
 The course has since been modified by the Jean Golding Institute team:
 
 - Pau Erola
-- Leo Gorman
+- Dan Lawson
 - James Thomas
+- Leo Gorman
+
 
 ## Research advocates
 
@@ -21,3 +23,4 @@ The course has since been modified by the Jean Golding Institute team:
 - Catherine Upex
 - Bryony Clifton
 - Boyi Li
+
