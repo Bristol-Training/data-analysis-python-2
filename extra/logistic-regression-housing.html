@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ca36816b11f16c1f89bd823a9673f4e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -351,7 +351,7 @@ It’s suitable in scenarios like:</p>
 <section id="pre-requisites" class="level3">
 <h3 class="anchored" data-anchor-id="pre-requisites">Pre-requisites</h3>
 <p>Before we dive into building our logistic regression model, we need to gather some tools—like setting up our workbench before starting a project! These tools (called “libraries” in programming) help us load data, do math, draw pictures, and build the model. Each library has a special job, and together they make our work easier.</p>
-<div id="2af01d82" class="cell" data-execution_count="1">
+<div id="1b692f48" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -372,7 +372,7 @@ It’s suitable in scenarios like:</p>
 <section id="why-this-step" class="level4">
 <h4 class="anchored" data-anchor-id="why-this-step">Why This Step?</h4>
 <p>We need to understand our data before predicting anything—it’s like checking your ingredients before cooking! Here, we’ll turn house prices into a “yes or no” question: is this area high-priced?</p>
-<div id="8240f7f5" class="cell" data-execution_count="2">
+<div id="b716f1f1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load california housing dataset</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>california <span class="op">=</span> fetch_california_housing()</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame(california.data, columns<span class="op">=</span>california.feature_names)</span>
@@ -414,7 +414,7 @@ It’s suitable in scenarios like:</p>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="logistic-regression-housing_files/figure-html/cell-3-output-2.png" width="799" height="523" class="figure-img"></p>
+<p><img src="logistic-regression-housing_files/figure-html/cell-3-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -433,7 +433,7 @@ It’s suitable in scenarios like:</p>
 <section id="why-this-step-1" class="level4">
 <h4 class="anchored" data-anchor-id="why-this-step-1">Why This Step?</h4>
 <p>Starting small helps us understand how logistic regression works—like practicing with a toy car before driving a real one! We’ll see how it predicts “yes” or “no” based on income.</p>
-<div id="4c21c1f8" class="cell" data-execution_count="3">
+<div id="83a2e3e1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Logistic regression is a tool that help us predict true or false"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"eg: we want to predict whether a house is high price or low price according to the income"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -460,15 +460,15 @@ eg: we want to predict whether a house is high price or low price according to t
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[3], line 11</span>
-<span class="ansi-green-fg ansi-bold">      5</span> simple_data <span style="color:rgb(98,98,98)">=</span> pd<span style="color:rgb(98,98,98)">.</span>DataFrame({
-<span class="ansi-green-fg ansi-bold">      6</span>     <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">MedInc</span><span style="color:rgb(175,0,0)">'</span>: [<span style="color:rgb(98,98,98)">2</span>, <span style="color:rgb(98,98,98)">4</span>, <span style="color:rgb(98,98,98)">6</span>, <span style="color:rgb(98,98,98)">8</span>],
-<span class="ansi-green-fg ansi-bold">      7</span>     <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">HIGH_PRICE</span><span style="color:rgb(175,0,0)">'</span>: [<span style="color:rgb(98,98,98)">0</span>, <span style="color:rgb(98,98,98)">0</span>, <span style="color:rgb(98,98,98)">1</span>, <span style="color:rgb(98,98,98)">1</span>]
-<span class="ansi-green-fg ansi-bold">      8</span> })
-<span class="ansi-green-fg ansi-bold">     10</span> <span style="font-style:italic;color:rgb(95,135,135)"># train a simple model</span>
-<span class="ansi-green-fg">---&gt; 11</span> simple_model <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">logisticregression</span>()
-<span class="ansi-green-fg ansi-bold">     12</span> simple_model<span style="color:rgb(98,98,98)">.</span>fit(simple_data[[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">MedInc</span><span style="color:rgb(175,0,0)">'</span>]], simple_data[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">HIGH_PRICE</span><span style="color:rgb(175,0,0)">'</span>])
-<span class="ansi-green-fg ansi-bold">     14</span> <span style="font-style:italic;color:rgb(95,135,135)">#predict</span>
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[3]</span><span class="ansi-green-fg">, line 11</span>
+<span class="ansi-green-fg">      5</span> simple_data = pd.DataFrame({
+<span class="ansi-green-fg">      6</span>     <span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">MedInc</span><span class="ansi-yellow-fg">'</span>: [<span class="ansi-green-fg">2</span>, <span class="ansi-green-fg">4</span>, <span class="ansi-green-fg">6</span>, <span class="ansi-green-fg">8</span>],
+<span class="ansi-green-fg">      7</span>     <span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">HIGH_PRICE</span><span class="ansi-yellow-fg">'</span>: [<span class="ansi-green-fg">0</span>, <span class="ansi-green-fg">0</span>, <span class="ansi-green-fg">1</span>, <span class="ansi-green-fg">1</span>]
+<span class="ansi-green-fg">      8</span> })
+<span class="ansi-green-fg">     10</span> <span style="font-style:italic;color:rgb(95,135,135)"># train a simple model</span>
+<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">11</span> simple_model = <span class="ansi-yellow-bg">logisticregression</span>()
+<span class="ansi-green-fg">     12</span> simple_model.fit(simple_data[[<span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">MedInc</span><span class="ansi-yellow-fg">'</span>]], simple_data[<span class="ansi-yellow-fg">'</span><span class="ansi-yellow-fg">HIGH_PRICE</span><span class="ansi-yellow-fg">'</span>])
+<span class="ansi-green-fg">     14</span> <span style="font-style:italic;color:rgb(95,135,135)">#predict</span>
 
 <span class="ansi-red-fg">NameError</span>: name 'logisticregression' is not defined</pre>
 </div>
@@ -485,7 +485,7 @@ Cell <span class="ansi-green-fg">In[3], line 11</span>
 <section id="why-this-step-2" class="level4">
 <h4 class="anchored" data-anchor-id="why-this-step-2">Why This Step?</h4>
 <p>Data needs a bit of prep to work well with our model, just like washing veggies before cooking. Then we’ll train the model to spot patterns, like “high-income areas often have pricier houses,” and test it to see what it learned.</p>
-<div id="1b965f44" class="cell" data-execution_count="4">
+<div id="90648785" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select some key features，like (MedInc)、(AveRooms)、(Population)</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data[[<span class="st">'MedInc'</span>, <span class="st">'AveRooms'</span>, <span class="st">'Population'</span>]]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> data[<span class="st">'HIGH_PRICE'</span>]</span>
@@ -509,12 +509,12 @@ Cell <span class="ansi-green-fg">In[3], line 11</span>
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[4], line 13</span>
-<span class="ansi-green-fg ansi-bold">     10</span> X_train, X_test, y_train, y_test <span style="color:rgb(98,98,98)">=</span> train_test_split(X_scaled, y, test_size<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(98,98,98)">0.3</span>, random_state<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(98,98,98)">42</span>)
-<span class="ansi-green-fg ansi-bold">     12</span> <span style="font-style:italic;color:rgb(95,135,135)"># Train a logistic regression model</span>
-<span class="ansi-green-fg">---&gt; 13</span> model <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">logisticregression</span>()
-<span class="ansi-green-fg ansi-bold">     14</span> model<span style="color:rgb(98,98,98)">.</span>fit(X_train, y_train)
-<span class="ansi-green-fg ansi-bold">     16</span> <span style="font-style:italic;color:rgb(95,135,135)"># Predict on the test set</span>
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[4]</span><span class="ansi-green-fg">, line 13</span>
+<span class="ansi-green-fg">     10</span> X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=<span class="ansi-green-fg">0.3</span>, random_state=<span class="ansi-green-fg">42</span>)
+<span class="ansi-green-fg">     12</span> <span style="font-style:italic;color:rgb(95,135,135)"># Train a logistic regression model</span>
+<span class="ansi-green-fg">---&gt; </span><span class="ansi-green-fg">13</span> model = <span class="ansi-yellow-bg">logisticregression</span>()
+<span class="ansi-green-fg">     14</span> model.fit(X_train, y_train)
+<span class="ansi-green-fg">     16</span> <span style="font-style:italic;color:rgb(95,135,135)"># Predict on the test set</span>
 
 <span class="ansi-red-fg">NameError</span>: name 'logisticregression' is not defined</pre>
 </div>
@@ -531,7 +531,7 @@ Cell <span class="ansi-green-fg">In[4], line 13</span>
 <section id="why-this-step-3" class="level4">
 <h4 class="anchored" data-anchor-id="why-this-step-3">Why This Step?</h4>
 <p>It’s like grading a test — we want to know if our model learned well or if it needs more practice. This helps us understand what it’s good at and where it struggles.</p>
-<div id="0730413d" class="cell" data-execution_count="5">
+<div id="3d29e0a1" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate model accuracy</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Model accuracy：</span><span class="sc">{</span>accuracy<span class="sc">:.2f}</span><span class="ss">（Proportion of correct predictions）"</span>)</span>
@@ -554,11 +554,11 @@ Cell <span class="ansi-green-fg">In[4], line 13</span>
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[5], line 2</span>
-<span class="ansi-green-fg ansi-bold">      1</span> <span style="font-style:italic;color:rgb(95,135,135)"># Calculate model accuracy</span>
-<span class="ansi-green-fg">----&gt; 2</span> accuracy <span style="color:rgb(98,98,98)">=</span> accuracy_score(y_test, <span class="ansi-yellow-bg">y_pred</span>)
-<span class="ansi-green-fg ansi-bold">      3</span> <span style="color:rgb(0,135,0)">print</span>(<span style="color:rgb(175,0,0)">f</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Model accuracy：</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span>accuracy<span style="font-weight:bold;color:rgb(175,95,135)">:</span><span style="color:rgb(175,0,0)">.2f</span><span style="font-weight:bold;color:rgb(175,95,135)">}</span><span style="color:rgb(175,0,0)">（Proportion of correct predictions）</span><span style="color:rgb(175,0,0)">"</span>)
-<span class="ansi-green-fg ansi-bold">      5</span> <span style="font-style:italic;color:rgb(95,135,135)"># Draw confusion matrix</span>
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[5]</span><span class="ansi-green-fg">, line 2</span>
+<span class="ansi-green-fg">      1</span> <span style="font-style:italic;color:rgb(95,135,135)"># Calculate model accuracy</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> accuracy = accuracy_score(y_test, <span class="ansi-yellow-bg">y_pred</span>)
+<span class="ansi-green-fg">      3</span> <span style="color:rgb(0,135,0)">print</span>(<span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Model accuracy：</span><span style="font-weight:bold;color:rgb(175,95,135)">{</span>accuracy<span style="font-weight:bold;color:rgb(175,95,135)">:</span><span class="ansi-yellow-fg">.2f</span><span style="font-weight:bold;color:rgb(175,95,135)">}</span><span class="ansi-yellow-fg">（Proportion of correct predictions）</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-green-fg">      5</span> <span style="font-style:italic;color:rgb(95,135,135)"># Draw confusion matrix</span>
 
 <span class="ansi-red-fg">NameError</span>: name 'y_pred' is not defined</pre>
 </div>
@@ -588,7 +588,7 @@ Cell <span class="ansi-green-fg">In[5], line 2</span>
 <section id="try-it-out" class="level4">
 <h4 class="anchored" data-anchor-id="try-it-out">Try It Out!</h4>
 <p>Below is a basic code framework to get you started. Pick one idea, tweak the code, and see if the accuracy improves. Don’t be afraid to experiment!</p>
-<div id="556955c8" class="cell" data-execution_count="6">
+<div id="456b6b4a" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start experimenting with improving the model</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Try one of the suggestions to improve the model!"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -712,8 +712,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -824,7 +822,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

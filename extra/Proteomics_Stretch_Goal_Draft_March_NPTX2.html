@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ca36816b11f16c1f89bd823a9673f4e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/edit/main/extra/Proteomics_Stretch_Goal_Draft_March_NPTX2.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -155,98 +155,97 @@ This second spreadsheet contained all the information including age, disease sta
 <h4 class="anchored" data-anchor-id="worked-example-of-analysis"><strong>Worked example of analysis</strong></h4>
 <p><strong>See below for a worked example, with additional exercises and questions to consider.</strong></p>
 <p>Importing pandas and reading Excel file</p>
-<div id="b43a2773" class="cell" data-execution_count="1">
+<div id="fa3e1c6c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7a8afadf" class="cell" data-execution_count="2">
+<div id="62392d99" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy <span class="op">=</span> pd.read_excel(<span class="st">"EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[2], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> NPTX2_tidy <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">pd</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">read_excel</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.xlsx</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[2]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> NPTX2_tidy = <span class="ansi-yellow-bg">pd</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">read_excel</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-fg ansi-yellow-bg">"</span><span class="ansi-yellow-fg ansi-yellow-bg">EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.xlsx</span><span class="ansi-yellow-fg ansi-yellow-bg">"</span><span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_base.py:495</span>, in <span class="ansi-cyan-fg">read_excel</span><span class="ansi-blue-fg">(io, sheet_name, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, date_format, thousands, decimal, comment, skipfooter, storage_options, dtype_backend, engine_kwargs)</span>
-<span class="ansi-green-fg ansi-bold">    493</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="color:rgb(0,135,0)">isinstance</span>(io, ExcelFile):
-<span class="ansi-green-fg ansi-bold">    494</span>     should_close <span style="color:rgb(98,98,98)">=</span> <span style="font-weight:bold;color:rgb(0,135,0)">True</span>
-<span class="ansi-green-fg">--&gt; 495</span>     io <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">ExcelFile</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg ansi-bold">    496</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">io</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">    497</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">storage_options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">    498</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">engine</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">engine</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">    499</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">engine_kwargs</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">engine_kwargs</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">    500</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg ansi-bold">    501</span> <span style="font-weight:bold;color:rgb(0,135,0)">elif</span> engine <span style="font-weight:bold;color:rgb(175,0,255)">and</span> engine <span style="color:rgb(98,98,98)">!=</span> io<span style="color:rgb(98,98,98)">.</span>engine:
-<span class="ansi-green-fg ansi-bold">    502</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(
-<span class="ansi-green-fg ansi-bold">    503</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Engine should not be specified when passing </span><span style="color:rgb(175,0,0)">"</span>
-<span class="ansi-green-fg ansi-bold">    504</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">an ExcelFile - ExcelFile already has the engine set</span><span style="color:rgb(175,0,0)">"</span>
-<span class="ansi-green-fg ansi-bold">    505</span>     )
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages/pandas/io/excel/_base.py:495</span>, in <span class="ansi-cyan-fg">read_excel</span><span class="ansi-blue-fg">(io, sheet_name, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, date_format, thousands, decimal, comment, skipfooter, storage_options, dtype_backend, engine_kwargs)</span>
+<span class="ansi-green-fg">    493</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="color:rgb(0,135,0)">isinstance</span>(io, ExcelFile):
+<span class="ansi-green-fg">    494</span>     should_close = <span style="font-weight:bold;color:rgb(0,135,0)">True</span>
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">495</span>     io = <span class="ansi-yellow-bg">ExcelFile</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">    496</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">io</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    497</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    498</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">engine</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">engine</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    499</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">engine_kwargs</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">engine_kwargs</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    500</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    501</span> <span style="font-weight:bold;color:rgb(0,135,0)">elif</span> engine <span style="font-weight:bold;color:rgb(175,0,255)">and</span> engine != io.engine:
+<span class="ansi-green-fg">    502</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-fg">    503</span>         <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Engine should not be specified when passing </span><span class="ansi-yellow-fg">"</span>
+<span class="ansi-green-fg">    504</span>         <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">an ExcelFile - ExcelFile already has the engine set</span><span class="ansi-yellow-fg">"</span>
+<span class="ansi-green-fg">    505</span>     )
 
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_base.py:1550</span>, in <span class="ansi-cyan-fg">ExcelFile.__init__</span><span class="ansi-blue-fg">(self, path_or_buffer, engine, storage_options, engine_kwargs)</span>
-<span class="ansi-green-fg ansi-bold">   1548</span>     ext <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">xls</span><span style="color:rgb(175,0,0)">"</span>
-<span class="ansi-green-fg ansi-bold">   1549</span> <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
-<span class="ansi-green-fg">-&gt; 1550</span>     ext <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">inspect_excel_format</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg ansi-bold">   1551</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">content_or_path</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">path_or_buffer</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">storage_options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">storage_options</span>
-<span class="ansi-green-fg ansi-bold">   1552</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg ansi-bold">   1553</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> ext <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
-<span class="ansi-green-fg ansi-bold">   1554</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(
-<span class="ansi-green-fg ansi-bold">   1555</span>             <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Excel file format cannot be determined, you must specify </span><span style="color:rgb(175,0,0)">"</span>
-<span class="ansi-green-fg ansi-bold">   1556</span>             <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">an engine manually.</span><span style="color:rgb(175,0,0)">"</span>
-<span class="ansi-green-fg ansi-bold">   1557</span>         )
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages/pandas/io/excel/_base.py:1550</span>, in <span class="ansi-cyan-fg">ExcelFile.__init__</span><span class="ansi-blue-fg">(self, path_or_buffer, engine, storage_options, engine_kwargs)</span>
+<span class="ansi-green-fg">   1548</span>     ext = <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">xls</span><span class="ansi-yellow-fg">"</span>
+<span class="ansi-green-fg">   1549</span> <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1550</span>     ext = <span class="ansi-yellow-bg">inspect_excel_format</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">   1551</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">content_or_path</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">path_or_buffer</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">storage_options</span>
+<span class="ansi-green-fg">   1552</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   1553</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> ext <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">   1554</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-fg">   1555</span>             <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Excel file format cannot be determined, you must specify </span><span class="ansi-yellow-fg">"</span>
+<span class="ansi-green-fg">   1556</span>             <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">an engine manually.</span><span class="ansi-yellow-fg">"</span>
+<span class="ansi-green-fg">   1557</span>         )
 
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/excel/_base.py:1402</span>, in <span class="ansi-cyan-fg">inspect_excel_format</span><span class="ansi-blue-fg">(content_or_path, storage_options)</span>
-<span class="ansi-green-fg ansi-bold">   1399</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">isinstance</span>(content_or_path, <span style="color:rgb(0,135,0)">bytes</span>):
-<span class="ansi-green-fg ansi-bold">   1400</span>     content_or_path <span style="color:rgb(98,98,98)">=</span> BytesIO(content_or_path)
-<span class="ansi-green-fg">-&gt; 1402</span> <span style="font-weight:bold;color:rgb(0,135,0)">with</span> <span class="ansi-yellow-bg">get_handle</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg ansi-bold">   1403</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">content_or_path</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">rb</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">storage_options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">is_text</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">False</span>
-<span class="ansi-green-fg ansi-bold">   1404</span> <span class="ansi-yellow-bg">)</span> <span style="font-weight:bold;color:rgb(0,135,0)">as</span> handle:
-<span class="ansi-green-fg ansi-bold">   1405</span>     stream <span style="color:rgb(98,98,98)">=</span> handle<span style="color:rgb(98,98,98)">.</span>handle
-<span class="ansi-green-fg ansi-bold">   1406</span>     stream<span style="color:rgb(98,98,98)">.</span>seek(<span style="color:rgb(98,98,98)">0</span>)
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages/pandas/io/excel/_base.py:1402</span>, in <span class="ansi-cyan-fg">inspect_excel_format</span><span class="ansi-blue-fg">(content_or_path, storage_options)</span>
+<span class="ansi-green-fg">   1399</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">isinstance</span>(content_or_path, <span style="color:rgb(0,135,0)">bytes</span>):
+<span class="ansi-green-fg">   1400</span>     content_or_path = BytesIO(content_or_path)
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1402</span> <span style="font-weight:bold;color:rgb(0,135,0)">with</span> <span class="ansi-yellow-bg">get_handle</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">   1403</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">content_or_path</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-fg ansi-yellow-bg">"</span><span class="ansi-yellow-fg ansi-yellow-bg">rb</span><span class="ansi-yellow-fg ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">is_text</span><span class="ansi-yellow-bg">=</span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">False</span>
+<span class="ansi-green-fg">   1404</span> <span class="ansi-yellow-bg">)</span> <span style="font-weight:bold;color:rgb(0,135,0)">as</span> handle:
+<span class="ansi-green-fg">   1405</span>     stream = handle.handle
+<span class="ansi-green-fg">   1406</span>     stream.seek(<span class="ansi-green-fg">0</span>)
 
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pandas/io/common.py:882</span>, in <span class="ansi-cyan-fg">get_handle</span><span class="ansi-blue-fg">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="ansi-green-fg ansi-bold">    873</span>         handle <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">open</span>(
-<span class="ansi-green-fg ansi-bold">    874</span>             handle,
-<span class="ansi-green-fg ansi-bold">    875</span>             ioargs<span style="color:rgb(98,98,98)">.</span>mode,
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-fg ansi-bold">    878</span>             newline<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">"</span>,
-<span class="ansi-green-fg ansi-bold">    879</span>         )
-<span class="ansi-green-fg ansi-bold">    880</span>     <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
-<span class="ansi-green-fg ansi-bold">    881</span>         <span style="font-style:italic;color:rgb(95,135,135)"># Binary mode</span>
-<span class="ansi-green-fg">--&gt; 882</span>         handle <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">handle</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">ioargs</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mode</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg ansi-bold">    883</span>     handles<span style="color:rgb(98,98,98)">.</span>append(handle)
-<span class="ansi-green-fg ansi-bold">    885</span> <span style="font-style:italic;color:rgb(95,135,135)"># Convert BytesIO or file objects passed with an encoding</span>
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages/pandas/io/common.py:882</span>, in <span class="ansi-cyan-fg">get_handle</span><span class="ansi-blue-fg">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="ansi-green-fg">    873</span>         handle = <span style="color:rgb(0,135,0)">open</span>(
+<span class="ansi-green-fg">    874</span>             handle,
+<span class="ansi-green-fg">    875</span>             ioargs.mode,
+<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">    878</span>             newline=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">"</span>,
+<span class="ansi-green-fg">    879</span>         )
+<span class="ansi-green-fg">    880</span>     <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">    881</span>         <span style="font-style:italic;color:rgb(95,135,135)"># Binary mode</span>
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">882</span>         handle = <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">handle</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">ioargs</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mode</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    883</span>     handles.append(handle)
+<span class="ansi-green-fg">    885</span> <span style="font-style:italic;color:rgb(95,135,135)"># Convert BytesIO or file objects passed with an encoding</span>
 
 <span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: 'EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.xlsx'</pre>
 </div>
 </div>
 </div>
-<div id="d0ec9a6e" class="cell" data-execution_count="3">
+<div id="fb94628c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[3], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">NPTX2_tidy</span><span style="color:rgb(98,98,98)">.</span>head()
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[3]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">NPTX2_tidy</span>.head()
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
 </div>
 </div>
 <p>Importing seaborn and visualising data</p>
-<div id="2c2d3f8c" class="cell" data-execution_count="4">
+<div id="8ba52988" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Visualising the data (comparing NPTX2 abundance in control vs AD groups):</p>
 <p><strong><em>Open the data in Jupyter Notebooks. Use a suitable plot to visualise the distribution of NPTX2 abundance between the control and AD patients. What do you notice and what does this indicate about the suitability of this protein as a biomarker?</em></strong></p>
-<div id="b4f30ded" class="cell" data-execution_count="5">
+<div id="247f402f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"NPTX2 abundance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[5], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> sns<span style="color:rgb(98,98,98)">.</span>catplot(data<span style="color:rgb(98,98,98)">=</span><span class="ansi-yellow-bg">NPTX2_tidy</span>, x<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD status</span><span style="color:rgb(175,0,0)">"</span>, y<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">NPTX2 abundance</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[5]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> sns.catplot(data=<span class="ansi-yellow-bg">NPTX2_tidy</span>, x=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>, y=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">NPTX2 abundance</span><span class="ansi-yellow-fg">"</span>)
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
@@ -254,110 +253,110 @@ Cell <span class="ansi-green-fg">In[5], line 1</span>
 </div>
 <p>From this initial glance, it is apparent that the two groups have similar distributions of NPTX2 abundance, which indicates that this may not be a good biomarker for AD status in this dataset, as we would expect AD patients to have higher levels of NPTX2.</p>
 <p><strong><em>Examine the data further - how are the different variables distributed (e.g.&nbsp;AD status, age, within different collection sites)?</em></strong></p>
-<div id="eeffb2d2" class="cell" data-execution_count="6">
+<div id="4452414c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.dtypes <span class="co">#Checking data types. Object = categorical</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[6], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">NPTX2_tidy</span><span style="color:rgb(98,98,98)">.</span>dtypes <span style="font-style:italic;color:rgb(95,135,135)">#Checking data types. Object = categorical</span>
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[6]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">NPTX2_tidy</span>.dtypes <span style="font-style:italic;color:rgb(95,135,135)">#Checking data types. Object = categorical</span>
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
 </div>
 </div>
-<div id="37b619d5" class="cell" data-execution_count="7">
+<div id="1bb9b189" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span>NPTX2_tidy[<span class="st">"NPTX2 abundance"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[7], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> x<span style="color:rgb(98,98,98)">=</span><span class="ansi-yellow-bg">NPTX2_tidy</span>[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD status</span><span style="color:rgb(175,0,0)">"</span>]
-<span class="ansi-green-fg ansi-bold">      2</span> y<span style="color:rgb(98,98,98)">=</span>NPTX2_tidy[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">NPTX2 abundance</span><span style="color:rgb(175,0,0)">"</span>]
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[7]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> x=<span class="ansi-yellow-bg">NPTX2_tidy</span>[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>]
+<span class="ansi-green-fg">      2</span> y=NPTX2_tidy[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">NPTX2 abundance</span><span class="ansi-yellow-fg">"</span>]
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
 </div>
 </div>
-<div id="7380e0d8" class="cell" data-execution_count="8">
+<div id="6463eb0a" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.value_counts(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[8], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">NPTX2_tidy</span><span style="color:rgb(98,98,98)">.</span>value_counts(x) 
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[8]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">NPTX2_tidy</span>.value_counts(x) 
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
 </div>
 </div>
 <p><strong><em>This reveals that there are more AD than control patients - does this matter?</em></strong></p>
-<div id="6dc10049" class="cell" data-execution_count="9">
+<div id="1ea6a8c3" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.groupby(by<span class="op">=</span>[<span class="st">"AD status"</span>]).mean() <span class="co">#Grouping by AD status to see how all numerical conditions vary across AD vs control</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[9], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">NPTX2_tidy</span><span style="color:rgb(98,98,98)">.</span>groupby(by<span style="color:rgb(98,98,98)">=</span>[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD status</span><span style="color:rgb(175,0,0)">"</span>])<span style="color:rgb(98,98,98)">.</span>mean() <span style="font-style:italic;color:rgb(95,135,135)">#Grouping by AD status to see how all numerical conditions vary across AD vs control</span>
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[9]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">NPTX2_tidy</span>.groupby(by=[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>]).mean() <span style="font-style:italic;color:rgb(95,135,135)">#Grouping by AD status to see how all numerical conditions vary across AD vs control</span>
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
 </div>
 </div>
 <p><strong><em>Looking at the mean ages and NPTX2 abundances shows that the NPTX2 is very similar between the 2 groups (as mentioned earlier). Also, there is difference in age between the two groups - does this matter? How might this affect our interpretation of the data?</em></strong></p>
-<div id="de033b3f" class="cell" data-execution_count="10">
+<div id="eb0d00b3" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"AD status"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[10], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> sns<span style="color:rgb(98,98,98)">.</span>catplot(data<span style="color:rgb(98,98,98)">=</span><span class="ansi-yellow-bg">NPTX2_tidy</span>, x<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD status</span><span style="color:rgb(175,0,0)">"</span>, y<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Age</span><span style="color:rgb(175,0,0)">"</span>, hue<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD status</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[10]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> sns.catplot(data=<span class="ansi-yellow-bg">NPTX2_tidy</span>, x=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>, y=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>, hue=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>)
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
 </div>
 </div>
 <p>This scatterplot also shows that the control group has a population of younger patients not present in the AD group. Let’s see if that population clusters with another variable (e.g.&nbsp;collection site)</p>
-<div id="842a6ee3" class="cell" data-execution_count="11">
+<div id="eb6d91bf" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(index<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>], columns<span class="op">=</span>NPTX2_tidy[<span class="st">"Gender"</span>]) <span class="co">#The cross-tabulation allows you to look at the frequency distribution of multiple categorical variables, and see how they are related to one another</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[11], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> pd<span style="color:rgb(98,98,98)">.</span>crosstab(index<span style="color:rgb(98,98,98)">=</span><span class="ansi-yellow-bg">NPTX2_tidy</span>[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD status</span><span style="color:rgb(175,0,0)">"</span>], columns<span style="color:rgb(98,98,98)">=</span>NPTX2_tidy[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Gender</span><span style="color:rgb(175,0,0)">"</span>]) <span style="font-style:italic;color:rgb(95,135,135)">#The cross-tabulation allows you to look at the frequency distribution of multiple categorical variables, and see how they are related to one another</span>
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[11]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> pd.crosstab(index=<span class="ansi-yellow-bg">NPTX2_tidy</span>[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>], columns=NPTX2_tidy[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Gender</span><span class="ansi-yellow-fg">"</span>]) <span style="font-style:italic;color:rgb(95,135,135)">#The cross-tabulation allows you to look at the frequency distribution of multiple categorical variables, and see how they are related to one another</span>
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
 </div>
 </div>
-<div id="861f4910" class="cell" data-execution_count="12">
+<div id="75e5c9ef" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"Collection site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[12], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> sns<span style="color:rgb(98,98,98)">.</span>catplot(data<span style="color:rgb(98,98,98)">=</span><span class="ansi-yellow-bg">NPTX2_tidy</span>, x<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD status</span><span style="color:rgb(175,0,0)">"</span>, y<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Age</span><span style="color:rgb(175,0,0)">"</span>, hue<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Collection site</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[12]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> sns.catplot(data=<span class="ansi-yellow-bg">NPTX2_tidy</span>, x=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>, y=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>, hue=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Collection site</span><span class="ansi-yellow-fg">"</span>)
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
 </div>
 </div>
-<div id="87489bcc" class="cell" data-execution_count="13">
+<div id="7b6d0df3" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(index<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>], columns<span class="op">=</span>NPTX2_tidy[<span class="st">"Collection site"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[13], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> pd<span style="color:rgb(98,98,98)">.</span>crosstab(index<span style="color:rgb(98,98,98)">=</span><span class="ansi-yellow-bg">NPTX2_tidy</span>[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD status</span><span style="color:rgb(175,0,0)">"</span>], columns<span style="color:rgb(98,98,98)">=</span>NPTX2_tidy[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Collection site</span><span style="color:rgb(175,0,0)">"</span>])
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[13]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> pd.crosstab(index=<span class="ansi-yellow-bg">NPTX2_tidy</span>[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>], columns=NPTX2_tidy[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Collection site</span><span class="ansi-yellow-fg">"</span>])
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
@@ -365,16 +364,16 @@ Cell <span class="ansi-green-fg">In[13], line 1</span>
 </div>
 <p>**_This shows that all of the patients from the Kiel subset are control – there are no AD patients – and this cohort is disproportionately younger than the other chorts. How might this affect the dataset, or the way that we analyse it?</p>
 <p>As an extension task, after you fit your model the first time, try it without the Kiel dataset. Does this affect your result?_**</p>
-<div id="11f1c155" class="cell" data-execution_count="14">
+<div id="ad2aadf7" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(NPTX2_tidy)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[14], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> df <span style="color:rgb(98,98,98)">=</span> pd<span style="color:rgb(98,98,98)">.</span>DataFrame(<span class="ansi-yellow-bg">NPTX2_tidy</span>)
-<span class="ansi-green-fg ansi-bold">      2</span> df<span style="color:rgb(98,98,98)">.</span>head()
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[14]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df = pd.DataFrame(<span class="ansi-yellow-bg">NPTX2_tidy</span>)
+<span class="ansi-green-fg">      2</span> df.head()
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
@@ -382,67 +381,67 @@ Cell <span class="ansi-green-fg">In[14], line 1</span>
 </div>
 <p>To perform machine learning, I am using k-nearest neighbours as we are predicting categories of data (AD or healthy)</p>
 <p>To use k-nearest neighbours, we need to encode our data into a binary form which the algorithms can process:</p>
-<div id="4c0b311c" class="cell" data-execution_count="15">
+<div id="b46b6824" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_encoded <span class="op">=</span> pd.get_dummies(df[<span class="st">"AD status"</span>])</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_encoded .head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[15], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> df_encoded <span style="color:rgb(98,98,98)">=</span> pd<span style="color:rgb(98,98,98)">.</span>get_dummies(<span class="ansi-yellow-bg">df</span>[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD status</span><span style="color:rgb(175,0,0)">"</span>])
-<span class="ansi-green-fg ansi-bold">      2</span> df_encoded <span style="color:rgb(98,98,98)">.</span>head()
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[15]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df_encoded = pd.get_dummies(<span class="ansi-yellow-bg">df</span>[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>])
+<span class="ansi-green-fg">      2</span> df_encoded .head()
 
 <span class="ansi-red-fg">NameError</span>: name 'df' is not defined</pre>
 </div>
 </div>
 </div>
 <p>Now concatenating the two data frames:</p>
-<div id="8fdf2f8a" class="cell" data-execution_count="16">
+<div id="4802efd1" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>binary <span class="op">=</span> pd.concat([df_encoded, df], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>binary.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[16], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> binary <span style="color:rgb(98,98,98)">=</span> pd<span style="color:rgb(98,98,98)">.</span>concat([<span class="ansi-yellow-bg">df_encoded</span>, df], axis<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(98,98,98)">1</span>)
-<span class="ansi-green-fg ansi-bold">      2</span> binary<span style="color:rgb(98,98,98)">.</span>head()
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[16]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> binary = pd.concat([<span class="ansi-yellow-bg">df_encoded</span>, df], axis=<span class="ansi-green-fg">1</span>)
+<span class="ansi-green-fg">      2</span> binary.head()
 
 <span class="ansi-red-fg">NameError</span>: name 'df_encoded' is not defined</pre>
 </div>
 </div>
 </div>
 <p>Visualising the data, plotting age against NPTX2 abundance</p>
-<div id="aec876c2" class="cell" data-execution_count="17">
+<div id="916a7954" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>binary, x<span class="op">=</span><span class="st">"Age"</span>, y<span class="op">=</span><span class="st">"NPTX2 abundance"</span>, hue<span class="op">=</span><span class="st">"AD"</span>, palette<span class="op">=</span><span class="st">"Dark2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[17], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> sns<span style="color:rgb(98,98,98)">.</span>scatterplot(data<span style="color:rgb(98,98,98)">=</span><span class="ansi-yellow-bg">binary</span>, x<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Age</span><span style="color:rgb(175,0,0)">"</span>, y<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">NPTX2 abundance</span><span style="color:rgb(175,0,0)">"</span>, hue<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD</span><span style="color:rgb(175,0,0)">"</span>, palette<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Dark2</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[17]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> sns.scatterplot(data=<span class="ansi-yellow-bg">binary</span>, x=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>, y=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">NPTX2 abundance</span><span class="ansi-yellow-fg">"</span>, hue=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD</span><span class="ansi-yellow-fg">"</span>, palette=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Dark2</span><span class="ansi-yellow-fg">"</span>)
 
 <span class="ansi-red-fg">NameError</span>: name 'binary' is not defined</pre>
 </div>
 </div>
 </div>
-<div id="916f145e" class="cell" data-execution_count="18">
+<div id="31509a31" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> binary[[<span class="st">"Age"</span>, <span class="st">"NPTX2 abundance"</span>]]</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> binary[<span class="st">"AD"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[18], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> X <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">binary</span>[[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Age</span><span style="color:rgb(175,0,0)">"</span>, <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">NPTX2 abundance</span><span style="color:rgb(175,0,0)">"</span>]]
-<span class="ansi-green-fg ansi-bold">      2</span> y <span style="color:rgb(98,98,98)">=</span> binary[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD</span><span style="color:rgb(175,0,0)">"</span>]
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[18]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> X = <span class="ansi-yellow-bg">binary</span>[[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>, <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">NPTX2 abundance</span><span class="ansi-yellow-fg">"</span>]]
+<span class="ansi-green-fg">      2</span> y = binary[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD</span><span class="ansi-yellow-fg">"</span>]
 
 <span class="ansi-red-fg">NameError</span>: name 'binary' is not defined</pre>
 </div>
 </div>
 </div>
-<div id="ac109911" class="cell" data-execution_count="19">
+<div id="3630ad16" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>train_X, test_X, train_y, test_y <span class="op">=</span> train_test_split(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -450,15 +449,15 @@ Cell <span class="ansi-green-fg">In[18], line 1</span>
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[19], line 3</span>
-<span class="ansi-green-fg ansi-bold">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span> <span style="font-weight:bold;color:rgb(0,0,255)">sklearn</span><span style="font-weight:bold;color:rgb(0,0,255)">.</span><span style="font-weight:bold;color:rgb(0,0,255)">model_selection</span> <span style="font-weight:bold;color:rgb(0,135,0)">import</span> train_test_split
-<span class="ansi-green-fg">----&gt; 3</span> train_X, test_X, train_y, test_y <span style="color:rgb(98,98,98)">=</span> train_test_split(<span class="ansi-yellow-bg">X</span>, y)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[19]</span><span class="ansi-green-fg">, line 3</span>
+<span class="ansi-green-fg">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg ansi-bold">sklearn</span><span class="ansi-blue-fg ansi-bold">.</span><span class="ansi-blue-fg ansi-bold">model_selection</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(0,135,0)">import</span> train_test_split
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">3</span> train_X, test_X, train_y, test_y = train_test_split(<span class="ansi-yellow-bg">X</span>, y)
 
 <span class="ansi-red-fg">NameError</span>: name 'X' is not defined</pre>
 </div>
 </div>
 </div>
-<div id="fce83634" class="cell" data-execution_count="20">
+<div id="6fa7bd18" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span>)</span>
@@ -467,17 +466,17 @@ Cell <span class="ansi-green-fg">In[19], line 3</span>
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[20], line 4</span>
-<span class="ansi-green-fg ansi-bold">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span> <span style="font-weight:bold;color:rgb(0,0,255)">sklearn</span><span style="font-weight:bold;color:rgb(0,0,255)">.</span><span style="font-weight:bold;color:rgb(0,0,255)">neighbors</span> <span style="font-weight:bold;color:rgb(0,135,0)">import</span> KNeighborsClassifier
-<span class="ansi-green-fg ansi-bold">      3</span> model <span style="color:rgb(98,98,98)">=</span> KNeighborsClassifier(n_neighbors<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(98,98,98)">10</span>)
-<span class="ansi-green-fg">----&gt; 4</span> model<span style="color:rgb(98,98,98)">.</span>fit(<span class="ansi-yellow-bg">train_X</span>, train_y)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[20]</span><span class="ansi-green-fg">, line 4</span>
+<span class="ansi-green-fg">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg ansi-bold">sklearn</span><span class="ansi-blue-fg ansi-bold">.</span><span class="ansi-blue-fg ansi-bold">neighbors</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(0,135,0)">import</span> KNeighborsClassifier
+<span class="ansi-green-fg">      3</span> model = KNeighborsClassifier(n_neighbors=<span class="ansi-green-fg">10</span>)
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">4</span> model.fit(<span class="ansi-yellow-bg">train_X</span>, train_y)
 
 <span class="ansi-red-fg">NameError</span>: name 'train_X' is not defined</pre>
 </div>
 </div>
 </div>
 <p>I am asking the question “Is patient y 0 or 1 (negative or positive) for AD?”</p>
-<div id="ff499fae" class="cell" data-execution_count="21">
+<div id="bf8179c4" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> pd.DataFrame({<span class="st">"Age"</span>: [<span class="dv">70</span>], <span class="st">"NPTX2 abundance"</span>:[<span class="dv">297500</span>]})  <span class="co"># Make a new DataFrame containing the X values</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>pred[<span class="st">"AD"</span>] <span class="op">=</span> model.predict(pred)  <span class="co"># Make a prediction and add that data into the table</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -485,29 +484,28 @@ Cell <span class="ansi-green-fg">In[20], line 4</span>
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NotFittedError</span>                            Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[21], line 2</span>
-<span class="ansi-green-fg ansi-bold">      1</span> pred <span style="color:rgb(98,98,98)">=</span> pd<span style="color:rgb(98,98,98)">.</span>DataFrame({<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Age</span><span style="color:rgb(175,0,0)">"</span>: [<span style="color:rgb(98,98,98)">70</span>], <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">NPTX2 abundance</span><span style="color:rgb(175,0,0)">"</span>:[<span style="color:rgb(98,98,98)">297500</span>]})  <span style="font-style:italic;color:rgb(95,135,135)"># Make a new DataFrame containing the X values</span>
-<span class="ansi-green-fg">----&gt; 2</span> pred[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">AD</span><span style="color:rgb(175,0,0)">"</span>] <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">model</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">predict</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">pred</span><span class="ansi-yellow-bg">)</span>  <span style="font-style:italic;color:rgb(95,135,135)"># Make a prediction and add that data into the table</span>
-<span class="ansi-green-fg ansi-bold">      3</span> pred
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[21]</span><span class="ansi-green-fg">, line 2</span>
+<span class="ansi-green-fg">      1</span> pred = pd.DataFrame({<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>: [<span class="ansi-green-fg">70</span>], <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">NPTX2 abundance</span><span class="ansi-yellow-fg">"</span>:[<span class="ansi-green-fg">297500</span>]})  <span style="font-style:italic;color:rgb(95,135,135)"># Make a new DataFrame containing the X values</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> pred[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD</span><span class="ansi-yellow-fg">"</span>] = <span class="ansi-yellow-bg">model</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">predict</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">pred</span><span class="ansi-yellow-bg">)</span>  <span style="font-style:italic;color:rgb(95,135,135)"># Make a prediction and add that data into the table</span>
+<span class="ansi-green-fg">      3</span> pred
 
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:254</span>, in <span class="ansi-cyan-fg">KNeighborsClassifier.predict</span><span class="ansi-blue-fg">(self, X)</span>
-<span class="ansi-green-fg ansi-bold">    240</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">predict</span>(<span style="color:rgb(0,135,0)">self</span>, X):
-<span class="ansi-green-fg ansi-bold">    241</span> <span style="color:rgb(188,188,188)">    </span><span style="font-style:italic;color:rgb(175,0,0)">"""Predict the class labels for the provided data.</span>
-<span class="ansi-green-fg ansi-bold">    242</span> 
-<span class="ansi-green-fg ansi-bold">    243</span> <span style="font-style:italic;color:rgb(175,0,0)">    Parameters</span>
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-fg ansi-bold">    252</span> <span style="font-style:italic;color:rgb(175,0,0)">        Class labels for each data sample.</span>
-<span class="ansi-green-fg ansi-bold">    253</span> <span style="font-style:italic;color:rgb(175,0,0)">    """</span>
-<span class="ansi-green-fg">--&gt; 254</span>     <span class="ansi-yellow-bg">check_is_fitted</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">_fit_method</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg ansi-bold">    255</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>weights <span style="color:rgb(98,98,98)">==</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">uniform</span><span style="color:rgb(175,0,0)">"</span>:
-<span class="ansi-green-fg ansi-bold">    256</span>         <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_fit_method <span style="color:rgb(98,98,98)">==</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">brute</span><span style="color:rgb(175,0,0)">"</span> <span style="font-weight:bold;color:rgb(175,0,255)">and</span> ArgKminClassMode<span style="color:rgb(98,98,98)">.</span>is_usable_for(
-<span class="ansi-green-fg ansi-bold">    257</span>             X, <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_fit_X, <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>metric
-<span class="ansi-green-fg ansi-bold">    258</span>         ):
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:257</span>, in <span class="ansi-cyan-fg">KNeighborsClassifier.predict</span><span class="ansi-blue-fg">(self, X)</span>
+<span class="ansi-green-fg">    241</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg">predict</span>(<span style="color:rgb(0,135,0)">self</span>, X):
+<span class="ansi-green-fg">    242</span> <span style="color:rgb(188,188,188)">    </span><span style="font-style:italic" class="ansi-yellow-fg">"""Predict the class labels for the provided data.</span>
+<span class="ansi-green-fg">    243</span> 
+<span class="ansi-green-fg">    244</span> <span style="font-style:italic" class="ansi-yellow-fg">    Parameters</span>
+<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">    255</span> <span style="font-style:italic" class="ansi-yellow-fg">        Class labels for each data sample.</span>
+<span class="ansi-green-fg">    256</span> <span style="font-style:italic" class="ansi-yellow-fg">    """</span>
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">257</span>     <span class="ansi-yellow-bg">check_is_fitted</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-fg ansi-yellow-bg">"</span><span class="ansi-yellow-fg ansi-yellow-bg">_fit_method</span><span class="ansi-yellow-fg ansi-yellow-bg">"</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    258</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">self</span>.weights == <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">uniform</span><span class="ansi-yellow-fg">"</span>:
+<span class="ansi-green-fg">    259</span>         <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">self</span>._fit_method == <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">brute</span><span class="ansi-yellow-fg">"</span> <span style="font-weight:bold;color:rgb(175,0,255)">and</span> ArgKminClassMode.is_usable_for(
+<span class="ansi-green-fg">    260</span>             X, <span style="color:rgb(0,135,0)">self</span>._fit_X, <span style="color:rgb(0,135,0)">self</span>.metric
+<span class="ansi-green-fg">    261</span>         ):
 
-File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/sklearn/utils/validation.py:1661</span>, in <span class="ansi-cyan-fg">check_is_fitted</span><span class="ansi-blue-fg">(estimator, attributes, msg, all_or_any)</span>
-<span class="ansi-green-fg ansi-bold">   1658</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">TypeError</span>(<span style="color:rgb(175,0,0)">"</span><span style="font-weight:bold;color:rgb(175,95,135)">%s</span><span style="color:rgb(175,0,0)"> is not an estimator instance.</span><span style="color:rgb(175,0,0)">"</span> <span style="color:rgb(98,98,98)">%</span> (estimator))
-<span class="ansi-green-fg ansi-bold">   1660</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> _is_fitted(estimator, attributes, all_or_any):
-<span class="ansi-green-fg">-&gt; 1661</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> NotFittedError(msg <span style="color:rgb(98,98,98)">%</span> {<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">name</span><span style="color:rgb(175,0,0)">"</span>: <span style="color:rgb(0,135,0)">type</span>(estimator)<span style="color:rgb(98,98,98)">.</span><span style="color:rgb(0,0,135)">__name__</span>})
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages/sklearn/utils/validation.py:1757</span>, in <span class="ansi-cyan-fg">check_is_fitted</span><span class="ansi-blue-fg">(estimator, attributes, msg, all_or_any)</span>
+<span class="ansi-green-fg">   1754</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span>
+<span class="ansi-green-fg">   1756</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> _is_fitted(estimator, attributes, all_or_any):
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1757</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> NotFittedError(msg % {<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">name</span><span class="ansi-yellow-fg">"</span>: <span style="color:rgb(0,135,0)">type</span>(estimator).<span class="ansi-blue-fg">__name__</span>})
 
 <span class="ansi-red-fg">NotFittedError</span>: This KNeighborsClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.</pre>
 </div>
@@ -515,14 +513,14 @@ File <span class="ansi-green-fg">/Library/Frameworks/Python.framework/Versions/3
 </div>
 <p><strong>Now test the reliability of your model. What is your model score? Would you use this model on real patients? Comment on the quality of the data you used in this exercise</strong></p>
 <p>Now testing the model:</p>
-<div id="2de96bdc" class="cell" data-execution_count="22">
+<div id="13b08c02" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>model.score(test_X, test_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[22], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> model<span style="color:rgb(98,98,98)">.</span>score(<span class="ansi-yellow-bg">test_X</span>, test_y)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[22]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> model.score(<span class="ansi-yellow-bg">test_X</span>, test_y)
 
 <span class="ansi-red-fg">NameError</span>: name 'test_X' is not defined</pre>
 </div>
@@ -616,8 +614,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -728,7 +724,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
