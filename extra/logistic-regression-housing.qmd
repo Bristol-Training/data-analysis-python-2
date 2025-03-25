@@ -95,7 +95,7 @@ simple_data = pd.DataFrame({
 })
 
 # train a simple model
-simple_model = logisticregression()
+simple_model = LogisticRegression()
 simple_model.fit(simple_data[['MedInc']], simple_data['HIGH_PRICE'])
 
 #predict
@@ -126,7 +126,7 @@ X_scaled = scaler.fit_transform(X)
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)
 
 # Train a logistic regression model
-model = logisticregression()
+model = LogisticRegression()
 model.fit(X_train, y_train)
 
 # Predict on the test set
@@ -177,7 +177,7 @@ Here are a few ways you can try to boost the model’s accuracy. Pick one (or mo
 
 1. **Add More Features**: We only used `MedInc`, `AveRooms`, and `Population`. What if we include other features like `HouseAge`, `Latitude`, or `Longitude`? Maybe they’ll help the model learn more patterns.
 2. **Tune the Model’s Settings**: logistic regression has a setting called `C` (it controls how strict the model is). The default is 1.0, but you could try smaller (like 0.1) or larger (like 10) values to see if it improves accuracy.
-3. **Adjust the Decision Threshold**: Right now, we predict “high price” if the probability is above 0.5 (default by logisticregression). What if we change it to 0.7 or 0.3? This might catch more high-priced areas (or fewer false positives).
+3. **Adjust the Decision Threshold**: Right now, we predict “high price” if the probability is above 0.5 (default by LogisticRegression). What if we change it to 0.7 or 0.3? This might catch more high-priced areas (or fewer false positives).
 
 ### Try It Out!
 Below is a basic code framework to get you started. Pick one idea, tweak the code, and see if the accuracy improves. Don’t be afraid to experiment!
@@ -190,7 +190,7 @@ print("Try one of the suggestions to improve the model!")
 # X = data[['MedInc', 'AveRooms', 'Population', 'HouseAge', 'Latitude', 'Longitude']]
 # X_scaled = scaler.fit_transform(X)
 # X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=42)
-# model = logisticregression()
+# model = LogisticRegression()
 # model.fit(X_train, y_train)
 # y_pred = model.predict(X_test)
 # accuracy = accuracy_score(y_test, y_pred)
@@ -198,7 +198,7 @@ print("Try one of the suggestions to improve the model!")
 
 # Example 2: Tune the C parameter (uncomment and modify)
 # C = 0.1
-# model = logisticregression(C=C)  # Try different values like 0.1, 10, etc.
+# model = LogisticRegression(C=C)  # Try different values like 0.1, 10, etc.
 # model.fit(X_train, y_train)
 # y_pred = model.predict(X_test)
 # accuracy = accuracy_score(y_test, y_pred)
