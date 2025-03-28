@@ -191,7 +191,7 @@ Here it has done a pretty good job at identifying the main darker spots, but fin
 2. Set the number of clusters to 2. Does this sufficiently distinguish between mole and not mole?
 
 ::: {#ex1 .callout-note icon=false title='Optional Exercise'}
-Take a look at this [other image clustering exercise](pages/appendix_clustering_images.html). It explains different methods for colouring space. Have a go at using and comparing the different methods.
+Take a look at this [other image clustering exercise](../pages/appendix_clustering_images.html). It explains different methods for colouring space. Have a go at using and comparing the different methods.
 :::
 
 # Clustering Multiple Images
