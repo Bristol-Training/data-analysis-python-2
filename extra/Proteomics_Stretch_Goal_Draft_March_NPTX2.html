@@ -155,10 +155,10 @@ This second spreadsheet contained all the information including age, disease sta
 <h4 class="anchored" data-anchor-id="worked-example-of-analysis"><strong>Worked example of analysis</strong></h4>
 <p><strong>See below for a worked example, with additional exercises and questions to consider.</strong></p>
 <p>Importing pandas and reading Excel file</p>
-<div id="8b2b782a" class="cell" data-execution_count="1">
+<div id="7ca1d72e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="eafa3887" class="cell" data-execution_count="2">
+<div id="f09f759a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy <span class="op">=</span> pd.read_excel(<span class="st">"EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -219,7 +219,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 </div>
-<div id="241167c1" class="cell" data-execution_count="3">
+<div id="c3942856" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -233,12 +233,12 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 <p>Importing seaborn and visualising data</p>
-<div id="a50500d2" class="cell" data-execution_count="4">
+<div id="d66dc852" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Visualising the data (comparing NPTX2 abundance in control vs AD groups):</p>
 <p><strong><em>Open the data in Jupyter Notebooks. Use a suitable plot to visualise the distribution of NPTX2 abundance between the control and AD patients. What do you notice and what does this indicate about the suitability of this protein as a biomarker?</em></strong></p>
-<div id="3b22a445" class="cell" data-execution_count="5">
+<div id="c9004b65" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"NPTX2 abundance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -253,7 +253,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 <p>From this initial glance, it is apparent that the two groups have similar distributions of NPTX2 abundance, which indicates that this may not be a good biomarker for AD status in this dataset, as we would expect AD patients to have higher levels of NPTX2.</p>
 <p><strong><em>Examine the data further - how are the different variables distributed (e.g.&nbsp;AD status, age, within different collection sites)?</em></strong></p>
-<div id="85443def" class="cell" data-execution_count="6">
+<div id="d2210bc5" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.dtypes <span class="co">#Checking data types. Object = categorical</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -266,7 +266,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 </div>
-<div id="5c17de52" class="cell" data-execution_count="7">
+<div id="1c03a7b9" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span>NPTX2_tidy[<span class="st">"NPTX2 abundance"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -281,7 +281,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 </div>
-<div id="c5c97653" class="cell" data-execution_count="8">
+<div id="f0a5842f" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.value_counts(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -295,7 +295,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 <p><strong><em>This reveals that there are more AD than control patients - does this matter?</em></strong></p>
-<div id="3ef93541" class="cell" data-execution_count="9">
+<div id="e69c60fa" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.groupby(by<span class="op">=</span>[<span class="st">"AD status"</span>]).mean() <span class="co">#Grouping by AD status to see how all numerical conditions vary across AD vs control</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -309,7 +309,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 <p><strong><em>Looking at the mean ages and NPTX2 abundances shows that the NPTX2 is very similar between the 2 groups (as mentioned earlier). Also, there is difference in age between the two groups - does this matter? How might this affect our interpretation of the data?</em></strong></p>
-<div id="888707dd" class="cell" data-execution_count="10">
+<div id="99a8d606" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"AD status"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -323,7 +323,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 <p>This scatterplot also shows that the control group has a population of younger patients not present in the AD group. Let’s see if that population clusters with another variable (e.g.&nbsp;collection site)</p>
-<div id="13e2495a" class="cell" data-execution_count="11">
+<div id="d011de5d" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(index<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>], columns<span class="op">=</span>NPTX2_tidy[<span class="st">"Gender"</span>]) <span class="co">#The cross-tabulation allows you to look at the frequency distribution of multiple categorical variables, and see how they are related to one another</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -336,7 +336,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 </div>
-<div id="3c7b9c7a" class="cell" data-execution_count="12">
+<div id="eb993fed" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"Collection site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -349,7 +349,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 </div>
-<div id="c9d58dcc" class="cell" data-execution_count="13">
+<div id="c569bc7e" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(index<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>], columns<span class="op">=</span>NPTX2_tidy[<span class="st">"Collection site"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -364,7 +364,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 <p>**_This shows that all of the patients from the Kiel subset are control – there are no AD patients – and this cohort is disproportionately younger than the other chorts. How might this affect the dataset, or the way that we analyse it?</p>
 <p>As an extension task, after you fit your model the first time, try it without the Kiel dataset. Does this affect your result?_**</p>
-<div id="3feb8bdf" class="cell" data-execution_count="14">
+<div id="a0f7f36f" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(NPTX2_tidy)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -381,7 +381,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 <p>To perform machine learning, I am using k-nearest neighbours as we are predicting categories of data (AD or healthy)</p>
 <p>To use k-nearest neighbours, we need to encode our data into a binary form which the algorithms can process:</p>
-<div id="d42583a8" class="cell" data-execution_count="15">
+<div id="00230034" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_encoded <span class="op">=</span> pd.get_dummies(df[<span class="st">"AD status"</span>])</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_encoded .head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -397,7 +397,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 <p>Now concatenating the two data frames:</p>
-<div id="59521ef3" class="cell" data-execution_count="16">
+<div id="8291e03d" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>binary <span class="op">=</span> pd.concat([df_encoded, df], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>binary.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -413,7 +413,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 <p>Visualising the data, plotting age against NPTX2 abundance</p>
-<div id="f7739107" class="cell" data-execution_count="17">
+<div id="0bf579a5" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>binary, x<span class="op">=</span><span class="st">"Age"</span>, y<span class="op">=</span><span class="st">"NPTX2 abundance"</span>, hue<span class="op">=</span><span class="st">"AD"</span>, palette<span class="op">=</span><span class="st">"Dark2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -426,7 +426,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 </div>
-<div id="891a619f" class="cell" data-execution_count="18">
+<div id="a1dcdf9d" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> binary[[<span class="st">"Age"</span>, <span class="st">"NPTX2 abundance"</span>]]</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> binary[<span class="st">"AD"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -441,7 +441,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 </div>
-<div id="b8221d4a" class="cell" data-execution_count="19">
+<div id="4c83566e" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>train_X, test_X, train_y, test_y <span class="op">=</span> train_test_split(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -457,7 +457,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 </div>
-<div id="c0335fd8" class="cell" data-execution_count="20">
+<div id="620543e4" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span>)</span>
@@ -476,7 +476,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 </div>
 <p>I am asking the question “Is patient y 0 or 1 (negative or positive) for AD?”</p>
-<div id="9b0eead9" class="cell" data-execution_count="21">
+<div id="dda0d90f" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> pd.DataFrame({<span class="st">"Age"</span>: [<span class="dv">70</span>], <span class="st">"NPTX2 abundance"</span>:[<span class="dv">297500</span>]})  <span class="co"># Make a new DataFrame containing the X values</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>pred[<span class="st">"AD"</span>] <span class="op">=</span> model.predict(pred)  <span class="co"># Make a prediction and add that data into the table</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -513,7 +513,7 @@ This second spreadsheet contained all the information including age, disease sta
 </div>
 <p><strong>Now test the reliability of your model. What is your model score? Would you use this model on real patients? Comment on the quality of the data you used in this exercise</strong></p>
 <p>Now testing the model:</p>
-<div id="5b8a9444" class="cell" data-execution_count="22">
+<div id="8bc0e1db" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>model.score(test_X, test_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
