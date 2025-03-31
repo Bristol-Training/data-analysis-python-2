@@ -3,4 +3,220 @@ title: Feature Importance Analysis
 jupyter: python3
 ---
 
-TBD
+## Introduction
+
+Feature importance analysis is used to understand the usefulness or value of each feature in making predictions. The goal is to identify the most influential features that have the greatest impact on the model’s output. Feature Importance Analysis is widely used in machine learning to enhance model interpretability and performance.
+
+## Why is Feature Importance Analysis Important?
+
+In a dataset with dozens or even hundreds of features, each feature may contribute to the performance of your machine learning model. However, not all features are equally valuable. Some may be redundant or irrelevant, increasing the complexity of the model and potentially leading to overfitting. Feature importance analysis helps identify and prioritize the most influential features, improving model efficiency, interpretability, and generalization.
+
+Feature importance analysis helps identify and focus on the most informative features, leading to several key advantages:
+
+1. **Improved Model Performance**.
+By selecting the most relevant features, the model can make more accurate predictions. Removing irrelevant or redundant features helps the model learn more effectively and generalize better to unseen data.
+
+2. **Reduced Overfitting**.
+Using too many features, especially those that are not informative, can cause the model to learn noise rather than meaningful patterns. Feature importance analysis helps eliminate unnecessary features, reducing the risk of overfitting and improving the model's ability to perform well on new data.
+
+3. **Faster Training and Inference**.
+With fewer but more relevant features, the computational cost of training the model decreases. This leads to faster model training and inference times, making it more efficient for large-scale applications.
+
+4. **Enhanced Interpretability**.
+Understanding which features contribute the most to predictions allows data scientists and domain experts to interpret model decisions more easily. This is particularly important in high-stakes applications like healthcare and finance, where model transparency is crucial.
+
+Now, let's explore some common methods for feature importance analysis in `scikit-learn`.
+
+## Feature Importance Analysis Methods
+
+Let's explore [Breast cancer wisconsin (diagnostic) dataset](https://scikit-learn.org/stable/datasets/toy_dataset.html#breast-cancer-wisconsin-diagnostic-dataset). This dataset includes information from 569 instances, with 30 numeric, predictive attributes such as radius, texture, perimeter, etc. Each sample is also labeled with a class that indicates the diagnosis, which can either be malignant (M) or benign (B). This dataset is commonly used for classification tasks, where the goal is to predict whether a tumor is malignant or benign based on the attributes.
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 478}
+from sklearn.datasets import load_breast_cancer
+
+X, y = load_breast_cancer (as_frame=True, return_X_y=True)
+y = y.astype("category")
+X
+```
+
+Let's get the attribute names.
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/'}
+from sklearn.datasets import load_breast_cancer
+
+# load dataset
+X, y = load_breast_cancer (as_frame=True, return_X_y=True)
+
+# get attribute information
+column_names = X.columns
+for index, column_name in enumerate(column_names):
+  print(index, column_name)
+```
+
+## Built-in Feature Importance
+
+Machine learning models such as linear regression and random forests have built-in capabilities to directly output feature importance scores. These scores provide insight into the contribution of each feature to the final prediction made by the model. Understanding feature importance is crucial, as it helps identify which input variables are the most influential in determining the model's output.
+
+For example, Random Forests Model evaluates how much each feature contributes to reducing the error in the model's predictions. The attribute `feature_importances_` can be used to access this information. In Random Forests, features that lead to larger reductions in prediction error across the trees are assigned higher importance scores. The importance score for a feature is typically calculated by aggregating the reduction in impurity (e.g., Gini impurity or entropy) across all the trees in the forest, weighted by the number of samples each tree uses.
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 449}
+from sklearn.datasets import load_breast_cancer
+from sklearn.ensemble import RandomForestClassifier
+import matplotlib.pyplot as plt
+
+# load dataset
+X, y = load_breast_cancer(return_X_y=True)
+
+# train model
+rf = RandomForestClassifier(n_estimators=100, random_state=1)
+rf.fit(X, y)
+
+# get feature importances
+importances = rf.feature_importances_
+
+# plot importances
+plt.bar(range(X.shape[1]), importances)
+plt.xlabel('Feature Index')
+plt.ylabel('Feature Importance')
+plt.show()
+```
+
+For features with high feature importance, it indicates that the feature is very useful in distinguishing between malignant and benign tumors, and the model relies on it to make predictions.
+
+For features with low feature importance, it suggests that the feature has a minimal impact on the model's predictions. This feature may not contribute significantly to distinguishing the target variable (whether the tumor is malignant or benign).
+
+## Recursive Feature Elimination (RFE)
+
+Recursive Feature Elimination (RFE) is a feature selection method that recursively removes features and evaluates the impact on the performance of the model. The process works by fitting the model multiple times and progressively eliminating the least important features based on a certain criterion, such as the feature’s weight or coefficient. By repeatedly evaluating the model's performance, RFE identifies which features contribute the most to the model's predictive power.
+
+In sklearn, RFE can be implemented using the `RFE` class. This function allows users to specify the estimator (such as a linear regression or decision tree model) that will be used to evaluate the importance of each feature. The `n_features_to_select` parameter specifies how many features to keep, and the process will stop once the specified number of features is reached.
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/'}
+from sklearn.datasets import load_breast_cancer
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_selection import RFE
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# load dataset
+X, y = load_breast_cancer(as_frame=True,return_X_y=True)
+
+# train model
+rf = RandomForestClassifier()
+rfe = RFE(rf, n_features_to_select=10)
+rfe.fit(X, y)
+
+# print importance
+print(rfe.ranking_)
+```
+
+For the output array, each element corresponds to the ranking of the respective feature, with a higher rank indicating greater feature importance.
+
+## Permutation Importance
+
+Permutation Importance evaluates the importance of each feature by randomly shuffling its values and observing how the model's performance decreases. This method works by permuting (randomizing) the values of each feature one at a time and measuring the impact on the model's accuracy.
+
+In sklearn, the `permutation_importance` function can be used to compute permutation importance scores. This function takes the fitted model, the validation data, and the target values as inputs and returns the importance scores for each feature based on how much the model's performance drops when the feature is permuted.
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 449}
+from sklearn.datasets import load_breast_cancer
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.inspection import permutation_importance
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+
+# load dataset
+cancer = load_breast_cancer()
+X_train, X_test, y_train, y_test = train_test_split(cancer.data, cancer.target, random_state=1)
+
+# train model
+rf = RandomForestClassifier(n_estimators=100, random_state=1)
+rf.fit(X_train, y_train)
+
+# get permutation importance
+result = permutation_importance(rf, X_test, y_test, n_repeats=10, random_state=1, scoring='accuracy')
+importances = result.importances_mean
+
+# plot importances
+plt.bar(range(len(importances)), importances)
+plt.xlabel('Feature Index')
+plt.ylabel('Permutation Importance')
+plt.show()
+```
+
+A feature with high permutation importance indicates that when its values are randomly shuffled, the model's performance (e.g., accuracy, mean squared error) drops significantly. This suggests that the feature contains crucial information that strongly influences the target variable.
+
+A feature with low permutation importance means that when its values are randomly shuffled, the model's performance remains nearly unchanged. This implies that the feature may be irrelevant, redundant, or contain too much noise. Such features can be considered for removal or further analysis to assess their necessity.
+
+## Analysis of Variance (ANOVA)
+
+Analysis of Variance (ANOVA) is a statistical method used to analyze the differences among group means and their associated variances. In the context of feature importance analysis, ANOVA is used to determine how strongly each feature is related to the target variable.
+
+In sklearn, the `f_classif()` function is commonly used to perform ANOVA for classification tasks. It calculates the F-statistic for each feature, which measures the ratio of variance between groups to the variance within the groups.
+
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 450}
+from sklearn.datasets import load_breast_cancer
+from sklearn.feature_selection import f_classif
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# load dataset
+X, y = load_breast_cancer(as_frame=True,return_X_y=True)
+
+# ANOVA
+df = pd.DataFrame(X, columns=range(len(X.columns)))
+df['y'] = y
+fval = f_classif(X, y)
+fval = pd.Series(fval[0], index=range(X.shape[1]))
+
+# plot importances
+plt.bar(range(X.shape[1]), fval)
+plt.xlabel('Feature Index')
+plt.ylabel('F-value')
+plt.show()
+```
+
+A feature with a higher F-value indicates that it provides more information about the target variable. It suggests that the feature is more discriminative in separating different classes.
+
+A low F-value means that the feature is not very useful for distinguishing between the target variable’s categories, suggesting a weaker relationship.
+
+## Chi-Square Test
+
+The Chi-Square Test is a statistical method used to assess whether there is a significant relationship between two categorical variables. In the context of feature importance analysis, the Chi-Square test is commonly used to evaluate the independence of each feature from the target variable.
+
+In sklearn, the `chi2()` function is used to perform the Chi-Square test for feature selection. It calculates the Chi-Square statistic for each feature, which measures how much the observed frequency of feature categories deviates from the expected frequency if the feature and target were independent.
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 449}
+from sklearn.datasets import load_breast_cancer
+from sklearn.feature_selection import chi2
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# load dataset
+X, y = load_breast_cancer(as_frame=True,return_X_y=True)
+
+# chi-2
+df = pd.DataFrame(X, columns=range(len(X.columns)))
+df['y'] = y
+chi_scores = chi2(X, y)
+chi_scores = pd.Series(chi_scores[0], index=range(X.shape[1]))
+
+# plot importances
+plt.bar(range(X.shape[1]), chi_scores)
+plt.xlabel('Feature Index')
+plt.ylabel('chi-2')
+plt.show()
+```
+
+A feature with a high Chi-Square statistic suggests that the feature is dependent on the target variable. This means the feature has a significant relationship with the target and is likely useful for prediction.
+
+A low Chi-Square statistic indicates that the feature is independent of the target variable, meaning it does not provide useful information for prediction.
+

@@ -1,5 +1,5 @@
 ---
-title: PCA of the anatomy of arthropods 
+title: PCA of morphological traits
 jupyter: python3
 ---
 

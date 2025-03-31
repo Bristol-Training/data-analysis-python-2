@@ -46,7 +46,7 @@ website:
           - extra/logistic-regression-housing.qmd
           - extra/medical-image-clustering.qmd
           - extra/feature-importance-analysis.qmd
-          - extra/pca-anatomy-arthropods.qmd
+          - extra/pca-morphological-traits.qmd
           - extra/prediction-alzheimer-disease.qmd
           
       - section: About
