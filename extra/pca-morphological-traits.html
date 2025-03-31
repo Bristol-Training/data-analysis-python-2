@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../extra/prediction-alzheimer-disease.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prediction of Alzheimer disease</span></a>
+ <span class="menu-text">Prediction of Alzheimer’s disease</span></a>
   </div>
 </li>
       </ul>
@@ -346,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="loading-the-iris-dataset">Loading the Iris dataset</h4>
 <p>The Iris dataset is directly available as part of <a href="https://scikit-learn.org/stable/#">scikit-learn</a>. It can be loaded using the sklearn.datasets.load_iris function (i.e., the load_iris function within the sklearn.datasets module).</p>
 <p>With the default parameters, a class object is returned, containing the data, the target values, the feature names, and the target names.</p>
-<div id="cc51fb89" class="cell" data-executioninfo="{&quot;elapsed&quot;:4911,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168449540,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="1">
+<div id="29dd92ff" class="cell" data-executioninfo="{&quot;elapsed&quot;:4911,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168449540,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> load_iris(as_frame<span class="op">=</span><span class="va">True</span>)</span>
@@ -359,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="plot-of-pairs-of-features-of-the-iris-dataset" class="level4">
 <h4 class="anchored" data-anchor-id="plot-of-pairs-of-features-of-the-iris-dataset">Plot of pairs of features of the Iris dataset</h4>
 <p>Let’s first explore the relationships between the features of the Iris dataset by plotting pairwise scatter plots. This helps us visually assess the distribution of the data and the potential for dimensionality reduction before applying PCA.</p>
-<div id="bce2f0ac" class="cell" data-executioninfo="{&quot;elapsed&quot;:22407,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168471953,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="2">
+<div id="565ad60c" class="cell" data-executioninfo="{&quot;elapsed&quot;:22407,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168471953,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename classes using the iris target names</span></span>
@@ -382,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now that we’ve seen the original feature relationships, let’s reduce the dimensionality of the dataset using PCA.</p>
 <p>We’ll apply PCA to the Iris dataset and project the data onto its first three principal components.</p>
 <p>This 3D scatter plot allows us to visualize how well the three Iris species can be separated in the reduced space.</p>
-<div id="a5d8a781" class="cell" data-executioninfo="{&quot;elapsed&quot;:2440,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168474395,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="3">
+<div id="a3752b9c" class="cell" data-executioninfo="{&quot;elapsed&quot;:2440,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168474395,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># unused but required import for doing 3d projections with matplotlib &lt; 3.2</span></span>
@@ -861,8 +861,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../extra/prediction-alzheimer-disease.html" class="pagination-link" aria-label="Prediction of Alzheimer disease">
-        <span class="nav-page-text">Prediction of Alzheimer disease</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../extra/prediction-alzheimer-disease.html" class="pagination-link" aria-label="Prediction of Alzheimer's disease">
+        <span class="nav-page-text">Prediction of Alzheimer’s disease</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

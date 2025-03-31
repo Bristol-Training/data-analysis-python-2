@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Prediction of Alzheimer disease – Applied Data Analysis in Python</title>
+<title>Prediction of Alzheimer’s disease – Applied Data Analysis in Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/990-what-next.html">Discussion</a></li><li class="breadcrumb-item"><a href="../extra/prediction-alzheimer-disease.html">Prediction of Alzheimer disease</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/990-what-next.html">Discussion</a></li><li class="breadcrumb-item"><a href="../extra/prediction-alzheimer-disease.html">Prediction of Alzheimer’s disease</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../extra/prediction-alzheimer-disease.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Prediction of Alzheimer disease</span></a>
+ <span class="menu-text">Prediction of Alzheimer’s disease</span></a>
   </div>
 </li>
       </ul>
@@ -309,16 +309,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
-  <li><a href="#worked-example-of-analysis" id="toc-worked-example-of-analysis" class="nav-link" data-scroll-target="#worked-example-of-analysis">Worked example of analysis</a></li>
+  <li><a href="#worked-example-of-analysis" id="toc-worked-example-of-analysis" class="nav-link" data-scroll-target="#worked-example-of-analysis">Worked example of analysis</a>
+  <ul class="collapse">
+  <li><a href="#importing-pandas-and-reading-excel-file" id="toc-importing-pandas-and-reading-excel-file" class="nav-link" data-scroll-target="#importing-pandas-and-reading-excel-file">Importing pandas and reading Excel file</a></li>
+  <li><a href="#importing-seaborn-and-visualising-data" id="toc-importing-seaborn-and-visualising-data" class="nav-link" data-scroll-target="#importing-seaborn-and-visualising-data">Importing seaborn and visualising data</a></li>
+  <li><a href="#further-data-analysis" id="toc-further-data-analysis" class="nav-link" data-scroll-target="#further-data-analysis">Further data analysis</a></li>
+  <li><a href="#classification" id="toc-classification" class="nav-link" data-scroll-target="#classification">Classification</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/edit/main/extra/prediction-alzheimer-disease.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/990-what-next.html">Discussion</a></li><li class="breadcrumb-item"><a href="../extra/prediction-alzheimer-disease.html">Prediction of Alzheimer disease</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/990-what-next.html">Discussion</a></li><li class="breadcrumb-item"><a href="../extra/prediction-alzheimer-disease.html">Prediction of Alzheimer’s disease</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Prediction of Alzheimer disease</h1>
+<h1 class="title">Prediction of Alzheimer’s disease</h1>
 </div>
 
 
@@ -337,18 +343,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="pre-requisites" class="level4">
 <h4 class="anchored" data-anchor-id="pre-requisites">Pre-requisites</h4>
-<p>You need to have some libraries installed to run this practical. If you are using Anaconda the recommended way to install it is with</p>
+<p>You may need to install some libraries to run this practical. If you are using Anaconda the recommended way to install it is with</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install openpyxl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Alternatively, you can use <code>pip</code> as in</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-U</span> pip</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-U</span> openpyxl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="goal" class="level3">
-<h3 class="anchored" data-anchor-id="goal">Goal</h3>
+<section id="goal" class="level2">
+<h2 class="anchored" data-anchor-id="goal">Goal</h2>
 <p>Use the <a href="https://www.embopress.org/doi/full/10.15252/msb.20199356">Bader <em>et al.</em> 2020</a> dataset to train a machine learning model which can test whether NPTX2 (identified as AD biomarker in <a href="https://doi.org/10.1016/j.cell.2024.08.049">Shen <em>et al.</em> 2024</a>) can be used to predict whether a patient has AD using CSF samples.</p>
 </section>
-<section id="background" class="level3">
-<h3 class="anchored" data-anchor-id="background">Background</h3>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>Alzheimer’s disease (AD) is a neurodegenerative disorder affecting millions of people worldwide. Approximately 1% of AD cases are classified as autosomal dominant Alzheimer’s disease (ADAD), meaning they are caused by mutations to the genes <em>PSEN1</em>, <em>PSEN2</em>, or <em>APP</em>. Almost all people with these mutations will go on to develop AD, typically with a younger onset than those with sporadic Alzheimer’s disease (sAD). With the genetic cause of ADAD generally understood but many causes of sAD unclear, studying the molecular basis of ADAD disease progression can inform how sAD may develop.</p>
 <p>Proteomics is an approach which involves looking at the entire complement of proteins expressed within a cell, tissue, or organism. Proteomics experiments can generate powerful molecular insights, such as by showing which proteins are up- or downregulated in different diseases. These experiments often generate very large datasets, which can be overwhelming to analyse. However, data science approaches such as machine learning can greatly enhance our ability to extract useful information from these datasets.</p>
 <p>A recent paper showcases how machine learning can be applied to proteomics datasets <a href="https://doi.org/10.1016/j.cell.2024.08.049" class="uri">https://doi.org/10.1016/j.cell.2024.08.049</a>.</p>
@@ -356,16 +362,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The study also reveals that many ADAD-associated proteins are associated with sAD as well, which could represent a large step forwards in diagnosis of sAD (the more common form of AD).</p>
 <p><strong>Your task is to test whether this proposed biomarker for ADAD can also predict whether a patient has developed sAD.</strong></p>
 </section>
-<section id="questions" class="level3">
-<h3 class="anchored" data-anchor-id="questions">Questions</h3>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <p>Patient X, aged 70, has visited their doctor with cognitive symptoms. After taking a CSF sample and performing mass spectrometry, the abundance of NPTX2 was detected as 321700.</p>
 <ol type="1">
 <li><p>Using the data from a publicly available database of CSF samples taken from healthy or AD patients, create an appropriate ML model to predict whether Patient X has Alzheimer’s Disease. Comment on why you chose this model and how reliable it is.</p></li>
 <li><p>Patient X does have AD. Did your model predict this? If not, why might this be?</p></li>
 </ol>
 </section>
-<section id="dataset" class="level3">
-<h3 class="anchored" data-anchor-id="dataset">Dataset</h3>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
 <p>The complete data can be found in the supplementary files below:</p>
 <ul>
 <li><a href="https://www.embopress.org/doi/suppl/10.15252/msb.20199356/suppl_file/msb199356-sup-0003-datasetev1.xlsx">Proteomics data</a></li>
@@ -394,12 +400,12 @@ Pre-processing of the data
 </div>
 </div>
 </section>
-<section id="worked-example-of-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="worked-example-of-analysis">Worked example of analysis</h3>
+<section id="worked-example-of-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-of-analysis">Worked example of analysis</h2>
 <p>See below for a worked example, with additional exercises and questions to consider.</p>
-<section id="importing-pandas-and-reading-excel-file" class="level4">
-<h4 class="anchored" data-anchor-id="importing-pandas-and-reading-excel-file">Importing pandas and reading Excel file</h4>
-<div id="461b061e" class="cell" data-execution_count="1">
+<section id="importing-pandas-and-reading-excel-file" class="level3">
+<h3 class="anchored" data-anchor-id="importing-pandas-and-reading-excel-file">Importing pandas and reading Excel file</h3>
+<div id="ae4d548a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy <span class="op">=</span> pd.read_excel(<span class="st">"extra/data/EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.xlsx"</span>)</span>
@@ -487,13 +493,13 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 </section>
-<section id="importing-seaborn-and-visualising-data" class="level4">
-<h4 class="anchored" data-anchor-id="importing-seaborn-and-visualising-data">Importing seaborn and visualising data</h4>
-<div id="4ec7e053" class="cell" data-execution_count="2">
+<section id="importing-seaborn-and-visualising-data" class="level3">
+<h3 class="anchored" data-anchor-id="importing-seaborn-and-visualising-data">Importing seaborn and visualising data</h3>
+<div id="ffef9365" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To compare NPTX2 abundance in control vs AD groups open the data in Jupyter Notebooks. Use a suitable plot to visualise the distribution of NPTX2 abundance between the control and AD patients. What do you notice and what does this indicate about the suitability of this protein as a biomarker?</p>
-<div id="00dfbaa4" class="cell" data-execution_count="3">
+<div id="3a24e40b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"NPTX2 abundance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -508,10 +514,10 @@ During handling of the above exception, another exception occurred:
 </div>
 <p>From this initial glance, it is apparent that the two groups have similar distributions of NPTX2 abundance, which indicates that this may not be a good biomarker for AD status in this dataset, as we would expect AD patients to have higher levels of NPTX2.</p>
 </section>
-<section id="further-data-analysis" class="level4">
-<h4 class="anchored" data-anchor-id="further-data-analysis">Further data analysis</h4>
+<section id="further-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="further-data-analysis">Further data analysis</h3>
 <p><strong>How are the different variables distributed (e.g.&nbsp;AD status, age, within different collection sites)?</strong></p>
-<div id="c4338902" class="cell" data-execution_count="4">
+<div id="2e08ddaa" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.dtypes <span class="co">#Checking data types. Object = categorical</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>]</span>
@@ -532,7 +538,7 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 <p>This reveals that there are more AD than control patients. <strong>Is this important?</strong></p>
-<div id="c2f44f10" class="cell" data-execution_count="5">
+<div id="8a0668de" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.groupby(by<span class="op">=</span>[<span class="st">"AD status"</span>]).mean(numeric_only <span class="op">=</span><span class="va">True</span>) <span class="co">#Grouping by AD status to see how all numerical conditions vary across AD vs control</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -546,7 +552,7 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 <p>Looking at the mean ages and NPTX2 abundances shows that the NPTX2 is very similar between the 2 groups (as mentioned earlier). Also, there is difference in age between the two groups. <strong>How might this affect our interpretation of the data?</strong></p>
-<div id="3cefd421" class="cell" data-execution_count="6">
+<div id="75ce4ba0" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"AD status"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -560,7 +566,7 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 <p>This scatterplot also shows that the control group has a population of younger patients not present in the AD group. Let’s see if that population clusters with another variable (e.g.&nbsp;collection site)</p>
-<div id="79b0c43a" class="cell" data-execution_count="7">
+<div id="e3b4301b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(index<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>], columns<span class="op">=</span>NPTX2_tidy[<span class="st">"Gender"</span>]) <span class="co">#The cross-tabulation allows you to look at the frequency distribution of multiple categorical variables, and see how they are related to one another</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"Collection site"</span>)</span>
@@ -581,7 +587,7 @@ During handling of the above exception, another exception occurred:
 </div>
 <p>This shows that all of the patients from the Kiel subset are control – there are no AD patients – and this cohort is disproportionately younger than the other chorts. <strong>How might this affect the dataset, or the way that we analyse it?</strong></p>
 <p><strong>As an extension task, after you fit your model the first time, try it without the Kiel dataset. Does this affect your result?</strong></p>
-<div id="cc9c120a" class="cell" data-execution_count="8">
+<div id="390fe2d2" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(NPTX2_tidy)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -597,10 +603,10 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 </section>
-<section id="classification" class="level4">
-<h4 class="anchored" data-anchor-id="classification">Classification</h4>
+<section id="classification" class="level3">
+<h3 class="anchored" data-anchor-id="classification">Classification</h3>
 <p>Here we will use k-nearest neighbours for predicting categories of data (AD or healthy). To use it, we need to encode our data into a binary form which the algorithms can process:</p>
-<div id="539e16d1" class="cell" data-execution_count="9">
+<div id="90f90fc5" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_encoded <span class="op">=</span> pd.get_dummies(df[<span class="st">"AD status"</span>])</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_encoded .head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -616,7 +622,7 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 <p>Now concatenating the two data frames:</p>
-<div id="b55167f8" class="cell" data-execution_count="10">
+<div id="912587fb" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>binary <span class="op">=</span> pd.concat([df_encoded, df], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>binary.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -632,7 +638,7 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 <p>Visualising the data, plotting age against NPTX2 abundance</p>
-<div id="7a58334f" class="cell" data-execution_count="11">
+<div id="4e607492" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -661,7 +667,7 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 <p>I am asking the question “Is patient y 0 or 1 (negative or positive) for AD?”</p>
-<div id="e58bc7c3" class="cell" data-execution_count="12">
+<div id="1eb7db4d" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> pd.DataFrame({<span class="st">"Age"</span>: [<span class="dv">70</span>], <span class="st">"NPTX2 abundance"</span>:[<span class="dv">297500</span>]})  <span class="co"># Make a new DataFrame containing the X values</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pred[<span class="st">"AD"</span>] <span class="op">=</span> model.predict(pred)  <span class="co"># Make a prediction and add that data into the table</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -680,7 +686,7 @@ During handling of the above exception, another exception occurred:
 </div>
 <p><strong>Now test the reliability of your model. What is your model score? Would you use this model on real patients? Comment on the quality of the data you used in this exercise.</strong></p>
 <p>Now testing the model:</p>
-<div id="ffa983ee" class="cell" data-execution_count="13">
+<div id="db336318" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model.score(test_X, test_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
