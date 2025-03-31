@@ -1,0 +1,5 @@
+---
+title: Prediction of Alzheimer Disease
+jupyter: python3
+---
+
