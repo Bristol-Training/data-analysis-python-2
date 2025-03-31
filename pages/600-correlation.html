@@ -188,12 +188,12 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="multiple-cross-correlation">Multiple cross-correlation</h3>
 <p>It’s very common when working on real data that you have more than two figures of interest.</p>
 <p>To get a sense of some real data, let’s look at a <a href="https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset">housing dataset</a> provided by scikit-learn.</p>
-<div id="0c18f367" class="cell" data-execution_count="1">
+<div id="a3af7a5b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_california_housing</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>housing, target <span class="op">=</span> fetch_california_housing(as_frame<span class="op">=</span><span class="va">True</span>, return_X_y<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="54eeadc0" class="cell" data-execution_count="2">
+<div id="813c8fcc" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>housing.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
@@ -277,7 +277,7 @@ window.Quarto = {
 </div>
 <p>It has a row for each census block and a column for each feature, e.g.&nbsp;“median income of the block”, “average house age of the block” etc.</p>
 <p>To get the linear correlation between all these features, we call the <code>corr()</code> method on the <code>DataFrame</code>:</p>
-<div id="ad1fed71" class="cell" data-execution_count="3">
+<div id="8b3c02fb" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>housing.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -395,7 +395,7 @@ window.Quarto = {
 <p>Here we see the features in our data set along both the rows and the columns. The correlation between each pair is given as a number between -1.0 and 1.0 where -1.0 is absolute inverse linear correlation, 1.0 is absolute positive linear correlation and zero is no linear correlation.</p>
 <p>We see the the 1.0 occuring on the diagonal (because a variable is always completely correlated with itself) and a whole range of values between -1.0 and 1.0 off-diagonal.</p>
 <p>If we want the correlation between two specific columns then we can request it from this object:</p>
-<div id="f9b8b69e" class="cell" data-execution_count="4">
+<div id="ad4b2caa" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> housing.corr()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>corr[<span class="st">"MedInc"</span>][<span class="st">"AveRooms"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -1022,7 +1022,7 @@ NaN
 <h3 class="anchored" data-anchor-id="plotting-the-correlation">Plotting the correlation</h3>
 <p>Viewing the correlation coefficients as a table is useful if you want the precise value of the correlation but often you want a visual overview which can give you the information you want at a glance.</p>
 <p>The easiest way to view it is as a heat map where each cell has a colour showing the value of the correlation using Seaborn which is a visualisation library that provides a higher-level interface to Matplotlib.</p>
-<div id="9b9cbed9" class="cell" data-execution_count="5">
+<div id="ff144161" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr, vmin<span class="op">=-</span><span class="fl">1.0</span>, vmax<span class="op">=</span><span class="fl">1.0</span>, square<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">"RdBu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1044,7 +1044,7 @@ NaN
 <p>Each box that is an intersection of a variable with another (e.g.&nbsp;row three, column one is the intersection between “AveRooms” and “MedInc”) shows the scatter plot of how the values of those variables relate to each other. If you see a strong diagonal line it means that those variables are correlated in this data set. It it’s more of a blob or a flat horizontal or vertical line then that suggests a low correlation.</p>
 <p>The top-right triangle of the plot is a repeat of the bottom-left triangle, just with the items in the pair reversed (i.e.&nbsp;row one, column three is the intersection between “MedInc” and “AveRooms”).</p>
 <p>The square boxes along the diagonal from the top-left to the bottom-right are those intersections of a variable with itself and so are used, not to show correlation, but to show the distribution of values of each single variable as a histogram.</p>
-<div id="925fd8bd" class="cell" data-execution_count="6">
+<div id="5bacf546" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas.plotting <span class="im">import</span> scatter_matrix</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> scatter_matrix(housing, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
