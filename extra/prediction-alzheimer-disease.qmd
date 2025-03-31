@@ -19,12 +19,12 @@ python -m pip install -U openpyxl
 ```
 
 ## Goal
-Use the Bader 2020 dataset to train a machine learning model which can test whether NPTX2 (identified as AD biomarker in Shen 2024, Cell) can be used to predict whether a patient has AD using CSF samples.
+Use the [Bader *et al.* 2020](https://www.embopress.org/doi/full/10.15252/msb.20199356) dataset to train a machine learning model which can test whether NPTX2 (identified as AD biomarker in [Shen *et al.* 2024](https://doi.org/10.1016/j.cell.2024.08.049)) can be used to predict whether a patient has AD using CSF samples.
 
 
 ## Background
 
-Alzheimer's disease (AD) is a neurodegenerative disorder affecting millions of people worldwide. Approximately 1% of AD cases are classified as Autosomal dominant Alzheimer’s disease (ADAD), meaning they are caused by mutations to the genes *PSEN1*, *PSEN2*, or *APP*. Almost all people with these mutations will go on to develop AD, typically with a younger onset than those with sporadic Alzheimer's disease (sAD). With the genetic cause of ADAD generally understood but many causes of sAD unclear, studying the molecular basis of ADAD disease progression can inform how sAD may develop.
+Alzheimer's disease (AD) is a neurodegenerative disorder affecting millions of people worldwide. Approximately 1% of AD cases are classified as autosomal dominant Alzheimer’s disease (ADAD), meaning they are caused by mutations to the genes *PSEN1*, *PSEN2*, or *APP*. Almost all people with these mutations will go on to develop AD, typically with a younger onset than those with sporadic Alzheimer's disease (sAD). With the genetic cause of ADAD generally understood but many causes of sAD unclear, studying the molecular basis of ADAD disease progression can inform how sAD may develop.
  
 Proteomics is an approach which involves looking at the entire complement of proteins expressed within a cell, tissue, or organism. Proteomics experiments can generate powerful molecular insights, such as by showing which proteins are up- or downregulated in different diseases. These experiments often generate very large datasets, which can be overwhelming to analyse. However, data science approaches such as machine learning can greatly enhance our ability to extract useful information from these datasets.
  
@@ -96,26 +96,26 @@ sns.catplot(data=NPTX2_tidy, x="AD status", y="NPTX2 abundance")
 
 From this initial glance, it is apparent that the two groups have similar distributions of NPTX2 abundance, which indicates that this may not be a good biomarker for AD status in this dataset, as we would expect AD patients to have higher levels of NPTX2. 
 
-**Examine the data further - how are the different variables distributed (e.g. AD status, age, within different collection sites)?**
+### Further data analysis
+
+**How are the different variables distributed (e.g. AD status, age, within different collection sites)?**
 
 ```{python}
 NPTX2_tidy.dtypes #Checking data types. Object = categorical
 
 x=NPTX2_tidy["AD status"]
 y=NPTX2_tidy["NPTX2 abundance"]
-```
 
-```{python}
 NPTX2_tidy.value_counts(x) 
 ```
 
-**This reveals that there are more AD than control patients - does this matter?**
+This reveals that there are more AD than control patients. **Is this important?**
 
 ```{python}
 NPTX2_tidy.groupby(by=["AD status"]).mean(numeric_only =True) #Grouping by AD status to see how all numerical conditions vary across AD vs control
 ```
 
-**Looking at the mean ages and NPTX2 abundances shows that the NPTX2 is very similar between the 2 groups (as mentioned earlier). Also, there is difference in age between the two groups - does this matter? How might this affect our interpretation of the data?**
+Looking at the mean ages and NPTX2 abundances shows that the NPTX2 is very similar between the 2 groups (as mentioned earlier). Also, there is difference in age between the two groups. **How might this affect our interpretation of the data?**
 
 ```{python}
 sns.catplot(data=NPTX2_tidy, x="AD status", y="Age", hue="AD status")
@@ -125,26 +125,24 @@ This scatterplot also shows that the control group has a population of younger p
 
 ```{python}
 pd.crosstab(index=NPTX2_tidy["AD status"], columns=NPTX2_tidy["Gender"]) #The cross-tabulation allows you to look at the frequency distribution of multiple categorical variables, and see how they are related to one another
-```
 
-```{python}
 sns.catplot(data=NPTX2_tidy, x="AD status", y="Age", hue="Collection site")
-```
 
-```{python}
 pd.crosstab(index=NPTX2_tidy["AD status"], columns=NPTX2_tidy["Collection site"])
 ```
 
-**This shows that all of the patients from the Kiel subset are control -- there are no AD patients -- and this cohort is disproportionately younger than the other chorts. How might this affect the dataset, or the way that we analyse it?<br>As an extension task, after you fit your model the first time, try it without the Kiel dataset. Does this affect your result?**
+This shows that all of the patients from the Kiel subset are control -- there are no AD patients -- and this cohort is disproportionately younger than the other chorts. **How might this affect the dataset, or the way that we analyse it?**
+
+**As an extension task, after you fit your model the first time, try it without the Kiel dataset. Does this affect your result?**
 
 ```{python}
 df = pd.DataFrame(NPTX2_tidy)
 df.head()
 ```
 
-To perform machine learning, I am using k-nearest neighbours as we are predicting categories of data (AD or healthy)
+### Classification
 
-To use k-nearest neighbours, we need to encode our data into a binary form which the algorithms can process:
+Here we will use k-nearest neighbours for predicting categories of data (AD or healthy). To use it, we need to encode our data into a binary form which the algorithms can process:
 
 ```{python}
 df_encoded = pd.get_dummies(df["AD status"])
@@ -161,22 +159,15 @@ binary.head()
 Visualising the data, plotting age against NPTX2 abundance
 
 ```{python}
-sns.scatterplot(data=binary, x="Age", y="NPTX2 abundance", hue="AD", palette="Dark2")
-```
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
 
-```{python}
+sns.scatterplot(data=binary, x="Age", y="NPTX2 abundance", hue="AD", palette="Dark2")
+
 X = binary[["Age", "NPTX2 abundance"]]
 y = binary["AD"]
-```
-
-```{python}
-from sklearn.model_selection import train_test_split
 
 train_X, test_X, train_y, test_y = train_test_split(X, y)
-```
-
-```{python}
-from sklearn.neighbors import KNeighborsClassifier
 
 model = KNeighborsClassifier(n_neighbors=10)
 model.fit(train_X, train_y)
@@ -190,7 +181,7 @@ pred["AD"] = model.predict(pred)  # Make a prediction and add that data into the
 pred
 ```
 
-**Now test the reliability of your model. What is your model score? Would you use this model on real patients? Comment on the quality of the data you used in this exercise**
+**Now test the reliability of your model. What is your model score? Would you use this model on real patients? Comment on the quality of the data you used in this exercise.**
 
 Now testing the model:
 

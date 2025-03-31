@@ -345,11 +345,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="goal" class="level3">
 <h3 class="anchored" data-anchor-id="goal">Goal</h3>
-<p>Use the Bader 2020 dataset to train a machine learning model which can test whether NPTX2 (identified as AD biomarker in Shen 2024, Cell) can be used to predict whether a patient has AD using CSF samples.</p>
+<p>Use the <a href="https://www.embopress.org/doi/full/10.15252/msb.20199356">Bader <em>et al.</em> 2020</a> dataset to train a machine learning model which can test whether NPTX2 (identified as AD biomarker in <a href="https://doi.org/10.1016/j.cell.2024.08.049">Shen <em>et al.</em> 2024</a>) can be used to predict whether a patient has AD using CSF samples.</p>
 </section>
 <section id="background" class="level3">
 <h3 class="anchored" data-anchor-id="background">Background</h3>
-<p>Alzheimer’s disease (AD) is a neurodegenerative disorder affecting millions of people worldwide. Approximately 1% of AD cases are classified as Autosomal dominant Alzheimer’s disease (ADAD), meaning they are caused by mutations to the genes <em>PSEN1</em>, <em>PSEN2</em>, or <em>APP</em>. Almost all people with these mutations will go on to develop AD, typically with a younger onset than those with sporadic Alzheimer’s disease (sAD). With the genetic cause of ADAD generally understood but many causes of sAD unclear, studying the molecular basis of ADAD disease progression can inform how sAD may develop.</p>
+<p>Alzheimer’s disease (AD) is a neurodegenerative disorder affecting millions of people worldwide. Approximately 1% of AD cases are classified as autosomal dominant Alzheimer’s disease (ADAD), meaning they are caused by mutations to the genes <em>PSEN1</em>, <em>PSEN2</em>, or <em>APP</em>. Almost all people with these mutations will go on to develop AD, typically with a younger onset than those with sporadic Alzheimer’s disease (sAD). With the genetic cause of ADAD generally understood but many causes of sAD unclear, studying the molecular basis of ADAD disease progression can inform how sAD may develop.</p>
 <p>Proteomics is an approach which involves looking at the entire complement of proteins expressed within a cell, tissue, or organism. Proteomics experiments can generate powerful molecular insights, such as by showing which proteins are up- or downregulated in different diseases. These experiments often generate very large datasets, which can be overwhelming to analyse. However, data science approaches such as machine learning can greatly enhance our ability to extract useful information from these datasets.</p>
 <p>A recent paper showcases how machine learning can be applied to proteomics datasets <a href="https://doi.org/10.1016/j.cell.2024.08.049" class="uri">https://doi.org/10.1016/j.cell.2024.08.049</a>.</p>
 <p>Using a cerebrospinal fluid (CSF) proteomics database taken from mutation carriers or non-carriers for ADAD, the authors sought to find biomarkers for the disease. The authors identify six proteins which can be used to predict with high accuracy whether a patient is a mutation carrier or a non-carrier for ADAD. One of these proteins is NPTX2.</p>
@@ -399,7 +399,7 @@ Pre-processing of the data
 <p>See below for a worked example, with additional exercises and questions to consider.</p>
 <section id="importing-pandas-and-reading-excel-file" class="level4">
 <h4 class="anchored" data-anchor-id="importing-pandas-and-reading-excel-file">Importing pandas and reading Excel file</h4>
-<div id="589ef6db" class="cell" data-execution_count="1">
+<div id="461b061e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy <span class="op">=</span> pd.read_excel(<span class="st">"extra/data/EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.xlsx"</span>)</span>
@@ -489,11 +489,11 @@ During handling of the above exception, another exception occurred:
 </section>
 <section id="importing-seaborn-and-visualising-data" class="level4">
 <h4 class="anchored" data-anchor-id="importing-seaborn-and-visualising-data">Importing seaborn and visualising data</h4>
-<div id="947e6e60" class="cell" data-execution_count="2">
+<div id="4ec7e053" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To compare NPTX2 abundance in control vs AD groups open the data in Jupyter Notebooks. Use a suitable plot to visualise the distribution of NPTX2 abundance between the control and AD patients. What do you notice and what does this indicate about the suitability of this protein as a biomarker?</p>
-<div id="51ed51c9" class="cell" data-execution_count="3">
+<div id="00dfbaa4" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"NPTX2 abundance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -507,12 +507,17 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 <p>From this initial glance, it is apparent that the two groups have similar distributions of NPTX2 abundance, which indicates that this may not be a good biomarker for AD status in this dataset, as we would expect AD patients to have higher levels of NPTX2.</p>
-<p><strong>Examine the data further - how are the different variables distributed (e.g.&nbsp;AD status, age, within different collection sites)?</strong></p>
-<div id="fd5505b3" class="cell" data-execution_count="4">
+</section>
+<section id="further-data-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="further-data-analysis">Further data analysis</h4>
+<p><strong>How are the different variables distributed (e.g.&nbsp;AD status, age, within different collection sites)?</strong></p>
+<div id="c4338902" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.dtypes <span class="co">#Checking data types. Object = categorical</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>]</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span>NPTX2_tidy[<span class="st">"NPTX2 abundance"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span>NPTX2_tidy[<span class="st">"NPTX2 abundance"</span>]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.value_counts(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -526,41 +531,28 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 </div>
-<div id="467f176d" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.value_counts(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This reveals that there are more AD than control patients. <strong>Is this important?</strong></p>
+<div id="c2f44f10" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.groupby(by<span class="op">=</span>[<span class="st">"AD status"</span>]).mean(numeric_only <span class="op">=</span><span class="va">True</span>) <span class="co">#Grouping by AD status to see how all numerical conditions vary across AD vs control</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[5]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">NPTX2_tidy</span>.value_counts(x) 
-
-<span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
-</div>
-</div>
-</div>
-<p><strong>This reveals that there are more AD than control patients - does this matter?</strong></p>
-<div id="880feaa7" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>NPTX2_tidy.groupby(by<span class="op">=</span>[<span class="st">"AD status"</span>]).mean(numeric_only <span class="op">=</span><span class="va">True</span>) <span class="co">#Grouping by AD status to see how all numerical conditions vary across AD vs control</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[6]</span><span class="ansi-green-fg">, line 1</span>
 <span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">NPTX2_tidy</span>.groupby(by=[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>]).mean(numeric_only =<span style="font-weight:bold;color:rgb(0,135,0)">True</span>) <span style="font-style:italic;color:rgb(95,135,135)">#Grouping by AD status to see how all numerical conditions vary across AD vs control</span>
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
 </div>
 </div>
 </div>
-<p><strong>Looking at the mean ages and NPTX2 abundances shows that the NPTX2 is very similar between the 2 groups (as mentioned earlier). Also, there is difference in age between the two groups - does this matter? How might this affect our interpretation of the data?</strong></p>
-<div id="9ac395db" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"AD status"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Looking at the mean ages and NPTX2 abundances shows that the NPTX2 is very similar between the 2 groups (as mentioned earlier). Also, there is difference in age between the two groups. <strong>How might this affect our interpretation of the data?</strong></p>
+<div id="3cefd421" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"AD status"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[7]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[6]</span><span class="ansi-green-fg">, line 1</span>
 <span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> sns.catplot(data=<span class="ansi-yellow-bg">NPTX2_tidy</span>, x=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>, y=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>, hue=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>)
 
 <span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
@@ -568,54 +560,35 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 <p>This scatterplot also shows that the control group has a population of younger patients not present in the AD group. Let’s see if that population clusters with another variable (e.g.&nbsp;collection site)</p>
-<div id="0952571b" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(index<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>], columns<span class="op">=</span>NPTX2_tidy[<span class="st">"Gender"</span>]) <span class="co">#The cross-tabulation allows you to look at the frequency distribution of multiple categorical variables, and see how they are related to one another</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="79b0c43a" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(index<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>], columns<span class="op">=</span>NPTX2_tidy[<span class="st">"Gender"</span>]) <span class="co">#The cross-tabulation allows you to look at the frequency distribution of multiple categorical variables, and see how they are related to one another</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"Collection site"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>pd.crosstab(index<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>], columns<span class="op">=</span>NPTX2_tidy[<span class="st">"Collection site"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[7]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> pd.crosstab(index=<span class="ansi-yellow-bg">NPTX2_tidy</span>[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>], columns=NPTX2_tidy[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Gender</span><span class="ansi-yellow-fg">"</span>]) <span style="font-style:italic;color:rgb(95,135,135)">#The cross-tabulation allows you to look at the frequency distribution of multiple categorical variables, and see how they are related to one another</span>
+<span class="ansi-green-fg">      3</span> sns.catplot(data=NPTX2_tidy, x=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>, y=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>, hue=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Collection site</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-green-fg">      5</span> pd.crosstab(index=NPTX2_tidy[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>], columns=NPTX2_tidy[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Collection site</span><span class="ansi-yellow-fg">"</span>])
+
+<span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
+</div>
+</div>
+</div>
+<p>This shows that all of the patients from the Kiel subset are control – there are no AD patients – and this cohort is disproportionately younger than the other chorts. <strong>How might this affect the dataset, or the way that we analyse it?</strong></p>
+<p><strong>As an extension task, after you fit your model the first time, try it without the Kiel dataset. Does this affect your result?</strong></p>
+<div id="cc9c120a" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(NPTX2_tidy)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[8]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> pd.crosstab(index=<span class="ansi-yellow-bg">NPTX2_tidy</span>[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>], columns=NPTX2_tidy[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Gender</span><span class="ansi-yellow-fg">"</span>]) <span style="font-style:italic;color:rgb(95,135,135)">#The cross-tabulation allows you to look at the frequency distribution of multiple categorical variables, and see how they are related to one another</span>
-
-<span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
-</div>
-</div>
-</div>
-<div id="af8ec540" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>NPTX2_tidy, x<span class="op">=</span><span class="st">"AD status"</span>, y<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"Collection site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[9]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> sns.catplot(data=<span class="ansi-yellow-bg">NPTX2_tidy</span>, x=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>, y=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>, hue=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Collection site</span><span class="ansi-yellow-fg">"</span>)
-
-<span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
-</div>
-</div>
-</div>
-<div id="c3a90a34" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(index<span class="op">=</span>NPTX2_tidy[<span class="st">"AD status"</span>], columns<span class="op">=</span>NPTX2_tidy[<span class="st">"Collection site"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[10]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> pd.crosstab(index=<span class="ansi-yellow-bg">NPTX2_tidy</span>[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>], columns=NPTX2_tidy[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Collection site</span><span class="ansi-yellow-fg">"</span>])
-
-<span class="ansi-red-fg">NameError</span>: name 'NPTX2_tidy' is not defined</pre>
-</div>
-</div>
-</div>
-<p><strong>This shows that all of the patients from the Kiel subset are control – there are no AD patients – and this cohort is disproportionately younger than the other chorts. How might this affect the dataset, or the way that we analyse it?<br>As an extension task, after you fit your model the first time, try it without the Kiel dataset. Does this affect your result?</strong></p>
-<div id="669bdcab" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(NPTX2_tidy)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[11]</span><span class="ansi-green-fg">, line 1</span>
 <span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df = pd.DataFrame(<span class="ansi-yellow-bg">NPTX2_tidy</span>)
 <span class="ansi-green-fg">      2</span> df.head()
 
@@ -623,16 +596,18 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 </div>
-<p>To perform machine learning, I am using k-nearest neighbours as we are predicting categories of data (AD or healthy)</p>
-<p>To use k-nearest neighbours, we need to encode our data into a binary form which the algorithms can process:</p>
-<div id="6402e56a" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_encoded <span class="op">=</span> pd.get_dummies(df[<span class="st">"AD status"</span>])</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_encoded .head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="classification" class="level4">
+<h4 class="anchored" data-anchor-id="classification">Classification</h4>
+<p>Here we will use k-nearest neighbours for predicting categories of data (AD or healthy). To use it, we need to encode our data into a binary form which the algorithms can process:</p>
+<div id="539e16d1" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_encoded <span class="op">=</span> pd.get_dummies(df[<span class="st">"AD status"</span>])</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_encoded .head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[12]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[9]</span><span class="ansi-green-fg">, line 1</span>
 <span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> df_encoded = pd.get_dummies(<span class="ansi-yellow-bg">df</span>[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD status</span><span class="ansi-yellow-fg">"</span>])
 <span class="ansi-green-fg">      2</span> df_encoded .head()
 
@@ -641,14 +616,14 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 <p>Now concatenating the two data frames:</p>
-<div id="cc07a354" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>binary <span class="op">=</span> pd.concat([df_encoded, df], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>binary.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b55167f8" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>binary <span class="op">=</span> pd.concat([df_encoded, df], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>binary.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[13]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[10]</span><span class="ansi-green-fg">, line 1</span>
 <span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> binary = pd.concat([<span class="ansi-yellow-bg">df_encoded</span>, df], axis=<span class="ansi-green-fg">1</span>)
 <span class="ansi-green-fg">      2</span> binary.head()
 
@@ -657,116 +632,64 @@ During handling of the above exception, another exception occurred:
 </div>
 </div>
 <p>Visualising the data, plotting age against NPTX2 abundance</p>
-<div id="728e81b2" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>binary, x<span class="op">=</span><span class="st">"Age"</span>, y<span class="op">=</span><span class="st">"NPTX2 abundance"</span>, hue<span class="op">=</span><span class="st">"AD"</span>, palette<span class="op">=</span><span class="st">"Dark2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7a58334f" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>binary, x<span class="op">=</span><span class="st">"Age"</span>, y<span class="op">=</span><span class="st">"NPTX2 abundance"</span>, hue<span class="op">=</span><span class="st">"AD"</span>, palette<span class="op">=</span><span class="st">"Dark2"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> binary[[<span class="st">"Age"</span>, <span class="st">"NPTX2 abundance"</span>]]</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> binary[<span class="st">"AD"</span>]</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>train_X, test_X, train_y, test_y <span class="op">=</span> train_test_split(X, y)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>model.fit(train_X, train_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[14]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> sns.scatterplot(data=<span class="ansi-yellow-bg">binary</span>, x=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>, y=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">NPTX2 abundance</span><span class="ansi-yellow-fg">"</span>, hue=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD</span><span class="ansi-yellow-fg">"</span>, palette=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Dark2</span><span class="ansi-yellow-fg">"</span>)
-
-<span class="ansi-red-fg">NameError</span>: name 'binary' is not defined</pre>
-</div>
-</div>
-</div>
-<div id="1cafb16c" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> binary[[<span class="st">"Age"</span>, <span class="st">"NPTX2 abundance"</span>]]</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> binary[<span class="st">"AD"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[15]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> X = <span class="ansi-yellow-bg">binary</span>[[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>, <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">NPTX2 abundance</span><span class="ansi-yellow-fg">"</span>]]
-<span class="ansi-green-fg">      2</span> y = binary[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD</span><span class="ansi-yellow-fg">"</span>]
-
-<span class="ansi-red-fg">NameError</span>: name 'binary' is not defined</pre>
-</div>
-</div>
-</div>
-<div id="57e85348" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>train_X, test_X, train_y, test_y <span class="op">=</span> train_test_split(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[16]</span><span class="ansi-green-fg">, line 3</span>
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[11]</span><span class="ansi-green-fg">, line 4</span>
 <span class="ansi-green-fg">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg ansi-bold">sklearn</span><span class="ansi-blue-fg ansi-bold">.</span><span class="ansi-blue-fg ansi-bold">model_selection</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(0,135,0)">import</span> train_test_split
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">3</span> train_X, test_X, train_y, test_y = train_test_split(<span class="ansi-yellow-bg">X</span>, y)
+<span class="ansi-green-fg">      2</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg ansi-bold">sklearn</span><span class="ansi-blue-fg ansi-bold">.</span><span class="ansi-blue-fg ansi-bold">neighbors</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(0,135,0)">import</span> KNeighborsClassifier
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">4</span> sns.scatterplot(data=<span class="ansi-yellow-bg">binary</span>, x=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>, y=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">NPTX2 abundance</span><span class="ansi-yellow-fg">"</span>, hue=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD</span><span class="ansi-yellow-fg">"</span>, palette=<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Dark2</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-green-fg">      6</span> X = binary[[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>, <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">NPTX2 abundance</span><span class="ansi-yellow-fg">"</span>]]
+<span class="ansi-green-fg">      7</span> y = binary[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD</span><span class="ansi-yellow-fg">"</span>]
 
-<span class="ansi-red-fg">NameError</span>: name 'X' is not defined</pre>
-</div>
-</div>
-</div>
-<div id="add8022e" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>model.fit(train_X, train_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[17]</span><span class="ansi-green-fg">, line 4</span>
-<span class="ansi-green-fg">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg ansi-bold">sklearn</span><span class="ansi-blue-fg ansi-bold">.</span><span class="ansi-blue-fg ansi-bold">neighbors</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(0,135,0)">import</span> KNeighborsClassifier
-<span class="ansi-green-fg">      3</span> model = KNeighborsClassifier(n_neighbors=<span class="ansi-green-fg">10</span>)
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">4</span> model.fit(<span class="ansi-yellow-bg">train_X</span>, train_y)
-
-<span class="ansi-red-fg">NameError</span>: name 'train_X' is not defined</pre>
+<span class="ansi-red-fg">NameError</span>: name 'binary' is not defined</pre>
 </div>
 </div>
 </div>
 <p>I am asking the question “Is patient y 0 or 1 (negative or positive) for AD?”</p>
-<div id="02fcff79" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> pd.DataFrame({<span class="st">"Age"</span>: [<span class="dv">70</span>], <span class="st">"NPTX2 abundance"</span>:[<span class="dv">297500</span>]})  <span class="co"># Make a new DataFrame containing the X values</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>pred[<span class="st">"AD"</span>] <span class="op">=</span> model.predict(pred)  <span class="co"># Make a prediction and add that data into the table</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NotFittedError</span>                            Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[18]</span><span class="ansi-green-fg">, line 2</span>
-<span class="ansi-green-fg">      1</span> pred = pd.DataFrame({<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>: [<span class="ansi-green-fg">70</span>], <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">NPTX2 abundance</span><span class="ansi-yellow-fg">"</span>:[<span class="ansi-green-fg">297500</span>]})  <span style="font-style:italic;color:rgb(95,135,135)"># Make a new DataFrame containing the X values</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> pred[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD</span><span class="ansi-yellow-fg">"</span>] = <span class="ansi-yellow-bg">model</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">predict</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">pred</span><span class="ansi-yellow-bg">)</span>  <span style="font-style:italic;color:rgb(95,135,135)"># Make a prediction and add that data into the table</span>
-<span class="ansi-green-fg">      3</span> pred
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages/sklearn/neighbors/_classification.py:257</span>, in <span class="ansi-cyan-fg">KNeighborsClassifier.predict</span><span class="ansi-blue-fg">(self, X)</span>
-<span class="ansi-green-fg">    241</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg">predict</span>(<span style="color:rgb(0,135,0)">self</span>, X):
-<span class="ansi-green-fg">    242</span> <span style="color:rgb(188,188,188)">    </span><span style="font-style:italic" class="ansi-yellow-fg">"""Predict the class labels for the provided data.</span>
-<span class="ansi-green-fg">    243</span> 
-<span class="ansi-green-fg">    244</span> <span style="font-style:italic" class="ansi-yellow-fg">    Parameters</span>
-<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">    255</span> <span style="font-style:italic" class="ansi-yellow-fg">        Class labels for each data sample.</span>
-<span class="ansi-green-fg">    256</span> <span style="font-style:italic" class="ansi-yellow-fg">    """</span>
-<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">257</span>     <span class="ansi-yellow-bg">check_is_fitted</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-fg ansi-yellow-bg">"</span><span class="ansi-yellow-fg ansi-yellow-bg">_fit_method</span><span class="ansi-yellow-fg ansi-yellow-bg">"</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg">    258</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">self</span>.weights == <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">uniform</span><span class="ansi-yellow-fg">"</span>:
-<span class="ansi-green-fg">    259</span>         <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">self</span>._fit_method == <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">brute</span><span class="ansi-yellow-fg">"</span> <span style="font-weight:bold;color:rgb(175,0,255)">and</span> ArgKminClassMode.is_usable_for(
-<span class="ansi-green-fg">    260</span>             X, <span style="color:rgb(0,135,0)">self</span>._fit_X, <span style="color:rgb(0,135,0)">self</span>.metric
-<span class="ansi-green-fg">    261</span>         ):
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages/sklearn/utils/validation.py:1757</span>, in <span class="ansi-cyan-fg">check_is_fitted</span><span class="ansi-blue-fg">(estimator, attributes, msg, all_or_any)</span>
-<span class="ansi-green-fg">   1754</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span>
-<span class="ansi-green-fg">   1756</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> _is_fitted(estimator, attributes, all_or_any):
-<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1757</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> NotFittedError(msg % {<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">name</span><span class="ansi-yellow-fg">"</span>: <span style="color:rgb(0,135,0)">type</span>(estimator).<span class="ansi-blue-fg">__name__</span>})
-
-<span class="ansi-red-fg">NotFittedError</span>: This KNeighborsClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.</pre>
-</div>
-</div>
-</div>
-<p><strong>Now test the reliability of your model. What is your model score? Would you use this model on real patients? Comment on the quality of the data you used in this exercise</strong></p>
-<p>Now testing the model:</p>
-<div id="73542559" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>model.score(test_X, test_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e58bc7c3" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> pd.DataFrame({<span class="st">"Age"</span>: [<span class="dv">70</span>], <span class="st">"NPTX2 abundance"</span>:[<span class="dv">297500</span>]})  <span class="co"># Make a new DataFrame containing the X values</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pred[<span class="st">"AD"</span>] <span class="op">=</span> model.predict(pred)  <span class="co"># Make a prediction and add that data into the table</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>pred</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[19]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> model.score(<span class="ansi-yellow-bg">test_X</span>, test_y)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[12]</span><span class="ansi-green-fg">, line 2</span>
+<span class="ansi-green-fg">      1</span> pred = pd.DataFrame({<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">Age</span><span class="ansi-yellow-fg">"</span>: [<span class="ansi-green-fg">70</span>], <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">NPTX2 abundance</span><span class="ansi-yellow-fg">"</span>:[<span class="ansi-green-fg">297500</span>]})  <span style="font-style:italic;color:rgb(95,135,135)"># Make a new DataFrame containing the X values</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> pred[<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">AD</span><span class="ansi-yellow-fg">"</span>] = <span class="ansi-yellow-bg">model</span>.predict(pred)  <span style="font-style:italic;color:rgb(95,135,135)"># Make a prediction and add that data into the table</span>
+<span class="ansi-green-fg">      3</span> pred
 
-<span class="ansi-red-fg">NameError</span>: name 'test_X' is not defined</pre>
+<span class="ansi-red-fg">NameError</span>: name 'model' is not defined</pre>
+</div>
+</div>
+</div>
+<p><strong>Now test the reliability of your model. What is your model score? Would you use this model on real patients? Comment on the quality of the data you used in this exercise.</strong></p>
+<p>Now testing the model:</p>
+<div id="ffa983ee" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model.score(test_X, test_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[13]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">model</span>.score(test_X, test_y)
+
+<span class="ansi-red-fg">NameError</span>: name 'model' is not defined</pre>
 </div>
 </div>
 </div>
