@@ -30,6 +30,12 @@ Here are some additional chapters to work through on a number of different topic
 
 [**Logistic regression for housing price classification**](../extra/logistic-regression-housing.qmd)
 
+[**PCA of morphological traits**](../extra/pca-morphological-traits.qmd)
+
+[**Prediction Alzheimer's disease**](../extra/prediction-alzheimer-disease.qmd)
+
+[**Feature Importance Analysis**](../extra/feature-importance-analysis.qmd)
+
 [**Medical image clustering**](../extra/medical-image-clustering.qmd)
 
 [**Feature scaling and principal component analysis**](./appendix_scaling.qmd) are important parts of many data analysis pipelines.
