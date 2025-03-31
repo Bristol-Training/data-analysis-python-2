@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>PCA of the anatomy of arthropods – Applied Data Analysis in Python</title>
+<title>PCA of morphological traits – Applied Data Analysis in Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/990-what-next.html">Discussion</a></li><li class="breadcrumb-item"><a href="../extra/pca-anatomy-arthropods.html">PCA of the anatomy of arthropods</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/990-what-next.html">Discussion</a></li><li class="breadcrumb-item"><a href="../extra/pca-morphological-traits.html">PCA of morphological traits</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -260,8 +260,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../extra/pca-anatomy-arthropods.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">PCA of the anatomy of arthropods</span></a>
+  <a href="../extra/pca-morphological-traits.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">PCA of morphological traits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -308,14 +308,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#pca-on-iris-dataset" id="toc-pca-on-iris-dataset" class="nav-link" data-scroll-target="#pca-on-iris-dataset">PCA on Iris Dataset</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/edit/main/extra/pca-anatomy-arthropods.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/edit/main/extra/pca-morphological-traits.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/990-what-next.html">Discussion</a></li><li class="breadcrumb-item"><a href="../extra/pca-anatomy-arthropods.html">PCA of the anatomy of arthropods</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/990-what-next.html">Discussion</a></li><li class="breadcrumb-item"><a href="../extra/pca-morphological-traits.html">PCA of morphological traits</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">PCA of the anatomy of arthropods</h1>
+<h1 class="title">PCA of morphological traits</h1>
 </div>
 
 
@@ -346,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="loading-the-iris-dataset">Loading the Iris dataset</h4>
 <p>The Iris dataset is directly available as part of <a href="https://scikit-learn.org/stable/#">scikit-learn</a>. It can be loaded using the sklearn.datasets.load_iris function (i.e., the load_iris function within the sklearn.datasets module).</p>
 <p>With the default parameters, a class object is returned, containing the data, the target values, the feature names, and the target names.</p>
-<div id="a09a6318" class="cell" data-executioninfo="{&quot;elapsed&quot;:4911,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168449540,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="1">
+<div id="4a422d7a" class="cell" data-executioninfo="{&quot;elapsed&quot;:4911,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168449540,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> load_iris(as_frame<span class="op">=</span><span class="va">True</span>)</span>
@@ -359,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="plot-of-pairs-of-features-of-the-iris-dataset" class="level4">
 <h4 class="anchored" data-anchor-id="plot-of-pairs-of-features-of-the-iris-dataset">Plot of pairs of features of the Iris dataset</h4>
 <p>Let’s first explore the relationships between the features of the Iris dataset by plotting pairwise scatter plots. This helps us visually assess the distribution of the data and the potential for dimensionality reduction before applying PCA.</p>
-<div id="37bed9d2" class="cell" data-executioninfo="{&quot;elapsed&quot;:22407,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168471953,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="2">
+<div id="3246eedc" class="cell" data-executioninfo="{&quot;elapsed&quot;:22407,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168471953,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename classes using the iris target names</span></span>
@@ -368,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pca-anatomy-arthropods_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="pca-morphological-traits_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -382,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now that we’ve seen the original feature relationships, let’s reduce the dimensionality of the dataset using PCA.</p>
 <p>We’ll apply PCA to the Iris dataset and project the data onto its first three principal components.</p>
 <p>This 3D scatter plot allows us to visualize how well the three Iris species can be separated in the reduced space.</p>
-<div id="1d636561" class="cell" data-executioninfo="{&quot;elapsed&quot;:2440,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168474395,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="3">
+<div id="741e48cf" class="cell" data-executioninfo="{&quot;elapsed&quot;:2440,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1743168474395,&quot;user&quot;:{&quot;displayName&quot;:&quot;Ruolin WU&quot;,&quot;userId&quot;:2763192805488743400},&quot;user_tz&quot;:0}" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># unused but required import for doing 3d projections with matplotlib &lt; 3.2</span></span>
@@ -425,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pca-anatomy-arthropods_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="pca-morphological-traits_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -874,7 +874,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/edit/main/extra/pca-anatomy-arthropods.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/edit/main/extra/pca-morphological-traits.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/bristol-training/applied-data-analysis-in-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
