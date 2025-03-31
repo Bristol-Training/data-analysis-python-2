@@ -1,11 +1,11 @@
 ---
-title: Prediction of Alzheimer disease
+title: Prediction of Alzheimer's disease
 jupyter: python3
 ---
 
 ### Pre-requisites
 
-You need to have some libraries installed to run this practical. If you are using Anaconda the recommended way to install it is with
+You may need to install some libraries to run this practical. If you are using Anaconda the recommended way to install it is with
 
 ```{.bash}
 conda install openpyxl
@@ -18,11 +18,11 @@ python -m pip install -U pip
 python -m pip install -U openpyxl
 ```
 
-## Goal
+# Goal
 Use the [Bader *et al.* 2020](https://www.embopress.org/doi/full/10.15252/msb.20199356) dataset to train a machine learning model which can test whether NPTX2 (identified as AD biomarker in [Shen *et al.* 2024](https://doi.org/10.1016/j.cell.2024.08.049)) can be used to predict whether a patient has AD using CSF samples.
 
 
-## Background
+# Background
 
 Alzheimer's disease (AD) is a neurodegenerative disorder affecting millions of people worldwide. Approximately 1% of AD cases are classified as autosomal dominant Alzheimer’s disease (ADAD), meaning they are caused by mutations to the genes *PSEN1*, *PSEN2*, or *APP*. Almost all people with these mutations will go on to develop AD, typically with a younger onset than those with sporadic Alzheimer's disease (sAD). With the genetic cause of ADAD generally understood but many causes of sAD unclear, studying the molecular basis of ADAD disease progression can inform how sAD may develop.
  
@@ -37,7 +37,7 @@ The study also reveals that many ADAD-associated proteins are associated with sA
 **Your task is to test whether this proposed biomarker for ADAD can also predict whether a patient has developed sAD.**
 
 
-## Questions
+# Questions
 
 Patient X, aged 70, has visited their doctor with cognitive symptoms. After taking a CSF sample and performing mass spectrometry, the abundance of NPTX2 was detected as 321700.
  
@@ -45,7 +45,7 @@ Patient X, aged 70, has visited their doctor with cognitive symptoms. After taki
  
 2. Patient X does have AD. Did your model predict this? If not, why might this be?
  
-## Dataset
+# Dataset
  
 The complete data can be found in the supplementary files below:
 
@@ -68,12 +68,12 @@ This second spreadsheet contained all the information including age, disease sta
 :::
 
 
-## Worked example of analysis
+# Worked example of analysis
 
 See below for a worked example, with additional exercises and questions to consider.
 
 
-### Importing pandas and reading Excel file
+## Importing pandas and reading Excel file
 
 ```{python}
 import pandas as pd
@@ -82,7 +82,7 @@ NPTX2_tidy = pd.read_excel("extra/data/EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.
 NPTX2_tidy.head()
 ```
 
-### Importing seaborn and visualising data
+## Importing seaborn and visualising data
 
 ```{python}
 import seaborn as sns
@@ -96,7 +96,7 @@ sns.catplot(data=NPTX2_tidy, x="AD status", y="NPTX2 abundance")
 
 From this initial glance, it is apparent that the two groups have similar distributions of NPTX2 abundance, which indicates that this may not be a good biomarker for AD status in this dataset, as we would expect AD patients to have higher levels of NPTX2. 
 
-### Further data analysis
+## Further data analysis
 
 **How are the different variables distributed (e.g. AD status, age, within different collection sites)?**
 
@@ -140,7 +140,7 @@ df = pd.DataFrame(NPTX2_tidy)
 df.head()
 ```
 
-### Classification
+## Classification
 
 Here we will use k-nearest neighbours for predicting categories of data (AD or healthy). To use it, we need to encode our data into a binary form which the algorithms can process:
 
