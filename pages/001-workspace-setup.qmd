@@ -4,9 +4,9 @@ title: Workspace Setup
 
 Please use our [project setup guide](https://bristol-training.github.io/data-science-project-setup/) to set up your 
 computer for the course. If you have followed this guide, you will also be able to 
-install additional packages:
+install additional packages needed for this course:
 
-```
+```bash
 uv add scikit-learn seaborn pandas openpyxl numpy openpyxl
 ```
 
