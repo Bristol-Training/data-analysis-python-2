@@ -370,7 +370,7 @@ window.Quarto = {
 
 
 <p>Let us explore another regression model and apply that to the breast cancer dataset from <code>sklearn</code>. But first let us import the necessary libraries we need for this exercise.</p>
-<div id="b33c466d" class="cell" data-execution_count="1">
+<div id="0c941a23" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -404,14 +404,14 @@ window.Quarto = {
 <section id="load-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="load-dataset">Load dataset</h3>
 <p>Let us now load the dataset from sklearn along with some important in-built functions for analysing and training our model.</p>
-<div id="ffcd8f83" class="cell" data-execution_count="2">
+<div id="bbc6f657" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_breast_cancer</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, cross_val_score, GridSearchCV</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix, classification_report, roc_curve, auc, precision_recall_curve</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="5833a786" class="cell" data-execution_count="3">
+<div id="32b2a11c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>breast_cancer <span class="op">=</span> load_breast_cancer()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> breast_cancer.data</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> breast_cancer.target</span>
@@ -434,7 +434,7 @@ Target classes: ['malignant' 'benign']</code></pre>
 <section id="data-visualisation" class="level3">
 <h3 class="anchored" data-anchor-id="data-visualisation">Data Visualisation</h3>
 <p>Now that we have loaded our dataset let us inspect how they look like.</p>
-<div id="4f67b152" class="cell" data-execution_count="4">
+<div id="75536059" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(X, columns<span class="op">=</span>feature_names)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'target'</span>] <span class="op">=</span> y</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'diagnosis'</span>] <span class="op">=</span> df[<span class="st">'target'</span>].<span class="bu">map</span>({<span class="dv">0</span>: <span class="st">'malignant'</span>, <span class="dv">1</span>: <span class="st">'benign'</span>})</span>
@@ -491,7 +491,7 @@ malignant    212
 Name: count, dtype: int64</code></pre>
 </div>
 </div>
-<div id="1af76155" class="cell" data-execution_count="5">
+<div id="01f120c2" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'diagnosis'</span>, data<span class="op">=</span>df)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribution of Diagnosis Classes'</span>)</span>
@@ -509,7 +509,7 @@ Name: count, dtype: int64</code></pre>
 <h3 class="anchored" data-anchor-id="splitting-dataset-for-training">Splitting dataset for training</h3>
 <p>To train the dataset, first we need to split it into two parts: training dataset and testing/validating dataset.</p>
 <p>We can do so by using <code>train_test_split</code> and defining the size of test dataset as well as the random state to shuffle the dataset.</p>
-<div id="b38ac7f9" class="cell" data-execution_count="6">
+<div id="b296858e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.25</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Training set shape: </span><span class="sc">{</span>X_train<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -544,7 +544,7 @@ Testing set shape: (143, 30)</code></pre>
 <section id="scaling-the-dataset-and-fitting-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="scaling-the-dataset-and-fitting-the-model">Scaling the dataset and fitting the model</h3>
 <p>Now that we have our dataset ready for training, let us fit the logistic regression model.</p>
-<div id="12b98e32" class="cell" data-execution_count="7">
+<div id="9a55cf96" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># initialise the scaler</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is basically pre-processing of the data to standardise the features</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
@@ -594,7 +594,7 @@ weighted avg       0.98      0.98      0.98       143
 <li>Training and testing/validating the model on different combinations of these folds</li>
 <li>Averaging the results to get a more reliable performance estimate</li>
 </ul>
-<div id="c7f91179" class="cell" data-execution_count="8">
+<div id="652db553" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(LogisticRegression(random_state<span class="op">=</span><span class="dv">42</span>, max_iter<span class="op">=</span><span class="dv">1000</span>), </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                           X_train_scaled, y_train, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span><span class="st">'accuracy'</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cross-validation scores: </span><span class="sc">{</span>cv_scores<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -609,7 +609,7 @@ Mean CV accuracy: 0.9741 ± 0.0173</code></pre>
 <section id="visualise-model-performance" class="level3">
 <h3 class="anchored" data-anchor-id="visualise-model-performance">Visualise Model Performance</h3>
 <p>A <a href="https://www.w3schools.com/python/python_ml_confusion_matrix.asp">confusion matrix</a> is a performance evaluation tool that provides a detailed breakdown of correct and incorrect predictions for each class, allowing you to assess the performance of your classification model. The rows represent the actual classes the outcomes should have been. While the columns represent the predictions we have made. Using this table it is easy to see which predictions are wrong.</p>
-<div id="43e772eb" class="cell" data-execution_count="9">
+<div id="e18b55b8" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> confusion_matrix(y_test, y_pred)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(cm, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">'d'</span>, cmap<span class="op">=</span><span class="st">'Blues'</span>, </span>

@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "9a1fefe3",
+   "id": "18125d5b",
    "metadata": {},
    "source": [
     "---\n",
@@ -42,7 +42,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "3142c0b8",
+   "id": "6875760f",
    "metadata": {
     "colab": {
      "base_uri": "https://localhost:8080/",
@@ -461,7 +461,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "34bd8d06",
+   "id": "ae43b438",
    "metadata": {},
    "source": [
     "Let's get the attribute names."
@@ -470,7 +470,7 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "b1973f94",
+   "id": "2ec3bb53",
    "metadata": {
     "colab": {
      "base_uri": "https://localhost:8080/"
@@ -528,7 +528,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "bdbba33c",
+   "id": "98a043ae",
    "metadata": {},
    "source": [
     "## Built-in Feature Importance\n",
@@ -541,7 +541,7 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "0fb900ed",
+   "id": "e1d70e47",
    "metadata": {
     "colab": {
      "base_uri": "https://localhost:8080/",
@@ -589,7 +589,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b00708b9",
+   "id": "4fa20e71",
    "metadata": {},
    "source": [
     "For features with high feature importance, it indicates that the feature is very useful in distinguishing between malignant and benign tumors, and the model relies on it to make predictions.\n",
@@ -606,7 +606,7 @@
   {
    "cell_type": "code",
    "execution_count": 4,
-   "id": "340172c7",
+   "id": "0fb29451",
    "metadata": {
     "colab": {
      "base_uri": "https://localhost:8080/"
@@ -617,8 +617,8 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "[ 1  4  1  1 12 11  1  1 19 18  8 20  7  2 13 17 14 21 16 15  1  1  1  1\n",
-      "  6  9  3  1  5 10]\n"
+      "[ 1  4  1  1 10 12  1  1 19 21 11 15  8  2 17 14 18 16 20 13  1  1  1  1\n",
+      "  5  7  3  1  6  9]\n"
      ]
     }
    ],
@@ -643,7 +643,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "04f70678",
+   "id": "1987b6c4",
    "metadata": {},
    "source": [
     "For the output array, each element corresponds to the ranking of the respective feature, with a higher rank indicating greater feature importance.\n",
@@ -658,7 +658,7 @@
   {
    "cell_type": "code",
    "execution_count": 5,
-   "id": "b65a542d",
+   "id": "03ae405e",
    "metadata": {
     "colab": {
      "base_uri": "https://localhost:8080/",
@@ -710,7 +710,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "2dc5f2a9",
+   "id": "787112e7",
    "metadata": {},
    "source": [
     "A feature with high permutation importance indicates that when its values are randomly shuffled, the model's performance (e.g., accuracy, mean squared error) drops significantly. This suggests that the feature contains crucial information that strongly influences the target variable.\n",
@@ -727,7 +727,7 @@
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "cf65609b",
+   "id": "434515d7",
    "metadata": {
     "colab": {
      "base_uri": "https://localhost:8080/",
@@ -775,7 +775,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "9cca4b17",
+   "id": "00903129",
    "metadata": {},
    "source": [
     "A feature with a higher F-value indicates that it provides more information about the target variable. It suggests that the feature is more discriminative in separating different classes.\n",
@@ -792,7 +792,7 @@
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "f7cac073",
+   "id": "8b6594e4",
    "metadata": {
     "colab": {
      "base_uri": "https://localhost:8080/",
@@ -840,7 +840,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "beb5378a",
+   "id": "d4e51d78",
    "metadata": {},
    "source": [
     "A feature with a high Chi-Square statistic suggests that the feature is dependent on the target variable. This means the feature has a significant relationship with the target and is likely useful for prediction.\n",
