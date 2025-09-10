@@ -15,7 +15,7 @@ Even if some students may not understand some of the python code below, they can
 
 This course will use a tool called *Jupyter Notebooks* to run your Python code. Once Anaconda is installed, start "Anaconda Navigator" and press the JupyterLab button on the main screen:
 
-Throughout this course you will likely want to start a new notebook for each section of the course so name them appropriately to make it easier to find them later. To open a Notebook in Anaconda you can go to JupyterLab and there go to `File` > `New` > `Notebook` or click the `Python 3` button under `Notebook` section in the `Launcher` tab.
+To open a notebook, follow our [setup instructions](https://bristol-training.github.io/data-science-project-setup/). Once you have JupyterLab running, you can create a new notebook by clicking on the Python icon under the "Notebook" section of the launcher tab
 
 Once the notebook is launched, you will see a wide grey box with a blue `[ ]:` to the left. The grey box is an input cell where you type any Python code you want to run:
 
