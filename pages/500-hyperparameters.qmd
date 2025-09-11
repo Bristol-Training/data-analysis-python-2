@@ -33,7 +33,7 @@ Let's do a similar thing to the last chapter, but load a different file this tim
 ```python
 import pandas as pd
 
-data = pd.read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/data/blobs.csv")
+data = pd.read_csv("https://bristol-training.github.io/data-analysis-python-2/data/blobs.csv")
 X = data[["x1", "x2"]]
 y = data["y"]
 ```

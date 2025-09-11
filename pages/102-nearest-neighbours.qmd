@@ -32,7 +32,7 @@ We'll start by grabbing some data which represents a interesting case for some c
 ```python
 import pandas as pd
 
-data = pd.read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/data/moons.csv")
+data = pd.read_csv("https://bristol-training.github.io/data-analysis-python-2/data/moons.csv")
 ```
 
 ```{python}

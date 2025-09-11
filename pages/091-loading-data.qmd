@@ -31,7 +31,7 @@ I have prepared a CSV file which you can read into pandas using `read_csv`:
 ```python
 import pandas as pd
 
-data = pd.read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/data/linear.csv")
+data = pd.read_csv("https://bristol-training.github.io/data-analysis-python-2/data/linear.csv")
 data.head()
 ```
 
@@ -45,7 +45,7 @@ data.head()
 ```
 
 ::: {#troubleshooting .callout-important icon=false title='Troubleshooting'}
-If you experience any issues with this step, please see [Introduction to Data Analysis > Reading from file](https://bristol-training.github.io/introduction-to-data-analysis-in-python/pages/02%20Reading%20from%20file.html) for further troubleshooting instructions.
+If you experience any issues with this step, please see [Introduction to Data Analysis > Reading from file](https://bristol-training.github.io/data-analysis-python-1/pages/02%20Reading%20from%20file.html) for further troubleshooting instructions.
 :::
 
 We can see here that the data has two columns, `x` and `y`. Traditionally, $x$ is used for the things we can easily measure in the world and use as inputs, and $y$ is used for the thing we want to predict. In our case, we want to work out what the value of $y$ should be for any given $x$.

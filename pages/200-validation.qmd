@@ -55,7 +55,7 @@ Bringing up our data from the last chapter again:
 ```python
 import pandas as pd
 
-data = pd.read_csv("https://bristol-training.github.io/applied-data-analysis-in-python/data/linear.csv")
+data = pd.read_csv("https://bristol-training.github.io/data-analysis-python-2/data/linear.csv")
 
 X = data[["x"]]
 y = data["y"]
