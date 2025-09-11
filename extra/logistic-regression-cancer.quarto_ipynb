@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "0e1e6bab",
+   "id": "55de455b",
    "metadata": {},
    "source": [
     "---\n",
@@ -17,7 +17,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "0c941a23",
+   "id": "b7a0a2cd",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -29,7 +29,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "dcef8915",
+   "id": "70135060",
    "metadata": {},
    "source": [
     "## Breast Cancer Dataset\n",
@@ -63,7 +63,7 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "bbc6f657",
+   "id": "fd27ab0b",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -77,7 +77,7 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "32b2a11c",
+   "id": "360933d0",
    "metadata": {},
    "outputs": [
     {
@@ -105,7 +105,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "f3edb4b0",
+   "id": "b9c1f25a",
    "metadata": {},
    "source": [
     "This shows that our dataset contains $569$ samples and $30$ features (rows and columns, respectively). \n",
@@ -120,7 +120,7 @@
   {
    "cell_type": "code",
    "execution_count": 4,
-   "id": "75536059",
+   "id": "02bf39d4",
    "metadata": {},
    "outputs": [
     {
@@ -189,7 +189,7 @@
   {
    "cell_type": "code",
    "execution_count": 5,
-   "id": "01f120c2",
+   "id": "d6536de4",
    "metadata": {},
    "outputs": [
     {
@@ -217,7 +217,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "451e7abc",
+   "id": "3462ea88",
    "metadata": {},
    "source": [
     "## Splitting dataset for training\n",
@@ -230,7 +230,7 @@
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "b296858e",
+   "id": "74b4c68e",
    "metadata": {},
    "outputs": [
     {
@@ -277,7 +277,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "e89633d0",
+   "id": "8806ea0e",
    "metadata": {},
    "source": [
     "To verify if the training and testing data were split correctly ($75:25$ ratio), you can check is $143$ is $25\\%$ of $569$.\n",
@@ -294,7 +294,7 @@
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "9a55cf96",
+   "id": "65c63d6c",
    "metadata": {},
    "outputs": [
     {
@@ -339,7 +339,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "8a64bdc2",
+   "id": "4f78d805",
    "metadata": {},
    "source": [
     "Here, we see four classification matrices of the model: precision, recall, f1-score, and support.\n",
@@ -371,7 +371,7 @@
   {
    "cell_type": "code",
    "execution_count": 8,
-   "id": "652db553",
+   "id": "af8bb51f",
    "metadata": {},
    "outputs": [
     {
@@ -392,7 +392,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "514c2f3a",
+   "id": "04d40ec6",
    "metadata": {},
    "source": [
     "As we had 5-fold cross-validation, we see $5$ different scores in each fold. And the average accuracy is around $97\\%$.\n",
@@ -404,7 +404,7 @@
   {
    "cell_type": "code",
    "execution_count": 9,
-   "id": "e18b55b8",
+   "id": "9e152e3d",
    "metadata": {},
    "outputs": [
     {
@@ -437,7 +437,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "5eb5f127",
+   "id": "017be239",
    "metadata": {},
    "source": [
     "From this confusion matrix, we learn how the binary classification model predicts cases of malignant and benign.\n",

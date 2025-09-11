@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "0ae725cd",
+   "id": "61df5676",
    "metadata": {},
    "source": [
     "---\n",
@@ -41,7 +41,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "58e83021",
+   "id": "956d9b70",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -58,7 +58,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ec865bb7",
+   "id": "63fafb67",
    "metadata": {},
    "source": [
     "## Step 1: Loading and Exploring the California Housing Dataset\n",
@@ -73,7 +73,7 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "649badda",
+   "id": "6ea69287",
    "metadata": {},
    "outputs": [
     {
@@ -146,7 +146,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "1f70cc47",
+   "id": "d9e8190b",
    "metadata": {},
    "source": [
     "## Step 2: A First Look at logistic regression with a Simple Example\n",
@@ -161,7 +161,7 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "8a5560c3",
+   "id": "a7649dad",
    "metadata": {},
    "outputs": [
     {
@@ -207,7 +207,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "baac14d3",
+   "id": "81917b83",
    "metadata": {},
    "source": [
     "## Step 3: Preparing Data and Training the logistic regression Model\n",
@@ -222,7 +222,7 @@
   {
    "cell_type": "code",
    "execution_count": 4,
-   "id": "67f46449",
+   "id": "9be3fd29",
    "metadata": {},
    "outputs": [
     {
@@ -258,7 +258,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "baee2bbe",
+   "id": "644e81a3",
    "metadata": {},
    "source": [
     "## Step 4: Checking How Well Our Model Did\n",
@@ -273,7 +273,7 @@
   {
    "cell_type": "code",
    "execution_count": 5,
-   "id": "2a5c501b",
+   "id": "efc634ba",
    "metadata": {},
    "outputs": [
     {
@@ -333,7 +333,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "20c45e8d",
+   "id": "7c8e34f1",
    "metadata": {},
    "source": [
     "## Step 5: Ideas for Improving Our Model’s Accuracy\n",
@@ -358,7 +358,7 @@
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "077e980f",
+   "id": "1499434a",
    "metadata": {},
    "outputs": [
     {
