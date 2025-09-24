@@ -52,7 +52,7 @@ The complete data can be found in the supplementary files below:
 - [Proteomics data](https://www.embopress.org/doi/suppl/10.15252/msb.20199356/suppl_file/msb199356-sup-0003-datasetev1.xlsx)
 - [Patient data](https://www.embopress.org/doi/suppl/10.15252/msb.20199356/suppl_file/msb199356-sup-0004-datasetev2.xlsx)
 
-This data requires pre-processing. You may like to do this yourself as an exercise in tidying data, or you can use the processed form [EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.xlsx](./data/EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.xlsx>).
+This data requires pre-processing. You may like to do this yourself as an exercise in tidying data, or you can use the processed form [EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.xlsx](./data/EMBO_Bader_2020_AD_proteomics_NPTX2_tidy.xlsx).
 
 
 

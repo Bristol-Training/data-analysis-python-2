@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "c5a6a020",
+   "id": "76e00dae",
    "metadata": {},
    "source": [
     "---\n",
@@ -40,7 +40,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "db136b70",
+   "id": "f28268b4",
    "metadata": {
     "colab": {
      "base_uri": "https://localhost:8080/"
@@ -74,7 +74,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "fcce6035",
+   "id": "414705fd",
    "metadata": {},
    "source": [
     "### Plot of pairs of features of the Iris dataset\n",
@@ -85,7 +85,7 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "7a2f71e5",
+   "id": "faa42746",
    "metadata": {
     "colab": {
      "base_uri": "https://localhost:8080/",
@@ -129,7 +129,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ba7c08a9",
+   "id": "ee74ee30",
    "metadata": {},
    "source": [
     "Each data point on each scatter plot refers to one of the 150 iris flowers in the dataset, with the color indicating their respective type (Setosa, Versicolor, and Virginica).\n",
@@ -150,7 +150,7 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "b9d33738",
+   "id": "29f60d94",
    "metadata": {
     "colab": {
      "base_uri": "https://localhost:8080/",
@@ -228,7 +228,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "9b356e0c",
+   "id": "c331d223",
    "metadata": {},
    "source": [
     "PCA will create 3 new features that are a linear combination of the 4 original\n",
