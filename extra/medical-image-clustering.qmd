@@ -11,19 +11,11 @@ To teach the concept of image clustering for analysis of medical images using a 
 
 ### Pre-requisites
 
-You need to have `scikit-image` library installed to run this practical. If you are using Anaconda the recommended way to install it is with
+You need to have `scikit-image` library installed to run this practical. If you are using uv, you can install this with:
 
 ```{.bash}
-conda install scikit-image
+uv add scikit-image
 ```
-
-Alternatively, you can use `pip` as in 
-
-```{.bash}
-python -m pip install -U pip
-python -m pip install -U scikit-image
-```
-
 
 # The basics of image clustering
 
