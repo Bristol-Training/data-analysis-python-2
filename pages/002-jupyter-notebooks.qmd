@@ -13,7 +13,7 @@ Recommended time: 15 minutes
 Even if some students may not understand some of the python code below, they can copy-paste it for now. The key point is getting familiar with Jupyter Notebooks interface.
 :::
 
-This course will use a tool called *Jupyter Notebooks* to run your Python code. Once Anaconda is installed, start "Anaconda Navigator" and press the JupyterLab button on the main screen:
+This course will use a tool called *Jupyter Notebooks* to run your Python code.
 
 To open a notebook, follow our [setup instructions](https://bristol-training.github.io/data-science-project-setup/). Once you have JupyterLab running, you can create a new notebook by clicking on the Python icon under the "Notebook" section of the launcher tab
 
