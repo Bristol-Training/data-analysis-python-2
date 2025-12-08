@@ -5,17 +5,10 @@ jupyter: python3
 
 ### Pre-requisites
 
-You may need to install some libraries to run this practical. If you are using Anaconda the recommended way to install it is with
+You may need to install some libraries to run this practical. If you are using uv, you can do this with:
 
 ```{.bash}
-conda install openpyxl
-```
-
-Alternatively, you can use `pip` as in 
-
-```{.bash}
-python -m pip install -U pip
-python -m pip install -U openpyxl
+uv add openpyxl
 ```
 
 # Goal
