@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -104,6 +104,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -327,10 +330,182 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Please use our <a href="https://bristol-training.github.io/data-science-project-setup/">project setup guide</a> to set up your computer for the course. If you have followed this guide, you will also be able to install additional packages needed for this course:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add scikit-learn seaborn pandas openpyxl numpy openpyxl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Before we move to the next section, let’s make sure everyone has a working Python environment with the right packages installed.</p>
+<section id="option-a-google-colab-recommended" class="level4">
+<h4 class="anchored" data-anchor-id="option-a-google-colab-recommended">Option A — Google Colab (recommended)</h4>
+<p><a href="https://colab.google/">Google Colab</a> is a free, cloud‑based platform that lets you write and run Python code directly in your web browser. It provides an environment similar to Jupyter Notebooks, but without the need to install Python or any additional software on your computer. This makes it an ideal starting point for medics and healthcare professionals who want to explore machine learning without worrying about technical setup.</p>
+<p>Colab also includes a wide range of pre‑installed scientific and machine‑learning libraries—such as NumPy, Pandas, Matplotlib, and TensorFlow—so you can focus on learning concepts rather than configuring tools. Notebooks are easy to share, collaborate on, and store in Google Drive, making it a convenient platform for both individual study and group work. With its simplicity and accessibility, Colab provides a smooth entry point into Python programming and practical machine‑learning experimentation.</p>
+<p>If you are up for <strong>Colab</strong>, you can try to load the Penguins dataset by running this in a new notebook cell:</p>
+<div id="797e4a85" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first few rows</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>penguins.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
 
 
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">species</th>
+<th data-quarto-table-cell-role="th">island</th>
+<th data-quarto-table-cell-role="th">bill_length_mm</th>
+<th data-quarto-table-cell-role="th">bill_depth_mm</th>
+<th data-quarto-table-cell-role="th">flipper_length_mm</th>
+<th data-quarto-table-cell-role="th">body_mass_g</th>
+<th data-quarto-table-cell-role="th">sex</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.1</td>
+<td>18.7</td>
+<td>181.0</td>
+<td>3750.0</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.5</td>
+<td>17.4</td>
+<td>186.0</td>
+<td>3800.0</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>40.3</td>
+<td>18.0</td>
+<td>195.0</td>
+<td>3250.0</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>36.7</td>
+<td>19.3</td>
+<td>193.0</td>
+<td>3450.0</td>
+<td>Female</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="option-b-jupyter-notebooks-via-uv" class="level4">
+<h4 class="anchored" data-anchor-id="option-b-jupyter-notebooks-via-uv">Option B — Jupyter Notebooks (via <code>uv</code>)</h4>
+<p>Jupyter Notebooks are interactive documents that allow you to combine executable Python code, text, visuals, and equations in a single place. They run code in small, editable “cells,” making it easy to experiment, get immediate feedback, and document your reasoning as you go. This format is especially useful for learning and teaching machine learning, as it supports step‑by‑step exploration, visualisation of results, and clear explanations alongside the code.</p>
+<p>There are several ways to install and run Jupyter Notebooks, ranging from full Python distributions like Anaconda to lightweight package managers and online platforms. For this course, we recommend using the <code>uv</code> package manager, as it provides a simple, reliable, and <strong>reproducible</strong> environment setup with minimal configuration.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is a package manager?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A package manager is a tool that helps you install, update, and manage software libraries (called “packages”) for a programming language. For most python projects, <a href="https://docs.astral.sh/uv/">uv</a> will be a great choice of package manager.</p>
+</div>
+</div>
+<section id="install-uv" class="level5">
+<h5 class="anchored" data-anchor-id="install-uv">Install <code>uv</code></h5>
+<p>Package manager installation should only need to be done <strong>once</strong> on your computer. If you encounter any issues, see <a href="https://docs.astral.sh/uv/getting-started/installation/">here</a> for more installation methods to try.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Linux</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Open your Command Prompt and run:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bat code-with-copy"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>powershell <span class="at">-ExecutionPolicy</span> ByPass <span class="at">-c</span> <span class="st">"irm https://astral.sh/uv/install.ps1 | iex"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Open Terminal and run:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-Ls</span> https://astral.sh/uv/install.sh <span class="kw">|</span> <span class="fu">bash</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Open Terminal and run:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-Ls</span> https://astral.sh/uv/install.sh <span class="kw">|</span> <span class="fu">bash</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>After installation, check that uv is available by typing <code>uv --version</code>, then pressing enter. You may need to restart your terminal for the changes to take effect.</p>
+</section>
+<section id="move-into-project-directory" class="level5">
+<h5 class="anchored" data-anchor-id="move-into-project-directory">Move into Project Directory</h5>
+<p>To set up your Python environment, you need to be in your project directory. Follow these steps:</p>
+<ol type="1">
+<li>Open your terminal.</li>
+<li>Create or navigate to your project directory.</li>
+</ol>
+</section>
+<section id="create-a-virtual-environment" class="level5">
+<h5 class="anchored" data-anchor-id="create-a-virtual-environment">Create a Virtual Environment</h5>
+<p>Enter the following command to create a minimal virtual environment:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> init <span class="at">--bare</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will create a <code>pyproject.toml</code> file, which will record information on all of the packages you install in your virtual environment.</p>
+</section>
+<section id="install-packages" class="level5">
+<h5 class="anchored" data-anchor-id="install-packages">Install Packages</h5>
+<p>For all projects we need jupyterlab, this is where we edit code. This can be added to your project with this command:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add jupyterlab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For the <a href="https://bristol-training.github.io/data-analysis-python-1/">Introduction to Data Analysis in Python course</a>, you would need the <code>pandas</code> and <code>seaborn</code> package. You can add these with:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add pandas seaborn scikit-learn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="opening-jupyterlab" class="level5">
+<h5 class="anchored" data-anchor-id="opening-jupyterlab">Opening JupyterLab</h5>
+<p>Now you can open JupyterLab with:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter lab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will take some time, and you will see text being printed in the terminal. Once JupyterLab is running, a browser window should pop open. This window should like similar to the image below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/jupyterlab.png" class="img-fluid figure-img"></p>
+<figcaption>JupyterLab Window</figcaption>
+</figure>
+</div>
+</section>
+<section id="create-a-notebook" class="level5">
+<h5 class="anchored" data-anchor-id="create-a-notebook">Create a Notebook</h5>
+<p>To create a notebook, click the “Notebook” icon in the JupyterLab launcher. The window should now look like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/jupyterlab-notebook.png" class="img-fluid figure-img"></p>
+<figcaption>JupyterLab Notebook, with key features highlighted with arrows and blue boxes.</figcaption>
+</figure>
+</div>
+<p>In each cell, python code can be entered. It can be run by clicking the “Run” button or by pressing <code>Shift + Enter</code>.</p>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
